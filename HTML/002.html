@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 다중 스타일 시트
+    <link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="font.css">
+	<link rel="stylesheet" href="layout.css">
+	<link rel="stylesheet" href="main.css"> -->
+    
+    <!-- 폰트 적용 link로 삽입 -->
+    <!-- 사용예시1 : href 참고 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <style> 
+            body {font-family: 'Noto Sans KR', sans-serif;}
+
+        /* 내부 스타일 */
+        p {
+            color:yellow; 
+            background-color:black;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        HTML은 요소 안에 
+        <strong>다른 요소</strong>가 들어갈 수 있음
+    </p>
+    
+    <!-- 잘못 사용된 예 -->
+    <!-- <p>
+        HTML은 요소 안에 
+        <strong>다른 요소 가 들어갈 수 있음
+    </p>
+        </strong> -->
+
+    
+    <!-- XHTML에서는 self-closing 문법을 강제화했지만, 현재는 / 를 넣어서 닫아 주지 않아도 됨. -->
+    <br >
+    <input type="text">
+    <img src="" alt="">
+
+
+    <!-- 주석 사용법 -->
+    <!-- 태그의 시작과 끝을 적어놓기 -->
+    <!-- start -->
+    <!-- //end -->
+
+    <!-- header -->
+    <header>
+        ...생략...
+    </header>
+    <!-- //header -->
+
+    <!-- footer-->
+    <footer>
+        ...생략...
+    </footer>
+    <!-- //footer -->
+
+    <!-- 협업할 때 -->
+    <!-- 메뉴 토글 class="active" 유/무로 제어 -->
+    <nav class="active">
+        ...생략...
+    </nav>
+
+    <!-- #2022.02.20 4:00 업데이트 -->
+
+    <!-- 임시처리 -->
+    <!-- 신청기간이 아니여서 임시 주석처리
+	<a href="#">신청페이지 바로가기</a>-->
+
+    
+    <!-- 텍스트 모두 빨간색으로 바꾸기 -->
+    <!-- 개별로 인라인 스타일 적용하기 -->
+    <section>
+        <h1 style="color:red;">Hello</h1>
+        <h2 style="color:red;">Hello</h2>
+        <p style="color:red;">Hello</p>
+    </section>
+
+    <!-- 2. 태그 선택자 적용하기 -->
+    <section>
+        <h1>Hello</h1>
+        <h2>Hello</h2>
+        <p>Hello</p>
+    </section>
+
+
+    <!-- 인라인 방식 -->
+    <p style="color:yellow; background-color:black;">Hello wold</p>
+    <!-- 내부 스타일 -->
+
+    <!-- 아이디 -->
+    <header id="header">
+        ...
+    </header>
+    <!-- 클래스 선택자 -->
+    <h1 class="fc-red">hello wolrd</h1>
+    <p>Lorem ipsum dolor sit amt</p>
+    <p class="fc-red">Lorem ipsum dolor sit amt</p>
+
+    <!-- h 태그는 순서대로 작성해야 함. -->
+    <h1>위니브</h1>
+    <h2>위니브 캐릭터</h2>
+	    <h3>라이캣</h3>
+	    <h3>칠리</h3>
+	    <h3>개리</h3>
+    <h2>위니브 소개</h2>
+	    <h3>위니브는...</h3>
+	    <h3>위니브 커리큘럼</h3>
+
+    <!-- a태그 -->
+    <a href="b.html">b.html 으로 이동</a>
+    <a href="b.html" target="_blank">b.html 으로 이동</a>
+    <a href="b.html" download>b.html 파일 다운로드</a>
+    <a href="mailto:google@gmail.com">mailto:google@gmail.com</a>
+    <a href="tel:010-0000-0000">010-1234-1234</a>
+
+    <!-- br 줄 바꿈 처리 -->
+    <br>
+
+    <!-- wbr 현재 요소의 줄 바꿈 규칙을 무시하고 브라우저가  줄을 바꿀 수 있는 위치를 나타냄.-->
+    <!-- - 한글의 경우는 `word-break:keep-all`속성과 함께 사용해야 함.
+    - `word-break`: 텍스트가 자신의 콘텐츠 박스 밖으로 오버플로 할 때 줄을 바꿀지 지정함.
+    - `keep-all` :한중일(CJK) 텍스트에서는 줄을 바꿀 때 단어를 끊지 않습니다. 비 CJK 텍스트에서는 `normal`과 같음. -->
+    <wbr>
+
+    <!-- code 짧은 코드 조각 을 나타날 때 사용 -->
+    <code>push()</code>
+
+    <!-- pre HTML에 작성한 내용 그대로를 표현함. -->
+    <figure role="img" aria-labelledby="caption">
+        <pre>
+        ⊂_ヽ
+          ＼＼  Λ＿Λ
+           ＼( ‘ㅅ’ ) 두둠칫
+            >　⌒ヽ
+           / 　 へ＼
+           /　　/　＼＼
+           ﾚ　ノ　　 ヽ_つ
+          /　/두둠칫
+          /　/|
+         (　(ヽ
+         |　|、＼
+         | 丿 ＼ ⌒)
+         | |　　) /
+        `ノ )　　Lﾉ
+        </pre>
+        <figcaption id="caption">
+          토끼 인간이 두둠칫 두둠칫.
+        </figcaption>
+      </figure>
+    
+    <!-- strong 중대하거나 긴급한 콘텐츠를 나타냄. -->
+    <p>야<strong>헉</strong></p>
+
+    <!-- em 텍스트의 강조 -->
+    <p>야<em>헉</em></p>
+
+    <!-- i 기울임 꼴 -->
+    <p>야<i>헉</i></p>
+    
+    <!-- q 짧은 인용문 -->
+    <p>
+        나는 어린 왕자 책에서 이 구절을 좋아해!
+        <q>"만약 네가 오후 네 시에 온다면 난 세시부터 행복해질 거야"</q>
+    </p>
+
+    <!-- blockquote 긴 인용문 -->
+
+    <figure>
+        <blockquote>
+            <p>
+            "만약 네가 오후 네시에 온다면 난 세시부터 행복해질 거야. 
+                그리고 널 만날 시간이 가까워질수록 점점 더 행복해지겠지. 
+                네시가 되면, 흥분해서 안절부절 못할 거야. 
+                그래서 행복이 얼마나 값진 것인지를 알게 될 거야."
+            </p>
+        </blockquote>
+        <!-- cite 저작물의 출처를 표기 -->
+        <cite>— 어린왕자 여우의 말 중</cite>
+    </figure>
+
+    <!-- address 해당 콘텐츠에 대한 연락처 정보 -->
+    <address></address>
+
+    <!-- mark 형광팬으로 칠한 것처럼 표시 -->
+    <mark></mark>
+    
+    <!-- abbr 약어(abbreviation)임을 나타내는 태그임. -->
+    <p>
+        <abbr>CSS</abbr> (Cascading Style Sheets)
+        <abbr>HTML</abbr> (HyperText Markup Language)
+    </p>
+    
+    <p>
+        <abbr title="Cascading Style Sheets">CSS</abbr>
+        <abbr title="HyperText Markup Language">HTML</abbr>
+    </p>
+
+    <!-- dfn 현재 맥락이나 문장에서 정의하고 있는 용어를 나타냄. -->
+    <!-- 본문 컨텐츠(a링크) - 정의 용어(dfn) id로 연결하여 각주 형태로 하면 좋음. -->
+    <p>
+        <dfn id="html">
+            <abbr title="HyperText Markup Language">HTML</abbr>
+        </dfn> 
+        웹 페이지의 의미론과 구조를 만드는 데 사용되는 마크업 언어임.
+    </p>
+
+    <!-- sup 위 첨자 요소로 지수, 서수 표기를 위해 사용 -->
+    <p><var>a<sup>2</sup></var></p>
+    <p>English: 5<sup>th</sup></p>
+
+    <!-- sub 아래 첨자 요소로 각주, 변수, 화학식 등을 표기하기 위해 사용 -->
+    CO<sub>2</sub>
+    <var>x<sub>1</sub></var>
+
+    <!-- kbd 키보드 입력, 음성 입력 등 임의의 장치를 사용한 사용자의 입력을 나타냄-->
+    <p>맥 브라우저 강력 새로고침 <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd></p>
+
+</body>
+</html>
