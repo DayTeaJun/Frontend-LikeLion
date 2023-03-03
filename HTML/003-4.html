@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    
+</head>
+<body>
+
+    <!-- 순서가 중요할 때 쓴다. -->
+    <!-- 브레드크럼 : 사이트 구조와 현재 페이지의 계층 구조를 링크 목록 등으로 나타냄 -->
+    <ol type="I"> 
+        <li>첫번째</li>
+        <li>두번째</li>
+        <li>세번째</li>
+    </ol>
+
+    <!-- 순서가 중요하지 않을 때 쓴다. -->
+    <ul> 
+        <!-- li는 ol이나 ul안에 쓸 수있는 자식 요소 -->
+        <li>첫번째</li>
+        <li>두번째</li>
+        <li>세번째</li>
+    </ul>
+    
+    <!-- dl 사용 주의사항!
+    키-값의 쌍의 목록이라고해서 dl을 사용해서는 안됨
+    dd의 값이 변화할 수 있는 정보라면 dl을 써선 안됨
+    이미 정의 되어 있거나 설명이 정해져 있는 경우에만 사용할 수 있다. 사전 등에 유용 -->
+    <dl>
+        <div>
+            <dt>제목<dt>
+            <dd>설명<dd>
+            <dd>설명</dd>
+        </div>
+        <div>
+            <dt>제목<dt>
+            <dd>설명<dd>
+            <dd>설명</dd>
+        </div>
+        <div>
+            <dt>제목<dt>
+            <dd>설명<dd>
+            <dd>설명</dd>
+        </div>
+    </dl>
+
+</body>
+</html>

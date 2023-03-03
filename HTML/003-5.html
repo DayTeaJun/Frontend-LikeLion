@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상 클래스</title>
+
+    <style>
+        /* html 전역 변수를 선언할 때 사용 */
+        :root {
+            --main-color: pink;
+            --pane-padding: 5px 42px;
+        }
+
+        strong {
+            color: var(--main-color);
+        }
+
+        /* 형제 요소 그룹 중 첫 번째 요소 */
+        p:first-child {
+            color: salmon;
+        }
+
+        /* 형제 요소 그룹 중 마지막 요소 */
+        p:last-child {
+            color: sandybrown;
+        }
+
+        /* 형제 사이에서 순서에 따라 요소를 선택
+        홀수번째 odd, 짝수 even, 1, 2, 3, ..., n+1 등 수식 가능*/
+        p:nth-child(4) {
+            text-decoration: line-through royalblue;
+        }
+
+        /* div 에서 3번째, 현재 없음 */
+        div:nth-child(3) {
+            text-decoration: underline;
+        }
+
+        /* 형제 그룹 안에서 위치를 기반으로 형제 요소 선택 */
+        p:nth-of-type(3) {
+            color: royalblue;
+        }
+
+        /* 동일한 유형의 형제가 없는, 형제 요소 중 유일하게 사용된 태그 형제 요소가 2개 이상인 경우 작동안함 */
+        div:only-of-type {
+            color: red;
+        }
+        /* :not 부정선택자 */
+        p:not(:only-of-type) {
+            background:skyblue;
+            margin-top: 20px;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div>
+        <p>첫번째</p>
+        <p>두번째</p>
+        <strong>세번째</strong>
+        <p>네번째</p>
+        <div>다섯번째</div>
+        <p>여섯번째</p>
+        <p>일곱번째</p>
+        <p>여덟번째</p>
+        <p>아홉번째</p>
+        <p>열번째</p>
+    </div>
+    
+</body>
+</html>

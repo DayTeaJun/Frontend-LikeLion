@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>말줄임처리</title>
+
+    <style>
+        p{
+            width:400px;
+            border:2px solid #ccc;
+          
+          }
+          
+          .ellipsis{
+            /* 말줄임 표시 첫줄 적용 */
+            white-space:nowrap;
+            /* 텍스트가 박스를 넘어가면 숨김 */
+            overflow:hidden;
+            /* 말줄임 표시에 ... 적용 */
+            text-overflow:ellipsis;
+          }
+          
+          .multi-ellipsis{
+            /* 말줄임 표시 몇줄부터 적용하는 방식 */
+            overflow:hidden;  
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+          }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste ducimus sapiente quidem! Velit et officia, temporibus ad natus quo. Quae at similique deserunt modi minima ipsum debitis blanditiis ipsa facere!</p>
+
+
+    <p class="ellipsis">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste ducimus sapiente quidem! Velit et officia, temporibus ad natus quo. Quae at similique deserunt modi minima ipsum debitis blanditiis ipsa facere!</p>
+   
+    <p class="multi-ellipsis">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste ducimus sapiente quidem! Velit et officia, temporibus ad natus quo. Quae at similique deserunt modi minima ipsum debitis blanditiis ipsa facere!</p>
+</body>
+</html>

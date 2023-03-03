@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마진병합현상 해결</title>
+    <style>
+
+        /* 마진병합 현상(Margin Collapsing)
+        1. 요소와 요소의 사이에 마진 탑(margin-top) 혹은 마진 바텀(margin-bottom)의 공간이 있을 경우 더 높은 값의 마진 값이 적용되는 현상
+        2. 부모 요소와 자식 요소가 존재할 때, 자식 요소의 마진 탑 혹은 마진 바텀 값이 부모의 높이에 영향을 미치지 않는 현상
+        */
+
+
+        /* 마진병합 현상 해결방법
+        1. 부모 요소에 `overflow` 속성 값을 적용해줍니다. (베스트)
+        2. 부모 요소에 `display: inline-block` 값을 적용해줍니다.
+        3. 부모 요소에 `border` 값을 적용해줍니다.
+        4. 부모 요소에 `display:flow-root`을 사용합니다. (IE 지원 불가) */
+        body{
+            color:#fff;
+            font-size:40px;
+          }
+          p{
+            width:100px;
+            height:100px;
+            line-height:100px;
+            text-align:center;
+          }
+          .a{
+            
+            margin:20px;
+            /* border 테두리 속성 지정 */
+            /* border: 5px solid #000; */
+            border-width: 5px 0;
+            /* 동일한 곳에 color 속성을 줬을 경우 뒤가 먼저임  */
+            border-color: aqua;
+            border-top: 50px solid pink;
+            border-right: 50px solid transparent;
+            border-left: 50px solid transparent;
+            /* width, height에 border, padding  포함. */
+            box-sizing: border-box;
+          } 
+          
+          .b{
+            background:slateblue;
+            margin: 30px 20px;
+          }
+          
+          div{
+            background:skyblue;
+          }
+          
+          .c{
+            background:seagreen;
+            /* 마진병합 현상을 알고 작업하면 해결 가능 */
+            /* margin: 0; */
+            margin:0;
+          }
+
+          .wrap {
+            padding: 20px;
+          }
+    </style>
+
+</head>
+<body>
+
+    <p class="a">A</p>
+    <p class="b">B</p>
+
+    <div class="wrap">
+      <p class="c">C</p>
+
+    </div>
+
+</body>
+</html>

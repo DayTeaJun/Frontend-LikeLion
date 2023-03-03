@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스모델</title>
+    <style>
+        div,
+        span {
+            background: skyblue;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            /* 중간으로 */
+            margin: 20px auto;
+            border: 10px solid royalblue;
+            box-sizing: border-box;
+        }
+
+        div:nth-child(2){
+            padding-left: 40px;
+            text-align: center;
+            /* 맨 왼쪽으로 */
+            margin: auto 0 auto auto;
+        }
+
+        /* inline 요소는 width, height, 상하 margin 값이 적용되지 않는다. */
+        span {
+            padding: 20px;
+            margin: 0 20px;
+            border: 10px solid royalblue;
+        }
+        
+        /* padding 단축 속성 top-> right-> bottom -> left 시계방향 */
+        p{
+            padding: 10px; /* top, right, bottom, left 모두 10px */
+            padding: 10px 20px; /* top, bottom :10px,  left, right:20px */
+            padding: 10px 20px 30px; /* top:10px, left,right:20px, bottom:30px */
+            padding: 10px 20px 30px 40px;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- div는 블록요소로 자리 다차지 -->
+    <div>
+        안녕하세요
+    </div>
+    <div>
+        안녕하세요
+    </div>
+
+    <!-- span은 인라인요소로 자리 차지 다 못함 -->
+    <span>안녕하세요</span>
+    <span>안녕하세요</span>
+</body>
+</html>

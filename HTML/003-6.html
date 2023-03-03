@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상요소</title>
+
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        /* 가상의 자식 요소 before은 li의 첫째 자식, after은 li의 마지막 자식 빈태그 img br input 에는 적용할 수 없다. */
+        li::before,
+        li::after {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+        }
+
+        /* 자리표시자 input, textarea 요소에 정보를 제공 */
+        input::placeholder {
+            color: skyblue;
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>하이요</li>
+        <li>하이요</li>
+    </ul>
+
+    <input type="text" placeholder="아이디">
+</body>
+</html>
