@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>border-radius</title>
+    <style>
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: royalblue; 
+            /*border: 20px solid skyblue;*/
+            /*float: left;*/
+            box-sizing: border-box;
+            /*margin-right: 50px;*/
+            margin: auto;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 20px;
+        }
+
+        div:nth-child(1) {
+            border-radius: 10px;
+            background-color: skyblue;
+            border: solid 2px black;
+            line-height: 0;
+        }
+
+        .img-cat {
+            width: 50px;
+            height: 50px;
+            margin-left: 10px;
+            float: left;
+            margin-top: 25px;
+            background-image: url("./img/cat.jpg");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        div span {
+            text-decoration-line: underline;
+            font-size: 20px;
+            font-weight: bold;
+            vertical-align: top;
+            text-align: center;
+        }
+        div p {
+            line-height: 50px;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div>
+        <div class="img-cat"></div>
+        <p>
+            Name  
+            <span>Jun</span>
+        </p>
+    </div>
+</body>
+
+</html>
