@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reset</title>
+
+    <style>
+
+        img {
+            vertical-align: middle;
+        }
+        
+        .ratio {
+            display: block;
+            width: 100%;
+            /* 이미지 가로 세로 비율 조정 */
+            aspect-ratio: 2 / 1;
+            /* 이미지 사진 크기대로 조정 */
+            object-fit: cover;
+        }
+
+        .padding-ratio {
+            /*  - 자신이 있어야 하는 위치에 상대적입니다.
+                - 다른 콘텐츠들의 위치에 영향을 미치지 않습니다. */
+            position: relative;
+            height: 0;
+            /* padding의 top과 bottom % 값은 부모의 세로가 아닌, 가로 너비를 기준으로 합니다! */
+            padding: 50%;
+            overflow: hidden;
+        }
+
+        .padding-ratio img {
+            /* position: absolute 는 특정 요소를 기준으로 한 위치를 정할 수 있다. 이때 기준은 position이 relative 또는 fixed 또는 absolute인 부모가 된다. */
+            position:  absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+
+    <!-- CSS -->
+    <!-- <link rel="stylesheet" href="reset.css"> -->
+</head>
+<body>
+
+    <div>안녕하세요</div>
+    <div>
+        <img src="./img/weniv-chilli.png" alt="위니브 칠리">
+        안녕
+    </div>
+
+    <div class="padding-ratio">
+        <img src="img/weniv-binky.png" alt="">
+    </div>
+
+    <img src="./img/weniv-garry.png" usemap="#image-map">
+
+    <map name="image-map">
+        <area target="" alt="" title="" href="https://www.naver.com/" coords="166,107,178,100,191,100,201,120,211,141,207,158,186,171,153,104,135,103,117,99,109,118,100,139,98,154,118,160,104,159,114,167,125,172,135,172,144,172,159,212" shape="poly">
+    </map>
+
+    <img class="ratio" src="img/weniv-binky.png" alt="위니브 빙키">
+
+    <!-- JavaScript -->
+    <script src=""></script>
+</body>
+</html>
