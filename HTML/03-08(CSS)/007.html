@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        /* 부모요소 */
+        .grid-container{
+            /* 그리드 레이아웃은 웹페이지를 위한 2차원 레이아웃(x축, y축) */
+            display: grid;
+            /*- fr(fraction) : 분수
+              - 컨테이너를 분할
+              - grid 컨테이너 안에서 트랙의 비율을 지정해주는 유연한 길이 단위
+            */
+            /* 열방향 그리드 트랙의 사이즈를 설정 */
+            /* repeat : 3열이고, 3번 1fr 반복 */
+            grid-template-columns: repeat(4, 1fr);
+            /* 행방향 그리드 트랙의 사이즈를 설정 */
+            grid-template-rows:2fr 1fr;
+            gap: 20px;
+        }
+
+        /* 자식요소 */
+        .grid-item:first-child {
+            /* 그리드 라인의 그리드 넘버로 위치 지정 */
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column-start: 1;
+            grid-column-end: 4;
+            /*
+            grid-row: 1/2; : 그리드 행 넘버 1번 시작, 2번 끝까지 셀 채움
+            grid-column: 1/4; : 그리드 열 넘버 1번 시작, 4번 끝까지 채움
+            grid-area: 1/1/1/ span 3; : 차례로 (grid-row-start / grid-column-start / grid-row-end /grid-column-end) 순서로 단축
+            span : 스타트지점부터 지정 넘버까지 셀 병합
+            */
+            background: sandybrown;
+        }
+        .grid-item {
+            background: skyblue;
+            border: 3px solid royalblue;
+        }
+
+        span.grid-item {
+            background: gold;
+        }
+
+        .grid-item:nth-child(2) {
+            grid-row-start: 2;
+            grid-row-end: 4;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            background-color: salmon;
+          }
+
+    </style>
+
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque maiores ad sint, aspernatur totam nesciunt adipisci. Dolor cumque nostrum culpa veritatis autem a, harum repellendus facilis, deserunt soluta recusandae reprehenderit.
+        </div>
+        <div class="grid-item">B</div>
+        <div class="grid-item">C</div>
+        <div class="grid-item">D</div>
+        <div class="grid-item">E</div>
+        <div class="grid-item">F</div>
+    </div>
+    
+    <!-- <span class="grid-container">
+        <span class="grid-item">A</span>
+        <span class="grid-item">B</span>
+        <span class="grid-item">C</span>
+        <span class="grid-item">D</span>
+        <span class="grid-item">E</span>
+        <span class="grid-item">F</span>
+    </span> -->
+
+</body>
+</html>

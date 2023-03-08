@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+
+    <style>
+        /* 참고자료 : https://studiomeal.com/archives/197 */
+        /* 부모요소 */
+        .flex-container {
+            /* 1차원적(x축 또는 y축 한가지) 레이아웃을 위해 주로 사용한다. */
+            display: flex;
+            /*  컨테이너 내 아이템을 배치할 때 주축 및 방향을 지정
+                column은 column 주축 세로 방향.
+            */
+            flex-direction: column;
+            height: 150px;
+            background: #eee;
+            border: 2px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        /* 자식요소 */
+        .flex-item {
+            background: skyblue;
+            border: 3px solid royalblue;
+        }
+
+        span.flex-item {
+            background:gold
+        }
+
+        /* 부모요소에 클래스를 붙임 */
+        .center {
+            /*  주축을 기준으로 배열의 위치를 조절하거나 아이템 간의 설정 가능
+                center : 중앙으로 위치
+            */
+            justify-content: center;
+        }
+
+        .flex-end {
+            /* flex-end : 끝으로 위치 */
+            justify-content: flex-end;
+        }
+
+        .space-between {
+            /* space-between : 아이템들의 사이 간격줘서 위치 */
+            justify-content: space-between;
+        }
+
+        .space-around {
+            /* space-around : 아이템들의 둘레의 간격줘서 위치 */
+            justify-content: space-around;
+        }
+
+        .space-evenly {
+            /* space-evenly : 아이템들의 사이와 양 끝에 균일한 간격을 만듦 */
+            justify-content: space-evenly;
+          }
+    </style>
+
+</head>
+<body>
+    <div class="flex-container"> 
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </div>
+
+    <div class="flex-container center">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </div>
+
+    <div class="flex-container flex-end">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </div>
+
+    <div class="flex-container space-between"> 
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </div>
+
+    <div class="flex-container space-around"> 
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </div>
+
+    <div class="flex-container space-evenly">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+      </div>
+
+    <span class="flex-container">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </span>
+
+    <span class="flex-container center">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </span>
+
+    <span class="flex-container flex-end">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </span>
+
+    <span class="flex-container space-between">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </span>
+
+    <span class="flex-container space-around">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </span>
+
+    <span class="flex-container space-between">
+        <span class="flex-item">A</span>
+        <span class="flex-item">B</span>
+        <span class="flex-item">C</span>
+      </span>
+</body>
+</html>

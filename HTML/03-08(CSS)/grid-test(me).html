@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <style>
+        .container {
+            background: #eee;
+            display: grid;
+            grid-template-columns: 2fr 1fr 2fr;
+            grid-template-rows: 3fr 1fr 2fr;
+            width: 500px;
+            height: 500px;
+            gap: 10px;
+        }
+
+        .container .item:nth-child(1){
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            background: blue;
+        }
+        .container .item:nth-child(2){
+            grid-row-start: 1;
+            grid-row-end: 3;
+            grid-column-start: 3;
+            grid-column-end: 4;
+            background: yellow;
+        }
+        .container .item:nth-child(3){
+            grid-area: 2/1/span 1/span 1;
+            background: purple;
+        }
+        .container .item:nth-child(4){
+            grid-row-start: 2;
+            grid-row-end: 2;
+            grid-column-start:2;
+            grid-column-end: 3;
+            background: brown;
+        }
+        .container .item:nth-child(5){
+            grid-area: 3/span /4/2;
+            background: pink;
+        }
+        .container .item:nth-child(6){
+            grid-area: 3/2/4/span 2;
+            background: green;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="container">
+        <div class="item">blue</div>
+        <div class="item">yellow</div>
+        <div class="item">purple</div>
+        <div class="item">brown</div>
+        <div class="item">pink</div>
+        <div class="item">green</div>
+    </div>
+</body>
+</html>

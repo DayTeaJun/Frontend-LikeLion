@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex</title>
+  <style>
+    .flex-container {
+      display: flex;
+      background: #eee;
+      border: 2px solid #ddd;
+      margin-bottom: 20px;
+      height: 400px;
+      /*  컨테이너의 교차 축의 아이템들이 여러 줄일 때 사용
+          stretch : 컨테이너의 교차 축을 채우기 위해 items를 늘림*/
+      align-content: stretch;
+    }
+
+    .flex-item {
+      background: skyblue;
+      border: 3px solid royalblue;
+      width: 200px;
+      height: 50px
+    }
+
+    .flex-stretch {
+      /* 기본값 */
+      align-items: stretch;
+    }
+
+    .center {
+      /* items를 가운데 정렬 */
+      align-items: center;
+    }
+
+    .flex-start {
+      /* items를 시작점으로 정렬 */
+      align-items: flex-start;
+    }
+
+    .flex-end {
+      /* items를 끝점으로 정렬 */
+      align-items: flex-end;
+    }
+
+    .wrap {
+      /* flex-wrap: wrap; (기본값)
+         flex-flow : flex-direction 와 flex-wrap 의 단축 속성
+         nowrap(기본값) : 모든 items를 여러 줄로 묶지 않고, 한 줄에 표시
+         */
+      flex-flow: row-reverse nowrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex-container">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+  </div>
+  <div class="flex-container wrap">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+  </div>
+  <div class="flex-container stretch">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+  </div>
+  <div class="flex-container center">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+  </div>
+  <div class="flex-container flex-start">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+  </div>
+  <div class="flex-container flex-end">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+  </div>
+
+
+
+
+</body>
+
+</html>

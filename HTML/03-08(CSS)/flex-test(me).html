@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-test</title>
+
+    <style>
+        .wrap{
+            display: flex;
+            flex-direction: column;
+            gap:10px;
+            width: 500px;
+            height: 500px;
+            background: skyblue;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .sec-aside {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            height: calc(60% - 20px);
+            line-height: 250px;
+        }
+
+        .sec-aside section {
+            flex-grow: 1;
+        }
+        .sec-aside aside {
+            flex-basis: 30%;
+        }
+
+        header {
+            background: royalblue;
+            width: 100%;
+            height: 20%;
+            line-height: 100px;
+        }
+
+        section {
+            background: gray;
+            width: calc(70% - 10px);
+            height: 100%;
+        }
+
+        aside {
+            background: ghostwhite;
+            width: 30%;
+            height: 100%;
+        }
+        footer {
+            background: rosybrown;
+            width: 100%;
+            height: 20%;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="wrap">
+        <header>header</header>
+
+        <div class="sec-aside">
+            <section>section</section>
+            <aside>aside</aside>
+        </div>
+
+        <footer>footer</footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex</title>
+  <style>
+    .flex-container {
+      display: flex;
+      /* flex-direction: column; */
+      background: #eee;
+      border: 2px solid #ddd;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      height: 200px;
+      /* align-content: stretch; */
+    }
+
+    .flex-item {
+      background: skyblue;
+      border: 3px solid royalblue;
+      box-sizing: border-box;
+      
+      /* height: 100px; */
+      /* row 인경우 width값이 무시, column일 경우 height 값이 무시
+      flex-basis : 크기 초기값 */
+      flex-basis: 100px;
+      /* flex-shrink: 0; */
+      /* 
+      flex-shrink: 0; */
+    }
+
+    .flex-item:first-child {
+      /* flex-grow : 아이템이 컨테이너 내부에서 할당할 수 있는 공간의 정도를 지정합니다. 공간을 늘리면 늘어난다. 0을 주면 원래 크기 이상 늘어나지않음 */
+      flex-grow: 2;
+      flex-basis: 200px;
+      /* flex-shrink: 아이템의 크기를 고정(0)하거나 축소할 때 사용 */
+      flex-shrink: 2;
+      order: 2;
+    }
+
+    .flex-item:nth-child(2) {
+      flex-grow: 1;
+      flex-basis: 200px;
+      flex-shrink: 1;
+      /* 부모의 align-items 속성을 덮고 개별적인 align-items 속성을 부여, 기본값 stretch */
+      align-self: center;
+      /* flex-item들의 순서를 수의 크기로 결정하고, 작을 수록 더 우선 순위를 받는다. */
+      order: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex-container">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+  </div>
+
+  <div class="flex-container">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+    <div class="flex-item">D</div>
+    <div class="flex-item">E</div>
+    <div class="flex-item">F</div>
+  </div>
+</body>
+
+</html>
