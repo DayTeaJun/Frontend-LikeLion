@@ -1,0 +1,119 @@
+body {
+  background: rosybrown;
+}
+
+h2,
+p {
+  margin: 0;
+}
+
+.card-item a {
+  /* width: 288px; */
+  color: #29363d;
+  text-decoration: none;
+  border-radius: 8px;
+  display: block;
+  background: #fff;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-item img {
+  width: 100%;
+  aspect-ratio: 288/196;
+  object-fit: cover;
+  vertical-align: top;
+  /* padding-top; */
+}
+
+.card-text {
+  padding: 24px 16px 16px;
+}
+
+.card-text .title {
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-text .title + p {
+  font-size: 12px;
+  color: #5a6a72;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
+  margin: 12px 0 16px;
+  line-height: 20px;
+  height: 40px;
+}
+
+.underline {
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 14px;
+  padding-left: 6px;
+}
+
+.container {
+  /* overflow: hidden; */
+  margin: auto;
+  /* 반응형 둘 중 최소인 값을 적용, calc에서 -60px를 준 이유는 좌우 여백 30px을 주기위함 여기서 좌우인 이유는 margin: auto로 중앙으로 줬기 때문임 */
+  width: min(1224px, calc(100% - 60px));
+}
+
+/* 부모요소가 자식들이 float만 있을 때 높이값을 갖지못해서 가상요소로 추가함 */
+.container::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.container article {
+  float: left;
+  /* 자식요소의 기본 가로값 설정 24px은 gap값 즉 가로 마진 값을 나타냄 */
+  width: calc((100% - (24px * 3)) / 4);
+  margin: 0 0 32px 24px;
+}
+
+/* 가로 1025px 이상은 이 블록 안의 코드를 적용 */
+@media (min-width: 1025px) {
+  /* 4n-3 은 4번째마다 -3번째 값 즉 1, 5, 9, ... 마다 값을 넣음 */
+  .container article:nth-child(4n-3) {
+    margin-left: 0;
+  }
+}
+
+/* 가로 641px 이상, 1024px 미만은 이 블록 안의 코드를 적용 */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .container article {
+    /* 미디어쿼리의 가로값이 줄어들수록 자식요소의 가로값도 같이 줄임
+    부모의 총 가로값 - (자식요소들간의 간격 * 2개간격) / 배치할 자식요소 갯수
+    */
+    width: calc((100% - (24px * 2)) / 3);
+  }
+
+  .container article:nth-child(3n-2) {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 640px) {
+  .container article {
+    width: calc((100% - (24px)) / 2);
+  }
+  .container article:nth-child(2n-1) {
+    margin-left: 0;
+  }
+}
+
+/* 가로 500px 이하일때 적용 */
+@media (max-width: 500px) {
+  .container article {
+    /* 마지막으로 자식요소를 하나만 배치하므로 부모요소의 가로값 100% */
+    width: 100%;
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,70 @@
+body {
+    background: rosybrown;
+}
+
+h2,
+p {
+    margin: 0;
+}
+
+.card-item a {
+    width: 288px;
+    color: #29363D;
+    text-decoration: none;
+    border-radius: 8px;
+    display: block;
+    background:#fff;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.card-item img {
+    width: 100%;
+    aspect-ratio: 288/196;
+    object-fit: cover;
+    vertical-align: top;
+    /* padding-top; */
+}
+
+.card-text {
+    
+    padding: 24px 16px 16px;
+}
+
+.card-text .title {
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-text .title + p {
+    font-size: 12px;
+    color: #5a6a72;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-break: break-all;
+    margin: 12px 0 16px;
+    line-height: 20px;
+}
+
+.underline {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 14px;
+    padding-left: 6px;
+}
+
+.grid-container {
+    display: grid;
+    /* auto-fill은 행과 열의 크기가 맞게 자동적으로 조정해준다.
+    1fr로만 줄경우 안에 크기가 늘어날 수도 있어서, minmax로 맞춘다. */
+    grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+    /* 상하좌우 gap */
+    gap: 32px 24px;
+    /* width의 min()함수를 써서 컨테이너 가로 길이를 반응형으로 줄 때 쓴다. 가로 길이를 줄일 때, 더 작은 값으로 적용한다. */
+    width:min(1224px, calc(100% - 60px));
+    margin: auto;
+}
