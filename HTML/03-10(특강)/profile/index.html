@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <!-- html :root 요소 -->
+  <head>
+    <meta charset="UTF-8" />
+    <title>PROFILE</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- 1. 전체적인 틀을 잡는다.-->
+    <div class="wrap">
+      <!-- 2. 구조 최소한의 레이아웃 마크업만 해둔다 (header, contents, footer) -->
+      <!-- class -> 숫자로 시작하는 것 빼고 대부분 작동함 -->
+      <div class="header">
+        <img src="images/profile04.png" class="profile" />
+        <h1>JANE DOE</h1>
+        <p>FRONT-END DESIGNER</p>
+      </div>
+      <div class="contents">
+        <!-- 똑같은 디자인을 하나의 클래스로 관리함 -->
+        <div class="section">
+          <h2>Information</h2>
+          <ul>
+            <li>Jung Junyoung</li>
+            <li>gkfnck@gmail.com</li>
+            <li>Busan, Korea</li>
+          </ul>
+        </div>
+        <!-- 하나의 요소가 이름 여러개를 달 수있음 -->
+        <div class="section skills">
+          <h2>Skills</h2>
+          <ul>
+            <li>Html + CSS</li>
+            <li>Figma</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer">Footer</div>
+    </div>
+  </body>
+</html>

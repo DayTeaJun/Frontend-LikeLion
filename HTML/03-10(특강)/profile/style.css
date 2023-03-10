@@ -1,0 +1,123 @@
+/* 타입 셀렉터 */
+div {
+  /* background -> 프로퍼티 : 속성 || 태그에 style=""나 class="" -> attribute: 속성
+  orange -> 밸류 : 값 */
+  /* background-color: orange; */
+
+  /* 내가 설정하지 않아도 자동으로 설정되어있다.
+    initial value(초기값) -> width: auto; background-color: transparent;
+    width: auto -> 해당 요소의 직계 부모가 제공해주는 컨텐츠 영역만큼 가득차게 해주고 마진, 패딩을 자동으로 해준다. containing block*/
+  /* width : 100% -> 직계 부모가 제공해주는 width 값을 가져오지만 마진, 패딩까지 자동으로 가져오지 않아서 스크롤이 생긴다. */
+  /* width 값을 고정으로 주면 오른쪽에 사용가능한 공간을 남기고, auto는 공간을 다쓴다. */
+  /* width: 400px; */
+
+  /* 사용 가능한 공간을 자동으로 왼쪽값에서 취한다. 맨 오른쪽으로 감. */
+  /* margin-left: auto; */
+  /* margin의 초기값은 0 이다. */
+  /* background-color: orange; */
+  /* width: 400px; */
+  /* margin: 0 auto; */
+}
+
+/* `*` ->Universal Selector 전체 선택자 */
+/* 모든 곳에서 준영인 것을 선택 */
+/* *.준영 {
+} */
+
+/* 브라우저가 정한 값을 초기값으로 돌린다. */
+h1,
+h2,
+ul,
+p {
+  /* 초기값 margin : 0 */
+  margin: initial;
+  padding: initial;
+}
+
+li {
+  list-style-type: none;
+}
+
+img {
+  /* 이미지와 아래 텍스트 여백을 없앰 */
+  vertical-align: top;
+}
+
+/* ------------------------------------ */
+
+body {
+  background-image: url(images/background.gif);
+}
+
+.wrap {
+  background-color: #ddd;
+  width: 800px;
+  margin: 40px auto;
+  /* border: 10px solid red; */
+  /* 인라인 언라인 이때 화면상 h1은 정렬되있으나 정렬되지 않음 h1은 블록레벨이여서다. h1 내부가 인라인 요소인데, 텍스트 언라인은 인라인 요소를 정렬하므로 내부가 정렬된 것이다. */
+  text-align: center;
+}
+
+/* div이면서 header인 것 선택 .header 만해도 같지만 상황에 따라 각각 쓴다.*/
+div.header {
+  background-image: url(images/cover03.png);
+  background-size: cover;
+  /* 상하단 패딩을 줘서 자연스럽게 레이아웃이 되게함 */
+  padding: 50px 0;
+  /* height: auto -> 초기값, 컨텐츠 영역이 높아지면 알아서 구성하게끔 해준다.
+  직접적으로 height값은 고정으로 주지않는다. 그런 곳도 있긴 하지만,, */
+  height: auto;
+  color: white;
+}
+
+img.profile {
+  border: 8px solid white;
+  border-radius: 0 40px 40px 0;
+  width: 150px;
+}
+
+/* header의 자손 중 h1태그들 전부를 선택 이때 띄어진 곳을 descendant combinator(하위 셀렉터, 자손 셀렉터)라고 부른다. 정리, 관리용도로 쓰기도함 */
+.header h1 {
+  /* 모든 html 요소가 어떻게 공간을 차지하는지 확인하기 위해선 즉, 블록 레벨 엘리먼트의 크기를 확인하고자할 때 box-shadow를 써라.(inset은 안쪽그림자로 이것을 쓰는게 좋음) */
+  /* box-shadow: inset 0 0 10px lime; */
+  /* color: white -> 부모에게서 상속받음, 상속이 되는 프로퍼티가 있고(color 등) 안되는것(heigth, width 등)이 있다. */
+  /* inherit : 부모에게서 강제로 상속받는다, 상속이 되지않는 프로퍼티를 상속 싶을 때 사용한다. */
+  /* height: inherit; */
+  /* border-bottom에 컬러를 주지 않았는데 흰색이 되어있는 경우는 초기값이 currentColor(현재 색)로 되어있다 */
+  border-bottom: 4px solid;
+  width: 200px;
+  margin: 30px auto;
+}
+
+.header p {
+  /* box-shadow: inset 0 0 10px cyan; */
+  /* color: white -> 부모에게서 상속받음 */
+}
+
+.contents {
+  /* 상속으로 center 받은걸 변경 */
+  text-align: left;
+}
+
+.section {
+  background-color: rgb(209, 209, 209);
+  margin: 30px;
+  padding: 30px;
+  background-image: url(images/icon-information.png);
+  background-repeat: no-repeat;
+  /* 오른쪽 기준에서 40px 가운데 */
+  background-position: right 40px center;
+}
+
+.section h2 {
+  color: #ff6600;
+  margin-bottom: 20px;
+}
+
+.skills {
+  background-image: url(images/icon-skills.png);
+}
+
+.footer {
+  background-color: #f4f4f4;
+}
