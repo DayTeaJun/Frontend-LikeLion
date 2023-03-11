@@ -1,0 +1,38 @@
+h1,
+p,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  vertical-align: top;
+}
+
+body {
+  background-image: url("images/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrap {
+  width: 300px;
+  margin: 80px auto;
+}
+
+section {
+  background-color: #9c5f34;
+  border-radius: 0 0 10% 10%;
+  padding: 10px 5px;
+  color: #fff;
+  border-bottom: solid 10px #6e4324;
+}
+
+p {
+  margin: 20px;
+}
+
+h1 {
+  margin: 0 20px;
+  font-size: 2rem;
+}
