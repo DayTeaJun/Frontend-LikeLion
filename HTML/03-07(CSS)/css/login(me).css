@@ -1,0 +1,53 @@
+.wrap {
+  width: 350px;
+  height: 140px;
+  margin: 30px 25px;
+  background: gold;
+  border-radius: 4px;
+}
+
+p {
+  font-size: 12px;
+  font-weight: 400;
+  margin: 19px 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.log {
+  width: 318px;
+  height: 40px;
+  margin: 50px 16px;
+  background: #711bff;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 4px;
+}
+
+img {
+  width: 20px;
+  height: 20px;
+  vertical-align: top;
+}
+
+.log-in {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.footer {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.id-pw {
+  float: left;
+}
+
+.join {
+  float: right;
+}
