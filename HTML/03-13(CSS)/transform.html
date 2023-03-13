@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transform</title>
+
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background: royalblue;
+      }
+
+      .transform:hover {
+        /* transform: 요소에 다양한 변형을 줌, scale: 요소의 크기만큼 커짐
+        아래는 x축, y축 별도로 크기를 지정 */
+        transform: scale(1.5, 1);
+      }
+
+      .transform:nth-child(2) {
+        /* 요소의 크기 조절 기준점 */
+        transform-origin: top left;
+      }
+
+      .rotate:hover {
+        /* 요소를 회전 시킴 아래의 경우 오른쪽으로 45도(degree) 회전 */
+        transform: rotate(45deg);
+      }
+
+      .translate:hover {
+        /* 요소의 위치에서 x, y축으로 이동 시킨다. 기준점은 왼쪽 상단, 음수 가능 */
+        transform: translate(20px, 40px);
+      }
+
+      .skew:hover {
+        /* 요소를 왜곡하고 각도 단위를 사용 */
+        transform: skew(30deg, 20deg);
+      }
+
+      .mix:hover {
+        /* 다합쳐봄 */
+        transform: translate(20px, 40px) rotate(135deg) skew(30deg, 20deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box transform">box</div>
+    <div class="box transform">box</div>
+    <div class="box rotate">box</div>
+    <div class="box translate">box</div>
+    <div class="box skew">box</div>
+    <div class="box mix">box</div>
+  </body>
+</html>

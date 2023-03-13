@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <style>
+      /* 두개 이상의 애니메이션 중간 상태를 설정하고, from(0%): 시작시점 
+      to(100%): 종료시점을 의미한다. */
+      @keyframes slide {
+        from {
+          /*시작시점 맨 왼쪽*/
+          margin-left: 0;
+        }
+
+        to {
+          /*종료시점 맨 왼쪽부터 80% 오른쪽으로 떨어진 곳*/
+          margin-left: 80%;
+        }
+      }
+
+      .wrap {
+        width: 500px;
+        background-color: #eee;
+      }
+
+      .wrap div {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        box-sizing: border-box;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .wrap div ~ div {
+        margin-top: 20px;
+      }
+
+      .animation {
+        /* 애니메이션 명칭 */
+        animation-name: slide;
+        /* 애니메이션이 한 사이클을 완료하는데 걸리는 시간 지정 */
+        animation-duration: 3s;
+        /* 반복 횟수 지정, infinite: 무한 */
+        animation-iteration-count: infinite;
+      }
+
+      div.alternate {
+        background-color: royalblue;
+      }
+
+      .alternate {
+        /* dirction: 앞, 뒤로 또는 앞뒤로 번갈아 재생되는지 여부를 지정
+        alternate: 정방향과 역방향을 반복 */
+        animation-direction: alternate;
+      }
+
+      .reverse {
+        /* reverse: 역방향 재생 */
+        animation-direction: reverse;
+      }
+
+      .alternate-reverse {
+        /* alternate-reverse: 역방향, 정방향 반복 */
+        animation-direction: alternate-reverse;
+      }
+    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="animation">normal</div>
+      <div class="animation alternate">alternate</div>
+      <div class="animation reverse">reverse</div>
+      <div class="animation alternate-reverse">alternate-reverse</div>
+    </div>
+  </body>
+</html>

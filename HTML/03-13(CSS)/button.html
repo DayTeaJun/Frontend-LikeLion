@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>button</title>
+    <style>
+      button {
+        /* 마우스 커서를 버튼 위에 올리면 손바닥 모양이 나오게함 */
+        cursor: pointer;
+      }
+
+      /* 마우스 커서를 요소에 올려두었을 때 작동 */
+      button:hover {
+        background: royalblue;
+      }
+
+      /* 클릭시(누르는 동안) 활성화 */
+      button:active {
+        background: salmon;
+      }
+
+      /* focus 받은 상태를 나타냄 (tab으로 지정하는 등) */
+      button:focus {
+        background: gold;
+      }
+
+      /* 누르거나 클릭하는 것을 막는다. */
+      button:disabled {
+        background: black;
+      }
+
+      /* 사용자가 이미 방문한 링크일 경우 작동,
+         웹브라우저의 방문기록 정보를 사용 */
+      a:visited {
+        color: skyblue;
+      }
+
+      /* 해당 속성을 가진 요소 모두 선택 이 html의 경우 링크, 카카오, 구글, 버튼(1) 등이 해당*/
+      [title] {
+        text-decoration: line-through;
+      }
+
+      /* 해당 속성에 속성값을 가진 요소 모두 선택 */
+      [href="#"] {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://www.naver.com" target="_black" title="새창">링크</a>
+    <a href="#" target="_black" title="새창">카카오</a>
+    <a href="#" target="_black" title="새창">구글</a>
+    <!-- button의 type은 양식 제출용이 아니라면 button으로 지정 -->
+    <button type="button" title="새창">버튼</button>
+    <button type="button" disabled>버튼</button>
+  </body>
+</html>

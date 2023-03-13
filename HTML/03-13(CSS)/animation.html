@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animation</title>
+
+    <style>
+      .licat {
+        width: 168px;
+        height: 200px;
+        background: url("/keyframes-licat.png") no-repeat 0 0 / auto 100%;
+        /* 단축속성 : 이름, 사이클 완료 시간, 반복 횟수, 위 가로세로 너비만큼 잘라서 6번 */
+        animation: move-licat 0.8s infinite steps(6);
+      }
+
+      .licat:active {
+        /* 애니메이션 동작 멈춤 */
+        animation-play-state: paused;
+      }
+
+      /*
+      .licat:hover {
+        background-position: right 0;
+        transition: background-position linear 1s;
+      }
+      */
+
+      @keyframes move-licat {
+        from {
+        }
+        to {
+          /* 배경 위치 맨오른쪽으로 감 */
+          background-position: right 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="licat"></div>
+  </body>
+</html>

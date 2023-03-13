@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      /* ^= btn으로 시작함 */
+      [class^="btn"] {
+        width: 88px;
+        height: 32px;
+        background: #343f50;
+        border: 1px solid #1a202c;
+        color: #cbd5df;
+        box-shadow: inset 1px 1px #4a5568;
+        cursor: pointer;
+        /* transition: 속성값이 변할 때, 값의 변화가 일정 시간에 걸쳐 일어나도록 하는 것을 말함
+        all 모든 속성에 transition 효과를 10s 10초 동안 아래의 동적 가상 선택자들의 효과를 줌 */
+        transition: all 10s;
+      }
+
+      [class^="btn"]:hover {
+        text-decoration: underline;
+        /* uppercase 대문자로 바꿔줌 */
+        text-transform: uppercase;
+        color: white;
+        /* transition: color 3s, background-color 0.1s; */
+      }
+
+      /*
+      .btn:not(:disabled):hover {
+        text-decoration: underline;
+        color: #fff;
+      }
+      */
+
+      .btn:active {
+        box-shadow: inset 1px 1px #262f3e;
+      }
+
+      .btn:focus {
+        outline: none;
+        border: 1px solid #439aff;
+      }
+
+      .btn:disabled {
+        box-shadow: none;
+        color: #4a5568;
+        text-decoration: none;
+        background: #3a4556;
+        border: 1px solid #343e4e;
+      }
+
+      [class$="positive"] {
+        color: #439aff;
+      }
+
+      .btn-positive:hover,
+      .btn-positive:active {
+        background: #439aff;
+        border: 1px solid #439aff;
+      }
+
+      .btn-positive:hover {
+        box-shadow: inset 1px 1px #73b4ff;
+      }
+
+      .btn-positive:active {
+        box-shadow: inset 1px 1px #3b78be;
+      }
+
+      [class$="negative"] {
+        color: #eb5757;
+      }
+
+      .btn-negative:hover,
+      .btn-negative:active {
+        background: #eb5757;
+        border: 1px solid #eb5757;
+      }
+
+      .btn-negative:hover {
+        box-shadow: inset 1px 1px #fd6f6f;
+      }
+
+      .btn-negative:active {
+        box-shadow: inset 1px 1px #d94242;
+      }
+    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/button-practice.css" />
+  </head>
+  <body>
+    <button class="btn" type="button">Button</button>
+    <button class="btn-positive" type="button">Yes</button>
+    <button class="btn-negative" type="button">Del</button>
+    <button class="btn" type="button" disabled>Button</button>
+    <p class="message-negative">error 메시지</p>
+    <p class="message-positive">가입가능합니다</p>
+  </body>
+</html>
