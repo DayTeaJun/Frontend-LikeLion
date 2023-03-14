@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      textarea {
+        width: 100%;
+        resize: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 사용자에게 입력받은 정보를 제출하기 위한 대화형 컨트롤을 포함하는 문서 구획 -->
+    <form>
+      <div>
+        <!-- 여러줄의 text를 입력받을 수 있음 
+        placeholder는 무엇을 입력해야되는지 힌트를 알려줌
+        rows는 입력 줄수
+        maxlegnth는 문자 최대 길이-->
+        <textarea
+          placeholder="10자 이상 100자 이하로 내용을 입력해주세요"
+          rows="3"
+          maxlength="10"
+        ></textarea>
+      </div>
+      <!-- label : 사용자의 인터페이스 항목으로 input과 함께 사용 -->
+      <!-- label에 for을 input에 id를 줘서 연결 -->
+      <!-- required : 선택 필수 -->
+      <label for="user-id">아이디</label>
+      <input
+        id="user-id"
+        type="email"
+        placeholder="아이디를 입력해주세요"
+        required
+      />
+
+      <label for="user-pw">비밀번호</label>
+      <!-- type: input 유형 -->
+      <input id="user-pw" type="password" />
+
+      <!-- label 안에 input 중첩하여 연결가능 -->
+      <label>
+        아이디
+        <input type="text" value="frontend" />
+      </label>
+
+      <!-- form 관련 요소들을 묶을 때 사용,
+      disabled를 사용시 모든 자손 컨트롤 비활성화 -->
+      <fieldset>
+        <!-- 그룹의 제목 -->
+        <legend>제목</legend>
+        <label> <input type="checkbox" disabled />프론트엔드 개발 </label>
+        <label> <input type="checkbox" />프론트엔드 개발 </label>
+        <label> <input type="checkbox" />프론트엔드 개발 </label>
+        <label> <input type="checkbox" />프론트엔드 개발 </label>
+      </fieldset>
+
+      <label for="lunch">오늘의 점심 메뉴:</label>
+      <!-- 옵션 메뉴 제공 -->
+      <select id="lunch">
+        <!-- option: 메뉴의 각 옵션을 정의 -->
+        <option value="lunch1">서브웨이</option>
+        <option value="lunch2">카레</option>
+        <!-- selected: 해당 옵션을 선택한 상태로 페이지 불러옴 -->
+        <option value="lunch3" selected>참치깁밥</option>
+        <option value="lunch4">지지고 누들</option>
+      </select>
+
+      <div>
+        <label for="user-front"
+          >여러분이 제일 자신있는 프론트엔드 기술을 선택해주세요</label
+        >
+        <select id="user-front" name="user-tech">
+          <option value="html">HTML</option>
+          <option value="css" selected>CSS</option>
+          <option value="javascript">JavaScript</option>
+          <option value="react">React</option>
+          <option value="typescript">TypeScript</option>
+          <!-- disabled: 선택 비활성화 -->
+          <option value="sql" disabled>SQL</option>
+        </select>
+      </div>
+      <div>
+        <label for="user-tech"
+          >여러분이 사용해본 기술을 모두 선택해주세요</label
+        >
+        <!-- multiple 여러개의 항목을 동시 선택 -->
+        <select id="user-tech" name="user-tech" multiple size="10">
+          <optgroup label="front-end">
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript">JavaScript</option>
+            <option value="react">React</option>
+            <option value="typescript">TypeScript</option>
+          </optgroup>
+          <optgroup label="back-end">
+            <option value="nodejs">Node.js</option>
+            <option value="java">JAVA</option>
+            <option value="python">Python</option>
+            <option value="django">Django</option>
+          </optgroup>
+        </select>
+      </div>
+      <button type="submit">제출</button>
+    </form>
+  </body>
+</html>

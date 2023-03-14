@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>table</title>
+    <style>
+      table {
+        width: 100%;
+        /* 테이블은 컨테이너라서 tr, td에도 border을 줘야함 */
+        border: solid 1px black;
+        /* 패딩 빼기 */
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      .blue {
+        background: skyblue;
+      }
+
+      .gold {
+        background-color: gold;
+      }
+
+      .pink {
+        background: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <!-- 테이블 제목이나 설명, 테이블의 첫번째 자식 -->
+      <caption>
+        테이블 설명
+      </caption>
+
+      <!-- 테이블 열 그룹 -->
+      <colgroup>
+        <!-- col 테이블 열을 하나 이상 묶을 때 사용 -->
+        <!-- span 2개 묶음 -->
+        <col span="2" class="blue" />
+        <col class="gold" />
+        <col class="pink" />
+      </colgroup>
+
+      <!-- 테이블 머리글 -->
+      <thead>
+        <!-- 테이블의 행 -->
+        <tr>
+          <!-- 테이블의 행,열의 제목을 나타냄 -->
+          <th scope="col">구분</th>
+          <th scope="col">셀 제목</th>
+          <th scope="col">셀 제목</th>
+          <th scope="col">셀 제목</th>
+        </tr>
+        <tr>
+          <th scope="col">구분</th>
+          <!-- 열 셀 2개 병합 -->
+          <th colspan="2" scope="col">셀 제목</th>
+          <!-- <th scope="col">셀 제목</th> -->
+          <!-- <th scope="col">셀 제목</th> -->
+        </tr>
+      </thead>
+
+      <!-- 테이블 본문 -->
+      <tbody>
+        <tr>
+          <th scope="row">제목</th>
+          <!-- 셀 내용 -->
+          <td>셀 내용</td>
+          <td rowspan="2">셀 내용</td>
+          <td>셀 내용</td>
+        </tr>
+        <tr>
+          <th scope="row">제목</th>
+          <td>셀 내용</td>
+          <!-- <td>셀 내용</td> -->
+          <td>셀 내용</td>
+        </tr>
+      </tbody>
+
+      <!-- 테이블 바닥글 -->
+      <tfoot></tfoot>
+    </table>
+  </body>
+</html>
