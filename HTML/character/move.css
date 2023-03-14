@@ -1,0 +1,224 @@
+body {
+  background-color: #1f6635;
+}
+
+.licat {
+  animation: licatMoving 2s infinite alternate;
+  position: relative;
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  background: url(https://paullabkorea.github.io/licat_CSS_tutorial/hair_back.svg)
+    no-repeat 50% 50%;
+  background-size: contain;
+}
+
+.licat img {
+  z-index: 2;
+  position: absolute;
+  width: 150px;
+  top: 26%;
+  left: 39%;
+}
+
+.licat .ear,
+.licat .face {
+  background-color: #f5d975;
+  border: 10px solid #0d0b06;
+}
+
+.ear {
+  width: 60px;
+  height: 80px;
+  display: inline-block;
+  position: absolute;
+  top: 160px;
+  box-shadow: 0 -3px 20px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ear::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 60px;
+  background: #0d0b06;
+  margin: 25px;
+}
+
+.ear.left {
+  animation: earLeftMoving 0.3s infinite alternate;
+  transform-origin: 100% 100%;
+  border-radius: 80px 60px 0 0;
+  transform: rotate(-15deg);
+  position: absolute;
+  left: 28%;
+}
+
+.ear.left::before {
+  border-radius: 50% 10% 0 0;
+}
+
+.ear.right {
+  animation: earRightMoving 0.3s infinite alternate;
+  transform-origin: 0% 100%;
+  border-radius: 60px 100px 0 0;
+  transform: rotate(15deg);
+  right: 28%;
+}
+
+.ear.right::before {
+  border-radius: 10% 50% 0 0;
+}
+
+.face {
+  width: 400px;
+  height: 300px;
+  border-radius: 50%;
+  z-index: 1;
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.face .eye {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0d0b06;
+}
+
+.face .eye::before {
+  opacity: 0;
+  content: "";
+  display: block;
+  width: 4px;
+  height: 12px;
+  background-color: red;
+  margin: 0 auto;
+  border-radius: 50%;
+  animation: eyeOpacity 2s ease infinite alternate;
+}
+
+.face .eye.left {
+  animation: eyeLeftMoving 2s ease infinite alternate;
+  position: absolute;
+  top: 80px;
+  left: 38%;
+  transform: rotate(8deg);
+}
+
+.face .eye.right {
+  animation: eyeRightMoving 2s ease infinite alternate;
+  position: absolute;
+  top: 80px;
+  right: 38%;
+  transform: rotate(-8deg);
+}
+
+.face .nose {
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  padding-top: 10px;
+  z-index: 3;
+}
+
+.face .nose .black {
+  width: 36px;
+  height: 22px;
+  background-color: #0d0b06;
+  border-radius: 40% 40% 50% 50%;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.face .nose .white {
+  background-color: white;
+  border: 8px solid #0d0b06;
+  width: 60px;
+  height: 40px;
+}
+
+.face .nose .white.left {
+  transform: rotate(-10deg);
+  border-radius: 50px 40px 80px 60px;
+}
+
+.face .nose .white.right {
+  margin-left: -8px;
+  transform: rotate(10deg);
+  border-radius: 40px 50px 60px 80px;
+}
+
+.face .mouth {
+  animation: mouthMoving 2s ease infinite alternate;
+  width: 40px;
+  height: 30px;
+  border-radius: 0 0 50% 50%;
+  background-color: #d7715f;
+  border: 8px solid #0d0b06;
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.face .whisker {
+  width: 100px;
+  height: 8px;
+  background: #0d0b06;
+  border-radius: 4px;
+  position: absolute;
+}
+
+.face .whisker.left.top {
+  top: 43%;
+  left: -4%;
+  transform: rotate(-3deg);
+}
+
+.face .whisker.left.bottom {
+  top: 58%;
+  left: -2.5%;
+  transform: rotate(-20deg);
+}
+
+.face .whisker.right.top {
+  top: 43%;
+  right: -4%;
+  transform: rotate(3deg);
+}
+
+.face .whisker.right.bottom {
+  top: 58%;
+  right: -2.5%;
+  transform: rotate(20deg);
+}
+
+.face .cheek {
+  width: 36px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #d7715f;
+  position: absolute;
+  top: 32%;
+  z-index: 4;
+  animation: cheekMoving 0.4s ease infinite alternate;
+}
+
+.face .cheek.left {
+  left: 24%;
+}
+
+.face .cheek.right {
+  right: 24%;
+}
