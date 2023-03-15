@@ -1,0 +1,36 @@
+.body {
+  background: rosybrown;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 240px 360px 260px 360px;
+  background: skyblue;
+  width: 612px;
+  height: 264px;
+  display: flex;
+  gap: 102px;
+}
+
+header {
+  width: 612px;
+  height: 264px;
+}
+
+h1 {
+    
+}
+
+p {
+  width: 343px;
+  height: 60px;
+}
+
+header h1 {
+  display: inline-block;
+}
+
+.img-media {
+  background: url("../img/Frame.svg");
+}
