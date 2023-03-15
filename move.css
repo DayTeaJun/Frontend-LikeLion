@@ -1,0 +1,153 @@
+body {
+  background: blueviolet;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.panda {
+  position: relative;
+  margin: 100px auto;
+  width: 360px;
+  height: 326px;
+}
+
+.face {
+  position: absolute;
+  bottom: 0;
+  width: 360px;
+  height: 280px;
+  border: solid black 10px;
+  border-radius: 135px 135px 90px 90px;
+  background: #080741;
+}
+
+.ear {
+  position: absolute;
+  top: 10px;
+  width: 130px;
+  height: 152px;
+  background: rgb(156, 155, 155);
+  border: solid black 20px;
+  border-radius: 90px;
+}
+
+.ear.right {
+  right: 0;
+}
+
+.eye {
+  position: absolute;
+  width: 105px;
+  height: 60px;
+  background: #272597;
+  border: solid black 8px;
+  border-radius: 90px;
+  top: 70px;
+  transition: all 1s;
+}
+
+.eye.left {
+  transform: rotate(-21deg);
+  left: 36px;
+}
+
+.eye.right {
+  transform: rotate(21deg);
+  right: 36px;
+}
+
+.nose {
+  position: absolute;
+}
+
+.nose.line {
+  height: 28px;
+  width: 8px;
+  bottom: 70px;
+  right: 176px;
+  background: black;
+}
+
+.nose.black {
+  width: 60px;
+  height: 24px;
+  border: solid black 5px;
+  border-radius: 90px 90px 135px 135px;
+  background: #050524;
+  bottom: 95px;
+  right: 151px;
+}
+
+.mouth {
+  position: absolute;
+  width: 55px;
+  height: 30px;
+  border: solid black 10px;
+  border-radius: 90px 90px 15px 15px;
+  background: #d9d9d9;
+  right: 158px;
+  bottom: 60px;
+  transition: all 1s;
+}
+
+.tears {
+  position: absolute;
+  background: #6bd3f3;
+  border-radius: 90px;
+  width: 41px;
+  height: 33px;
+  bottom: 103px;
+  transition: all 1s;
+}
+
+.tears.left {
+  left: 65px;
+  z-index: 1;
+}
+
+.tears.right {
+  right: 65px;
+  z-index: 1;
+}
+
+.small {
+  width: 25px;
+  height: 20px;
+  bottom: 80px;
+}
+
+.tears.left.small {
+  left: 53px;
+}
+
+.tears.right.small {
+  right: 53px;
+}
+
+.panda:hover .eye {
+  width: 100px;
+  height: 60px;
+  border: solid black 15px;
+}
+
+.panda:hover .eye.left {
+  transform: rotate(15deg);
+}
+
+.panda:hover .eye.right {
+  transform: rotate(-15deg);
+}
+
+.panda:hover .tears {
+  background: red;
+  bottom: 90px;
+  height: 10px;
+}
+
+.panda:hover .mouth {
+  border-radius: 15px 15px 90px 90px;
+}
