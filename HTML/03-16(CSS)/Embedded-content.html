@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- x서술자는 화소의 밀도를 나타냄, 디바이스의 화소 밀도에 따른 이미지를 로딩하도록 브라우저에게 알려줌 -->
+    <!-- 개발자 화면의 콘솔창에서 window.devicePixelRatio 사용가능 컨트롤로 확대한만큼 밀집도가 올라감 -->
+    <!-- <img
+      srcset="./img/rabbit_300.png 2x,\
+              ./img/rabbit_500.png 3x"
+      src="./img/rabbit_150.png"
+      alt="털뭉치"
+    /> -->
+
+
+    <!-- w서술자는 원본이미지의 넓이를 차례대로 브라우저에게 알려준다. 그리고 이 정보를 통해 현재 사용자 환경에 적절한 이미지를 로딩하도록 한다. -->
+    <!-- size 속성은 뷰포트의 조건에 따라 이미지가 ui안에서 차지하게 될 사이즈를 브라우저에게 알려준다. -->
+    <!-- <img
+      srcset="
+        img/rabbit_500.png 500w,
+        img/rabbit_300.png 300w,
+        img/rabbit_150.png 150w
+      "
+      sizes="(min-width: 960px) 250px,
+			 (min-width: 620px) 150px,
+			 300px"
+      src="rabbit_150.png"
+      alt="test"
+    /> -->
+
+
+    <!-- picture은 source와 img를 통해 각기 다른 디스플레이 혹은 디바이스에 따라 조건에 맞는 이미지를 보여준다. -->
+    <picture>
+      <source srcset="img/rabbit_500.png" media="(min-width:960px)" />
+      <source srcset="img/rabbit_300.png" media="(min-width:620px)" />
+      <img src="img/rabbit_150.png" alt="귀여운 아기 팽귄들" />
+    </picture>
+  </body>
+</html>

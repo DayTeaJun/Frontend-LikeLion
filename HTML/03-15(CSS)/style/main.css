@@ -1,36 +1,86 @@
-.body {
-  background: rosybrown;
+.body,
+p,
+h1 {
   margin: 0;
-  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .container {
-  margin: 240px 360px 260px 360px;
+  width: 1200px;
+  display: flex; 
+  max-width: calc(100% - 60px);
+  min-width: 400px;
   background: skyblue;
-  width: 612px;
-  height: 264px;
+}
+
+.section-text h1 {
+  color: #121314;
+  font-weight: normal;
+
+  /* 변동값 70 70 36 */
+  font-size: 70px;
+}
+
+.section-text p {
+  color: #47494d;
+
+  /* 변동값 70 70 36 */
+  font-size: 20px;
+
+  /* 변동값 20 20 14 */
+  margin-top: 20px;
+}
+
+.container .section-text {
+  flex-grow: 1;
+}
+
+main {
   display: flex;
-  gap: 102px;
+  flex-direction: column;
+  gap: 20px;
 }
 
-header {
-  width: 612px;
-  height: 264px;
-}
+.img-media,
+.img-document {
+  border-radius: 20px;
+  color: white;
 
-h1 {
-    
-}
-
-p {
-  width: 343px;
-  height: 60px;
-}
-
-header h1 {
-  display: inline-block;
+  aspect-ratio: 486 / 280;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 30px 30px 40px;
 }
 
 .img-media {
-  background: url("../img/Frame.svg");
+  background: url("/img/Frame2.svg") no-repeat 0 0 / cover;
+  box-shadow: inset 0 0 10px red;
+}
+
+.img-document {
+  background: url("/img/Frame2.svg") no-repeat 0 0 / cover;
+  box-shadow: inset 0 0 10px red;
+}
+
+.img-media strong,
+.img-document strong {
+  /* 변동값 30 24 20 */
+  font-size: 30px;
+}
+
+.img-media span,
+.img-document span {
+  align-self: flex-end;
 }
