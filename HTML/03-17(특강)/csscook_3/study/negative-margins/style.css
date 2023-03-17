@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    background-color: #ddd;
+}
+
+.header {
+    height: 300px;
+    background-image: url(images/cover.png);
+    background-position: center;
+    overflow: hidden;
+    margin-bottom: -100px;
+}
+
+.contents {
+    background-color: white;
+    width: 860px;
+    margin-bottom: 100px;
+    /* margin-top: -100px; */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+}
+
+.box-wrapper {
+    overflow: hidden;
+    width: 960px;
+    margin: 50px auto;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    margin: 5px;
+    float: left;
+    text-align: center;
+    line-height: 100px;
+    font-family: 'arial';
+    font-size: 50px;
+}
+
+.box.select {
+    background: orangered;
+    margin-left: -50px;
+    margin-right: -50px;
+}
+
+.map {
+    width: auto;
+    padding: 50px;
+    margin: 40px 0;
+    transition: all .4s;
+}
+
+.map:hover {
+    margin: 40px -150px;
+    box-shadow: 0 0 100px black;
+}

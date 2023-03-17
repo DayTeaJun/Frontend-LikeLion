@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flexing</title>
+        <style>
+            body {
+                background-color: brown;
+            }
+            .playground {
+                border: 10px solid maroon;
+                width: 980px;
+                margin: 0 auto;
+                border-radius: 20px;
+                background-color: skyblue;
+                display: flex;
+                height: 400px;
+                justify-content: center;
+                /* 기본값 */
+                align-items: stretch;
+            }
+            .frog {
+                background-color: mediumseagreen;
+                color: lime;
+                font-size: 40px;
+                margin: auto 10px;
+                border: 6px solid green;
+                border-radius: 10px;
+                /* 초기값 */
+                flex-basis: 200px;
+                
+            }
+
+            .frog.sun {
+                /* flex-basis 값에 flex-grow을 더함 */
+                margin-bottom: 0;
+                margin-top: auto;
+            }
+
+            /*.frog.covid {
+                background: red;*/
+                /* 사용가능한 공간을 왼쪽으로 보내겠다 */
+                /* margin-left: auto; */
+                /* 사용가능한 공간을 좌우로 보내겠다 */
+                /* margin: auto; */
+            /*}*/
+
+            /* 사용가능한 공간을 첫요소, 끝요소의 왼쪽 오른쪽으로 보내서 가운데 정렬 */
+            /*.frog.first {
+                margin-left: auto;
+            }
+            .frog.last {
+                margin-right: auto;
+            }*/
+        </style>
+    </head>
+    <body>
+
+        <div class="playground">
+            <!-- <div class="frog"><img src="images/frog.png"></div>
+            <div class="frog"><img src="images/frog-dj.png"></div>
+            <div class="frog sun"><img src="images/frog-disco.png"></div>
+            <div class="frog sun"><img src="images/frog-disco.png"></div>
+            <div class="frog sun"><img src="images/frog-disco.png"></div>
+            <div class="frog sun"><img src="images/frog-disco.png"></div> -->
+            <!-- <div class="frog">Frog</div>
+            <div class="frog">Frog</div>
+            <div class="frog">Frog</div> -->
+            <div class="frog"><img src="/images/frog-disco.png"></div>
+            <div class="frog"><img src="/images/frog-disco.png"></div>
+            <div class="frog sun"><img src="/images/frog-disco.png"></div>
+        </div>
+
+    </body>
+</html>

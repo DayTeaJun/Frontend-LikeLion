@@ -1,0 +1,86 @@
+h1, ol {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.section h1 {
+    margin-bottom: 30px;
+}
+
+.l_wrapper {
+    box-shadow: inset 0 0 10px red;
+    
+    /* 반응형으로 만들기 */
+    width: auto;
+    /* width값을 늘리다가 800px 될경우 멈춰! */
+    max-width: 800px;
+    margin: 100px auto;
+}
+
+.section-timeline {
+    
+    position: relative;
+}
+
+.section-timeline::before {
+    content: '';
+    background-color: red;
+    position: absolute;
+    left: 0;
+    right: 0;
+    /* 위 코드 2개를 주면 가로값 다 차지함 */
+    top: 0;
+    bottom: 0;
+    /* 위 코드 2개를 주면 높이값 다 차지함 */
+    /* 위 코드 4개 -> inset: 0; */
+    width: 10px;
+    /* margin-bottom 값에 네거티브 마진을 넣음 */
+    margin: 40px auto -40px;
+    border-radius: 6px;
+}
+
+.section-timeline li {
+    /* box-shadow: inset 0 0 5px blue; */
+    width: 50%;
+    padding: 0 10px;
+    /* width: 50% 의 패딩값을 포함하게 함 */
+    box-sizing: border-box;
+}
+
+/* 짝수 번째 선택 */
+.section-timeline li:nth-child(even) {
+    margin-left: auto;
+    /* negative 마진을 줘서 마이너스한 값만큼 위와 아래 요소들이 차지하게 함 */
+    margin-top: -40px;
+    margin-bottom: -40px;
+}
+
+.year {
+    background-color: orange;
+    padding: 20px;
+    min-height: 120px;
+}
+
+/* 만약에 뷰포트 사이즈가 800px보다 작아진다면 */
+@media (max-width: 800px) {
+    /* * {
+        box-shadow: 0 0 100px blue;
+    } */
+
+    /* 위의 .section-timeline li:nth-child(even)가 우선순위가 더 높기 때문에 변화가 일어나지 않음. */
+    /* .section-timeline li {
+        margin: 0;
+    } */
+
+    /* 반응형으로 줄였을때 네거티브 마진을 없앤다! */
+    .section-timeline li,
+    .section-timeline li:nth-child(even) {
+        width: auto;
+        /* 위의 네거티브 마진을 없애기 위해 margin-bottom만 주지 않고 아래처럼 모두 값을 변경 */
+        margin: 0 0 20px 0;
+    }
+}
