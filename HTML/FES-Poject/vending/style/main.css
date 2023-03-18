@@ -1,0 +1,140 @@
+/* reset css */
+body,
+h1,
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    /* 하단 빈공간 없애기 */
+    vertical-align: top;
+}
+
+body {
+    background: #EAE8FE;
+}
+
+.wrap {
+    box-shadow: inset 0 0 10px red;
+    width: 748px;
+    margin: 0 auto;
+}
+
+.wrap .logo {
+    /* 부모 h1은 블록요소, 자식인 img는 인라인 요소이므로
+    text-align: center 가능 */
+    text-align: center;
+    margin-bottom: 68px;
+    
+}
+
+.logo-img {
+    height:180px;
+}
+
+.container {
+    display: flex;
+    gap: 28px;
+    box-shadow: inset 0 0 10px green;
+}
+
+main {
+    width: 360px;
+    background: #fff;
+    box-shadow: inset 0 0 10px blueviolet;
+}
+
+.cola-container {
+    padding: 31px 27px 20px 27px;
+    text-align: center;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.item-cola {
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 0px #00000080;
+    padding: 11px 10px 9px 11px;
+}
+
+.original,
+.green {
+    border: 3px solid #6327FE;
+}
+
+.violet {
+    position: relative;
+}
+
+.violet::after {
+    content:'';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background: url("../img/soldout.svg") 17px 45px no-repeat;
+}
+
+.soldout::before {
+    content:'';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    top:0;
+    left:0;
+    background: rgba(0,0,0,.8);
+}
+
+.item-cola p {
+    font-size: 9px;
+    font-weight: 500;
+    margin: 6px 0 7px 0 ;
+}
+
+.item-cola .fare {
+    background: #6327FE;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.vending-result {
+    padding: 0 27px 28px 27px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    text-align: center;
+}
+
+.item-result {
+    
+}
+
+article {
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: inset 0 0 10px royalblue;
+}
+
+article .money {
+    height: 50px;
+    background: #fff;
+    box-shadow: inset 0 0 10px saddlebrown;
+}
+
+article .gain {
+    height: 474px;
+    background: #fff; 
+    box-shadow: inset 0 0 10px rebeccapurple;
+}
