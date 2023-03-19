@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vending machine</title>
     <link rel="stylesheet" href="./style/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="wrap"> 
@@ -70,17 +71,30 @@
                 </div>
 
                 <div class="vending-result">
-                    <div class="item-result">잔액</div>
-                    <div class="item-result">거스름돈 반환</div>
-                    <div class="item-result">입금액</div>
-                    <div class="item-result">입금</div>
-                    <div class="item-result">사진</div>
-                    <div class="item-result">획득</div>
+                    <div class="item-result balance"><p>잔액:</p><strong>1,000 원</strong></div>         
+                    <a href="#" class="item-result v-return"><p class="p-right">거스름돈 반환</p></a>
+                    <input type="text" placeholder="입금액 입력" class="item-result amount"></input>
+                    <a href="#" class="item-result deposit"><p class="p-right">입금</p></a>
+                    <div class="item-result picture"></div>
+                    <a href="#" class="item-result v-gain"><p class="p-right">획득</p></a>
                 </div>
             </main>
             <article>
-                <div class="money"></div>
-                <div class="gain"></div>
+                <div class="money">
+                    <div class="my-money">
+                        <p>소지금: <strong>25,000원</strong></p>
+                    </div>
+                </div>
+                <div class="gain">
+                    <p class="gain-p">획득한 음료</p>
+                    <div class="container-mycola">
+                        <div class="item-mycola">
+                            <p><img src="./img/red.svg" alt="Original cola">Original_Cola</p>
+                            <div class="quantity">1</div>
+                        </div>
+                    </div>
+                    <p class="amount-p">총금액 : 9,000 원</p>
+                </div>
             </article>
         </div>
     </div>

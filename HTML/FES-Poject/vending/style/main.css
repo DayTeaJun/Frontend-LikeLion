@@ -1,11 +1,16 @@
 /* reset css */
 body,
 h1,
-p {
+p,
+input {
     margin: 0;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
 }
 
 a {
+    color: black;
     text-decoration: none;
 }
 
@@ -19,7 +24,6 @@ body {
 }
 
 .wrap {
-    box-shadow: inset 0 0 10px red;
     width: 748px;
     margin: 0 auto;
 }
@@ -39,13 +43,11 @@ body {
 .container {
     display: flex;
     gap: 28px;
-    box-shadow: inset 0 0 10px green;
 }
 
 main {
     width: 360px;
     background: #fff;
-    box-shadow: inset 0 0 10px blueviolet;
 }
 
 .cola-container {
@@ -61,6 +63,8 @@ main {
     border-radius: 10px;
     box-shadow: 0px 0px 4px 0px #00000080;
     padding: 11px 10px 9px 11px;
+    height: 130px;
+    box-sizing: border-box;
 }
 
 .original,
@@ -95,7 +99,7 @@ main {
 
 .item-cola p {
     font-size: 9px;
-    font-weight: 500;
+
     margin: 6px 0 7px 0 ;
 }
 
@@ -104,19 +108,82 @@ main {
     border-radius: 50px;
     color: #fff;
     font-size: 12px;
-    font-weight: 500;
+
 }
 
 .vending-result {
     padding: 0 27px 28px 27px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    height: 194px;
     gap: 12px;
-    text-align: center;
+    grid-template-columns: 2fr, 1fr;
+    grid-template-rows: 1fr, 1fr, 3fr;
 }
 
 .item-result {
-    
+    border-radius: 5px;
+    width: 200px;
+    box-sizing: border-box;
+    height: 32px;
+    padding: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-right {
+    font-size: 13px;
+}
+
+.item-result:nth-child(even) {
+    width: auto;
+    box-shadow: 0px 0px 4px 0px #00000080;
+    text-align: center;
+}
+
+.item-result:nth-child(n+5) {
+    height: 106px;
+}
+
+
+.balance {
+    background-color: #EAE8FE;
+    grid-area: 1/1/2/2;
+    justify-content: space-between;
+    padding: 6px 10px;
+}
+
+.amount {
+    grid-area: 2/1/3/2;
+    padding: 6px 6px 7px;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+}
+
+.amount::placeholder {
+    color: #BDBDBD;
+}
+
+.picture {
+    background-color: #EAE8FE;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    grid-area: 3/1/4/2;
+
+}
+
+.v-return {
+    grid-area: 1/2/2/3;
+}
+
+.deposit {
+    grid-area: 2/2/3/3;
+}
+
+.v-gain {
+    grid-area: 3/2/4/3;
+    background: #6327FE;
+    color: #fff;
 }
 
 article {
@@ -124,17 +191,100 @@ article {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    box-shadow: inset 0 0 10px royalblue;
 }
 
 article .money {
     height: 50px;
     background: #fff;
-    box-shadow: inset 0 0 10px saddlebrown;
+}
+
+.my-money {
+    width: 286px;
+    border-radius: 5px;
+    background: #EAE8FE;
+    margin: 9px 27px;
+    padding: 6px 10px;
+}
+
+.money p strong {
+    font-weight: 700;
+    float: right;
 }
 
 article .gain {
     height: 474px;
+    text-align: center;
     background: #fff; 
-    box-shadow: inset 0 0 10px rebeccapurple;
+    padding: 0 27px;
+}
+
+.container-mycola {
+    height: 364px;
+    background: #EAE8FE;
+    border-radius: 5px;
+    border: solid 1px #BDBDBD;
+    box-sizing: border-box;
+    overflow-y: scroll;
+
+    display: flex;
+    padding: 12px;
+}
+
+.item-mycola {
+    width: 276px;
+    height: 46px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-mycola p {
+    font-size: 9px;
+    margin-left: 10px;
+}
+
+.item-mycola img {
+    width: 18px;
+    height: 33px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.quantity {
+    width: 30px;
+    height: 30px;
+    margin: 8px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+}
+
+.container-mycola::-webkit-scrollbar {
+    width: 10px;
+}
+.container-mycola::-webkit-scrollbar-thumb {
+    background-color: #2f3542;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+.container-mycola::-webkit-scrollbar-track {
+    background-color: grey;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+}
+
+.gain-p {
+    font-weight: 700;
+    margin: 25px 0 13px;
+}
+
+.amount-p {
+    font-size: 12px;
+    margin-top: 6px;
+    text-align: right;
 }
