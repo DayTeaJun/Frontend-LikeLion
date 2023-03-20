@@ -4,6 +4,13 @@ body {
   background: #fff0d1;
 }
 
+button {
+  border: 0;
+}
+button:not(:disabled) {
+  cursor: pointer;
+}
+
 .a11y-hidden {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
@@ -16,9 +23,9 @@ body {
 }
 
 /* button btn- 부터 시작하는 class 전부 */
-[class^="btn-"] {
+[class^="btn"] {
   display: inline-block;
-  padding: 1em 1em 1em 2.8em;
+  padding: 1em 1em 1em 1em;
   text-decoration: none;
   color: #5a6a72;
 }
@@ -48,9 +55,9 @@ body {
 }
 
 /* disabled가 아닐때만 커서 포인트를 줌 */
-.black-btn:not(:disabled) {
+/* .black-btn:not(:disabled) {
   cursor: pointer;
-}
+} */
 
 button:disabled {
   opacity: 0.2;
@@ -138,5 +145,28 @@ header {
     position: absolute;
     top: 140px;
     right: 34px;
+  }
+}
+
+.svg {
+  display: block;
+  width: auto;
+  height: 120px;
+  margin: 0 auto 20px;
+}
+.svg .svg-heart {
+  transform: scale(1);
+  stroke: transparent;
+  stroke-width: 0px;
+  transform-origin: 50% 20px;
+  z-index: 10;
+  animation: heart 0.5s cubic-bezier(0.23, 1.08, 0.26, 0.01) infinite alternate;
+}
+
+@keyframes heart {
+  to {
+    stroke: #ffc7d1;
+    stroke-width: 2px;
+    transform: scale(3);
   }
 }

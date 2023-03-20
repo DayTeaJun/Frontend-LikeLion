@@ -1,0 +1,172 @@
+/* reset */
+body,
+p,
+h1,
+h2,
+h3,
+ul,
+li,
+button {
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    border: 0;
+    background: 0;
+    font: inherit;
+}
+
+button:not(:disabled) {
+    cursor: pointer;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+/* header */
+h1 {
+    font-size: 24px;
+    text-align: center;
+    width: 650px;
+    border-bottom: 2px solid #bdbdbd;
+    padding-bottom: 37px;
+    margin: 0 auto;
+}
+
+.cinema-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 18px;
+}
+
+.cinema-nav button {
+    padding: 10px 20px;
+    color: #828282;
+}
+
+.cinema-nav button.active {
+    font-weight: bold;
+    color: #000;
+}
+
+/* article */
+.cinema-card {
+    width: 220px;
+    border: 1px solid #bdbdbd;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.cinema-contents {
+    padding: 19px 20px 18px;
+}
+
+.cinema-contents img {
+    border: 1px solid #bdbdbd;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    aspect-ratio: 180 / 250;
+    width: 100%;
+    /* 이미지가 찌그러지지 않기 위한 방지용 */
+    object-fit: cover;
+}
+
+.cinema-title {
+    font-size: 16px;
+    font-weight: 900;
+    margin: 12px 0;
+}
+
+.ellipsis {
+    /* 말줄임처리 */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.cinema-info {
+    font-size: 13px;
+    display: flex;
+    /* 요소 부모 값 이상 차지하면 내려가게함(아니면 안내려가고 옆으로 옮김) */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.cinema-info li {
+    display: flex;
+}
+
+/* li의 첫번째 자식들만 선택 */
+.cinema-info li :first-child {
+    color: #828282;
+    margin-right: 5px;
+}
+
+.tit + .ellipsis {
+    float: right;
+    width: 150px;
+}
+
+.star {
+    background: url(../img/icon-star.svg) no-repeat 0 0 / 1em;
+    padding-left: 1.3em;
+}
+
+.button-group {
+    border-top: 1px solid #bdbdbd;
+    display: flex;
+}
+
+.button-group a,
+.button-group button {
+    background: #f2f2f2;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.button-group a {
+    border-right: 1px solid #bdbdbd;
+    border-radius: 0 0 0 10px;
+}
+
+.button-group a:focus {
+    z-index: 1;
+}
+
+.button-group button {
+    border-radius: 0 0 10px 0;
+}
+
+.button-group button::before {
+    /* content: url(../img/icon-play.svg); 가능*/
+    content: "";
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    background: url(../img/icon-play.svg) no-repeat 0 50% / 1em ;
+}
