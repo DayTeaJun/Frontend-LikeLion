@@ -55,8 +55,8 @@ li {
 .section-timeline li:nth-child(even) {
     margin-left: auto;
     /* negative 마진을 줘서 마이너스한 값만큼 위와 아래 요소들이 차지하게 함 */
-    margin-top: -40px;
-    margin-bottom: -40px;
+    /* margin-top: -40px;
+    margin-bottom: -40px; */
 }
 
 .year {
