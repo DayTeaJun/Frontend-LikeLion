@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 또는 회원가입</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+    <div class="wrap">
+
+        <!-- header -->
+        <header>
+            <h1>로그인 또는 회원가입</h1>
+            <button type="button">
+                <span class="line">
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </header>
+        <!-- //header -->
+
+        <!-- main -->
+        <main>
+            <!-- section -->
+            <section class="container-login">
+                
+                <p class="login-title">위니브에서 여러분의 궁금증을 해결하세요! :)</p>
+
+                <form class="login-form">
+                    <input class="login-input" id="btn-id" type="text" placeholder="아이디">
+                    <label for="btn-id" class="a11y-hidden">아이디</label>
+
+                    <strong>아이디를 입력해주세요.</strong>
+
+                    <input class="login-input" id="btn-pw" type="text" placeholder="비밀번호">
+                    <label for="btn-pw" class="a11y-hidden">비밀번호</label>
+
+                    <strong>아이디 혹은 비밀번호가 일치하지 않습니다.</strong>
+
+                    <div class="check-login">
+                        <input id="chk-login" type="checkbox">
+                        <label for="chk-login">로그인 상태 유지</label>
+                    </div>
+
+                    <button type="submit">로그인</button>
+                </form>
+
+                <div class="join-find">
+                    <p>회원가입</p>
+                    <p>아이디/비밀번호 찾기</p>
+                </div>
+
+                <h2 class="a11y-hidden">다른 계정으로 로그인</h2>
+                <p>또는</p>
+                <ul>
+                    <li><button type="button">구글 계정으로 로그인</button></li>
+                    <li><button type="button">페이스북 계정으로 로그인</button></li>
+                    <li><button type="button">네이버 계정으로 로그인</button></li>
+                    <li><button type="button">카카오톡 계정으로 로그인</button></li>
+                </ul>
+
+                
+            </section>
+            <!-- //section -->
+            
+        </main>
+        <!-- //main -->
+
+        <button type="button" class="btn-close"><img src="./img/close.svg" alt="로그인 페이지 나가기"></button>
+        
+    </div>
+</body>
+</html>

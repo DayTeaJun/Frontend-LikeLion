@@ -1,0 +1,102 @@
+body,
+p,
+ul,
+li,
+h1,
+h2,
+button {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+button {
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+body {
+    background: #ededed;
+}
+
+.wrap {
+    background: #fff;
+    width: 520px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid #c4c4c4;
+    position: relative; 
+}
+
+header {
+    padding: 20px 0 18px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #c4c4c4;
+}
+
+header h1 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* .line {
+    display: block;
+    height: 100%;
+} */
+
+main {
+    padding: 26px 24px 25px 24px;
+}
+
+.container-login {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 14px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-input {
+    border-radius: 5px;
+    border: solid 1px #c4c4c4;
+    
+    padding: 15px;
+}
+
+.btn-close {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}

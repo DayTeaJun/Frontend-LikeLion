@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        img {
+            position: absolute;
+            width: 500px;
+            /* 바텀, 오른쪽 값을 넣어야 이미지가 나옴 */
+            /* clip: rect(0 500px 160px 0); */
+
+            /* 네모 모양으로 자르기, 입력한 값만큼 자름 */
+            clip-path: inset(160px 0 0 0);
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/gel.jpg">
+</body>
+</html>

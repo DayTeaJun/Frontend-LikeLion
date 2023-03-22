@@ -1,0 +1,192 @@
+body, p, ul {
+  margin: initial;
+  padding: initial;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: initial;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* img 기본스타일 초기화 */
+img {
+    /* 자신의 부모크기 기준으로 강제함 */
+    max-width: 100%;
+    /* 통상적으로 지정해둠 (디폴트값 이지만) */
+    height: auto;
+    vertical-align: top;
+}
+
+:root {
+    font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+}
+
+
+.l_wrapper {
+  /* box-shadow: inset 0 0 10px red; */
+  width: 1080px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.section_purple {
+  background-color: #673399;
+  color: white;
+}
+
+.section_pink {
+  background-color: seashell;
+  color: salmon;
+}
+
+.section-header {
+  box-shadow: inset 0 0 10px cyan;
+  margin-bottom: 100px;
+}
+
+.section-contents {
+  box-shadow: inset 0 0 10px deeppink;
+}
+
+/* 셀릭터로 지정하는 것보다 그냥 .title해서 확장성을 높임 */
+.title {
+    box-shadow: inset 0 0 10px yellow;
+    display: flex;
+    align-items: center;
+}
+
+.title-headings {
+    box-shadow: inset 0 0 10px darkorange;
+    /* flex-items에게 width값 대신 줌 */
+    flex-basis: 26%;
+    /* flex-shrink가 1이라서 옆의 요소가 커지면 basis 26퍼가 보장이 안됨 이때, 결코 줄어들지 말아야할 사이즈를 지정하고 싶으면 shrink에 0을 준다. */
+    flex-shrink: 0;
+    font-size: 40px;
+}
+
+.title-headings strong {
+    box-shadow: inset 0 -20px 0 orangered;
+}
+
+.title p {
+    box-shadow: inset 0 0 10px darkorange;
+    /* 반응형 */
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+}
+
+/* h1 과 p 사이의 작대기 */
+.title p::before {
+    content: '';
+    width: 60px;
+    height: 2px;
+    /* 사이즈 안 줄일거임 */
+    flex-shrink: 0;
+    /* 부모요소 색 받음 */
+    background-color: currentColor;
+    margin-right: 20px;
+}
+
+.card {
+    background: #fff;
+    color: #222;
+    display: flex;
+    /* 컨텐츠양이랑 상관없이 최소값을 넣음 상황파악 용도 */
+    min-height: 200px;
+}
+
+/* card 사이 사이에 마진 top을 줌 */
+.card + .card {
+    margin-top: 24px;
+}
+
+.card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.card-cover {
+    box-shadow: inset 0 0 10px darkorange;
+    /* flex-basis 디폴트 값이 auto이기때문에 안의 요소 크기만큼 됨 */
+    /* shrink를 안주면 언제든 크기가 작아질 수 있다 */
+    flex-basis: 26%;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.card-cover img {
+    /* img에 absolute를 주면 장점이 없기 때문에 않쓰는게 좋음 작업 최소화 */
+    /* position: absolute;
+    left: 0;
+    top: 0; */
+    width: 100%;
+    height: 100%;
+    /* 백그라운드 이미지 처럼 마크업 단위의 이미지 크기 조절이 만들어짐 */
+    object-fit: cover;
+}
+
+.card-cover h2 {
+    /* 나중에 작성된 마크업이 맨앞으로 나오지만,
+    position: static 이 아닌 값을 넣으면 앞으로 나옴 */
+    /* 반응형을 고려해서 이미지말고 cover에 relative를 해줌 */
+    position: absolute;
+    inset: 0;
+    background-color: rgb(0 0 0 / .4);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+}
+
+.card-contents {
+    box-shadow: inset 0 0 10px dodgerblue;
+    /* basis값이 0이면 온전히 grow값으로만 전체가 다 찰수 있게금 만듦 auto도 가능 */
+    flex-basis: 0;
+    /* 컨텐츠 크기가 커지면 언제든 크기가 커질 수 있다. */
+    flex-grow: 1;
+
+    /* 온전히 부모가 감싸는 영역에 들어가게함 (레이아웃이, 컨텐츠영역) */
+    min-width: 0;
+
+    /* width값으로 % 사용해도 되지만, 반응형 문제와 flex를 썼으면 flex기능을 이용하는게 좋음 이 경우엔 flex-grow로 반응형하게 커지게함 */
+
+    padding: 30px;
+}
+
+.lists {
+    box-shadow: inset 0 0 20px dodgerblue;
+}
+
+.lists li {
+    /* 들여쓰기 또는 네거티브 마진을 줌 */
+    text-indent: -20px;
+    padding-left: 20px;
+}
+
+.lists li + li {
+    margin-top: 6px;
+}
+
+.lists li::before {
+    content:'';
+    background: orange;
+
+    /* 인라인 요소는 높이 너비가 없음 */
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}

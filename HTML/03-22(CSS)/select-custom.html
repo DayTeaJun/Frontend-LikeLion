@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select</title>
+    <style>
+        /* a11y 같은 웹접근성 고려 안보이게 하지만 스크린 리더로 읽게함 */
+        .txt-hide {
+            clip: rect(0px, 0px, 0px, 0px);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            position: absolute;
+        }
+
+        /* 홀드 된 상태 */
+        .label-hold {
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 16px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* 체크박스 대신 박스 만들기 */
+        .label-hold::before {
+            /* 중요도 순서로 코드 작성 */
+            content:'';
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            /* 만든 박스 위치를 글자와 가운데 위치 시키기 */
+            vertical-align: -5px;
+            margin-right: 10px;
+            border: 1px solid black;
+        }
+
+        /* focus-visible
+        포커싱 이벤트가 일어나면 무조건 작동하는 :focus 와는 다르게 키보드 입력이 일어났을 경우만 가상클래스를 적용하게 합니다.
+
+        특히 접근성을 위해 사용하는 경우 마우스 이벤트로도 작동하는 focus는 시각적인 불편함과 체크를 해제했음에도 포커스되어 있다는 이유로 작동하는 혼란을 줄 수 있기 때문에 focus-visible 이 더 효과적이라고 볼 수 있습니다. */
+
+        /* 기존 포커스가 없기에 만들어줌
+        visible로 해야 누를때마다 안 깜박임, 그리고 키보드에만 반응해서 접근성에 용이함 */
+        .inp-hold:focus-visible+.label-hold::before {
+            /* border로 하면 공간을 차지하여 벗어나기때문에 아웃라인 씀 */
+            outline: 2px solid #000;
+            /* 외곽선 */
+            outline-offset: 2px;
+        }
+        
+        
+        .label-hold::after {
+            content: '';
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            background: url(./images/checkmark.png) 0 0 / 22px no-repeat;
+            top: 2px;
+            left: 23px;
+            position: absolute;
+            /* 움직이는 대상이 여기임 */
+            transition: .3s ease;
+            opacity: 0;
+        }
+
+        /* .label-hold가 체크가 됬을때 형제인 .label-hold::after 선택함 */
+        .inp-hold:checked + .label-hold::after {
+            /* 왼쪽에서 1px 떨어진 곳 */
+            left: 1px;
+            opacity: 1;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- 네이밍 카멜케이스 낙타처럼 네이밍에서 두번째 단어를 대문자로함 -->
+    <input id="inpHold" class="inp-hold txt-hide" type="checkbox">
+    <label for="inpHold" class="label-hold">로그인 상태 유지</label>
+    <!-- 클래스 네이밍 자신의 규칙을 만들기 (회사가면 컨벤션 있을 수 있음)
+    형태(요소의 형태)->의미(hold 등)->상태(필요할때 넣고, 아니면 빼기, 활성화 상태이면 on 등) -->
+</body>
+</html>
