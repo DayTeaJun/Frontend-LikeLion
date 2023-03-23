@@ -1,12 +1,28 @@
-body,
-p,
-ul,
-li,
-h1,
-h2,
-button {
+@font-face {
+    font-family: Spoqa Han Sans Neo;
+    src: url("../font/SpoqaHanSansNeo-Regular.woff") format("woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Spoqa Han Sans Neo;
+    src: url("../font/SpoqaHanSansNeo-Medium.woff") format("woff");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Spoqa Han Sans Neo;
+    src: url("../font/SpoqaHanSansNeo-Bold.woff") format("woff");
+    font-weight: 700;
+}
+
+* {
     margin: 0;
     padding: 0;
+    border: 0;
+    font: inherit;
+    box-sizing: border-box;
+    color: inherit;
 }
 
 ul,
@@ -15,10 +31,17 @@ li {
 }
 
 button {
-    border: 0;
     background: none;
-    color: inherit;
     font: inherit;
+}
+
+img {
+	width: 100%;
+	vertical-align: top;
+}
+
+a {
+    text-decoration: none;
 }
 
 .a11y-hidden {
@@ -34,11 +57,12 @@ button {
 
 body {
     background: #ededed;
+    font-family: "Spoqa Han Sans Neo", sans-serif;
 }
 
 .wrap {
     background: #fff;
-    width: 520px;
+    max-width: 520px;
     margin: 100px auto;
     display: flex;
     flex-direction: column;
@@ -69,15 +93,16 @@ main {
     padding: 26px 24px 25px 24px;
 }
 
-.container-login {
+.module-input {
     display: flex;
     flex-direction: column;
+
 }
 
 .login-title {
     font-size: 20px;
     font-weight: 500;
-    margin-bottom: 14px;
+    margin-bottom: 24px;
 }
 
 .login-form {
@@ -88,8 +113,99 @@ main {
 .login-input {
     border-radius: 5px;
     border: solid 1px #c4c4c4;
-    
     padding: 15px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.error-input {
+    margin: 6px 0 10px 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: #f4492e;
+}
+
+.login-btn {
+    height: 50px;
+    background: #2f80ed;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin: 20px 0;
+}
+
+.join-find {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #767676;
+}
+
+.join-find span {
+    margin: 0 12px;
+}
+
+.container-login-another {
+    margin-top: 30px;
+    border-top: solid 1px #c4c4c4;
+    padding-top: 20px;
+}
+
+.sns-login li button {
+    height: 50px;
+    /* 고쳐야함 */
+    width: 100%;
+    display: block;
+    padding: 15px 14px;
+    border: 1px solid #767676;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #767676;
+}
+
+[class^="icon"]::before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 22px;
+    height: 22px;
+}
+
+/* .icon-google {
+    border: 1px solid #2D9CDB;
+}
+
+.link-sns-login.icon-naver {
+    border: 1px solid #00BF18;
+}
+
+.link-sns-login.icon-kakao {
+    border: 1px solid #F2C94C;
+}
+
+.icon-google::before {
+    background: url("images_login/icon_google.png") no-repeat;
+}
+
+.icon-naver::before {
+    background: url("images_login/icon_naver.png") no-repeat;
+}
+
+.icon-kakao::before {
+    background: url("images_login/icon_kakao.png") no-repeat;
+}
+
+.icon-facebook::before {
+    height: 24px;
+    background: url("images_login/icon_facebook.png") center no-repeat;
+} */
+
+.sns-login li:nth-child(even) {
+    margin: 10px 0;
 }
 
 .btn-close {

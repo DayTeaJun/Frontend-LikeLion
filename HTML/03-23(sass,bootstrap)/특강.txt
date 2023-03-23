@@ -1,0 +1,75 @@
+1. 회사 컨벤션
+
+온보딩, 회사마다 컨벤션(없으면 건의해보자 자스는 구글, css는 애어비앤비 마냥)이 다르다
+참고용 링크
+
+구글
+https://github.com/google/styleguide
+
+iframe은 보안 요소가 취약하다 해킹 당할수 있어서 가급적 쓰지 않음
+https://paullab.co.kr/DBD_001.html
+
+속성 값 축약 권장, 대문자 금지
+#ffffff -> #fff
+
+z-index값의 범위는 최소 10 단위
+
+TODO(이름) 이름이 관련한 사람이 해야하는 일을 하이라이팅 해줌
+
+!important 금지
+
+2. bootstrap
+부트스트랩을 스펙(이력서)에 넣을 수 있는가? :yes
+회사에서도 쓰는곳 많음
+쓰는 업체에서는 +점수이고, 어디까지 썼는지 물어 볼것이다.
+*tailwind : yes 회사들 많이씀
+-> bootstrapn, tailwind로 각각 프로젝트 만드는 것을 추천
+*D3 : yes 배우는게 어렵긴 한데, 이것을 전문으로 뽑는 회사가 있음
+*canvas : 위와 동일
+*SASS : yes
+
+구글 검색 부트스트랩은 영어로 검색
+부트스트랩은 데스크탑 화면을 만들어도, 모바일이 기본이라 같이 설계해줌
+
+부트스트랩이 무겁다? -> 현재는 무겁지 않고 가벼워짐 (제이쿼리가 사라졌음)
+
+bootstrap 홈페이지 -> docs - grid(한줄을 12개 컬럼을 만듦 이상태에서 통합하거나 로우값을 넣고 높이를 키우는 등 커스텀 가능)
+
+bootstrap은 하나부터 끝까지 코딩하는게 아님 이럴꺼면 tailwind를 써라
+템플릿을 구매하여 바꾸는 것이 bootstrap
+
+font awesome
+https://fontawesome.com/
+icons -> 검색하면 관련 아이콘이 나옴 (facebook 검색하면 facebook 관련 아이콘)
+폰트사용 연결태그 : https://cdnjs.com/libraries/font-awesome
+폰트 svg 모음
+https://fonts.google.com/icons
+
+modal창으로 경고를 띄우는 것보단 다른 방법으로 경고를 하자
+(modal 뒤의 html은 그대로 있기 때문)
+modal은 항상 대부분의 프로젝트에서 제일 밑 부분에 있음
+bootstrap은 important! 가 원래 들어감 (그래서 내가 직접 수정할 때도 important!를 써야됨)
+
+bootstrap 사용법
+무료 배포 사이트에 가서 검사기 킨다음
+원하는 것 클릭하여 복사 붙여넣기
+
+시맨틱함을 유지할 필요없고 빠르게 작업해야할 때
+bootstrap이 용이함!
+
+부트스트랩 모달창 사이트
+https://sweetalert2.github.io/
+
+datepicker(달력같음) -> 제이쿼리가 있어서 옛날 버전임
+https://jqueryui.com/datepicker/
+
+toastui(text작성 ui WYSIWYG editor)
+https://ui.toast.com/tui-editor
+
+disqus (댓글 기능 넣기)
+disqus 에서 자체 백엔드가 있어서, 로그인하여 관리가능
+
+이미지 바꿀꺼면 css를 수정하지 않고, img파일자체를 바꾼다
+
+mb, mt 같이 마진 탑 바텀에
+주는 간격은 rem이고 1~5 적용
