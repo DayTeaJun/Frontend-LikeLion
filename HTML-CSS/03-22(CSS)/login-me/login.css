@@ -185,8 +185,8 @@ main {
     content: "";
     position: absolute;
     display: block;
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
 }
 
 .icon-google {
@@ -221,7 +221,7 @@ main {
     background: url("./img/facebook.svg") no-repeat;
 }
 
-.sns-login li:nth-child(even) {
+.container-login-another ul li:nth-child(even) {
     margin: 10px 0;
 }
 
