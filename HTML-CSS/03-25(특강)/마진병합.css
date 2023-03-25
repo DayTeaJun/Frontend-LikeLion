@@ -1,0 +1,35 @@
+html {
+    background-color: royalblue;
+}
+
+body {
+    background-color: red;
+    margin: 0;
+    height: 300px;
+}
+
+div {
+    width: 100px;
+}
+
+.parent {
+    position: relative;
+    /* display: inline-block; */
+    display: flow-root;
+    background: yellow;
+}
+
+.second {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    width: 20px;
+    height: 30px;
+    margin-bottom:  20px;
+    background: blue;
+}
+
+.third {
+    height: 30px;
+    background: green;
+}
