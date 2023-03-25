@@ -169,13 +169,10 @@ main {
     transform: translateX(-50%);
 }
 
-.sns-login li button {
-    height: 50px;
-    /* 고쳐야함 */
-    width: 100%;
+.link-sns-login {
     display: block;
     padding: 15px 14px;
-    border: 1px solid #767676;
+    /* border: 1px solid #767676; */
     border-radius: 5px;
     font-weight: 500;
     font-size: 16px;
@@ -192,34 +189,37 @@ main {
     height: 22px;
 }
 
-/* .icon-google {
+.icon-google {
     border: 1px solid #2D9CDB;
 }
 
-.link-sns-login.icon-naver {
+.icon-naver {
     border: 1px solid #00BF18;
 }
 
-.link-sns-login.icon-kakao {
+.icon-kakao {
     border: 1px solid #F2C94C;
 }
 
+.icon-facebook {
+    border: 1px solid #f4492e;
+}
+
 .icon-google::before {
-    background: url("images_login/icon_google.png") no-repeat;
+    background: url("./img/Google.svg") no-repeat;
 }
 
 .icon-naver::before {
-    background: url("images_login/icon_naver.png") no-repeat;
+    background: url("./img/Naver.svg") no-repeat;
 }
 
 .icon-kakao::before {
-    background: url("images_login/icon_kakao.png") no-repeat;
+    background: url("./img/Kakao.svg") no-repeat;
 }
 
 .icon-facebook::before {
-    height: 24px;
-    background: url("images_login/icon_facebook.png") center no-repeat;
-} */
+    background: url("./img/facebook.svg") no-repeat;
+}
 
 .sns-login li:nth-child(even) {
     margin: 10px 0;
