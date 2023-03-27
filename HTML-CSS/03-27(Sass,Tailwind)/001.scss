@@ -1,0 +1,9 @@
+.one {
+    color: blue;
+    .two {
+        color: green;
+        .three {
+            color: red;
+        }
+    }
+}

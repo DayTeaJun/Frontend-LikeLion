@@ -1,0 +1,16 @@
+.card {
+    // mixin은 내부에서 사용하지 않기로 권장
+    @mixin box {
+        width: 100px;
+        height: 100px;
+        
+    }
+    @include box;
+    background: blue;
+}
+
+// 실행이 안되여야 함
+// .profile {
+//     @include box;
+//     background: red;
+// }

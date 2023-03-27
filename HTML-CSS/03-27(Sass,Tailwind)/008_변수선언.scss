@@ -1,0 +1,21 @@
+$Jun1: #000;
+$Jun2: #0ff;
+
+// 한글 변수는 권장하지 않음. 다만, 고유 명사 같은 경우는 한글 변수를 사용할 수 있다.
+$준: #f00;
+$큰글자: 34px;
+
+.one {
+    font-size: $큰글자;
+    color: $Jun2;
+}
+
+.two {
+    background-color: $Jun2;
+    color: $Jun1;
+}
+
+.three {
+    color: $준;
+}
+

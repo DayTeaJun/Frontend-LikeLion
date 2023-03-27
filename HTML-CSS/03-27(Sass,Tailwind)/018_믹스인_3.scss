@@ -1,0 +1,22 @@
+@mixin box ($value) {
+    width: 100px;
+    height: 100px;
+    @if ($value == 'circle') {
+        border: 1px solid black;
+        border-radius: 50%;
+    }
+    @if ($value == 'rect') {
+        border: 1px solid black;
+        border-radius: 50%;
+    }
+}
+
+.card {
+    @include box('circle');
+    background: blue;
+}
+
+.profile {
+    @include box('rect');
+    background: red;
+}

@@ -1,0 +1,16 @@
+.one {
+    color: green;
+
+    .two {
+        color: blue;
+
+        .three {
+            color: pink;
+
+            // 논리적으론 .one .two .three .four로 포함되어 있지만 밖에도 있을 수 있음.
+            @at-root .four {
+                color: red;
+            }
+        }
+    }
+}

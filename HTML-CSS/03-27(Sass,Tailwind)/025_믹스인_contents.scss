@@ -1,0 +1,24 @@
+@mixin one {
+    width: 100px;
+    height: 100px;
+    color: white;
+    // include 하면 content 밑으로 추가된다.
+    @content;
+}
+
+.test1 {
+    @include one;
+}
+
+.test2 {
+    @include one {
+        background-color: red;
+    }
+}
+
+.test3 {
+    @include one {
+        background-color: red;
+        font-size: 32px;
+    }
+}

@@ -1,0 +1,9 @@
+.add-icon {
+    // background 속성에 내부 속성을 정의
+    background : {
+      image: url("./assets/arrow-right-solid.svg");
+      position: center center;
+      repeat: no-repeat;
+      size: 14px 14px;
+    }
+  }

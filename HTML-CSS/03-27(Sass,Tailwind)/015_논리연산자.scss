@@ -1,0 +1,40 @@
+@debug not true;
+// true의 not은 false
+@debug not false;
+// false의 not은 true
+
+// true : 1
+// false : 0
+// or : 더하기
+// and : 곱
+
+$value: 32px;
+$color: black;
+
+p {
+    // 둘다 참이어야 실행됨
+    @if ($value >=32px and $color == red) {
+        letter-spacing: 1rem;
+    }
+
+    @else {
+        letter-spacing: 0.5rem;
+    }
+}
+
+@debug true or true; // 둘 중 하나라도 true라면 true
+
+// 어떤 조건이든 하나라도 true 만족한다면 true !
+$vlaue2: 32px;
+$color2: red;
+
+.test {
+    // value부터 true값이 나왔으므로 뒤에는 안보고 true 처리됨
+    @if ($value >=32px or $color == black) {
+        letter-spacing: 1rem;
+    }
+
+    @else {
+        letter-spacing: 0.5rem;
+    }
+}

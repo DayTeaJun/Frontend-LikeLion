@@ -1,0 +1,15 @@
+.one {
+    // 지역 변수 (안에서 설정함)
+    $value: red;
+    color: $value;
+    // 다른 곳에서 에러가 나도 컴파일이 안됨.
+    .three {
+        background-color: $value;
+    }
+}
+
+
+// 전역 변수가 아닌 다른 지역 변수를 참조했으므로, error가 납니다.
+// .two {
+//     color: $value;
+// }

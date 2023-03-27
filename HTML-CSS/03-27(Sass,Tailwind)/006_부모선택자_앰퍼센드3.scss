@@ -1,0 +1,12 @@
+.box {
+    // 부모에게 하이픈을 달아서 만듦
+    &-yellow {
+        background-color: yellow;
+    }
+    &-green {
+        background-color: green;
+    }
+    &-blue {
+        background-color: blue;
+    }
+}
