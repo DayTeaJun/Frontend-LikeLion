@@ -1,0 +1,290 @@
+:root {
+    font-family: 'Montserrat', sans-serif;
+	/*
+	font-weight: 500;
+	font-weight: 700;
+	*/
+}
+
+body,
+p,
+a,
+h1,
+h2,
+h3,
+ul,
+li,
+button {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+	vertical-align: top;
+}
+
+.wrap {
+	margin: 0 auto;
+	width: 1080px;
+	display: flex;
+	flex-direction: column;
+}
+
+[class^="section-"] {
+	padding: 100px 0;
+}
+
+.section-portfolio {
+	background: #673399;
+}
+
+.section-calendar {
+	background: seashell;
+}
+
+[class^="title-"] {
+	margin-bottom: 100px;
+	display: flex;
+	align-items: center;
+}
+
+.title-calendar {
+	justify-content: space-between;
+}
+
+.title-portfolio h2 {
+	font-size: 40px;
+	width: 26%;
+	flex-shrink: 0;
+	color: white;
+	font-weight: 500;
+}
+
+.title-calendar h2 {
+	font-size: 40px;
+	font-weight: 500;
+	width: 33%;
+	flex-shrink: 0;
+	color: salmon;
+}
+
+.title-portfolio h2 span {
+	box-shadow: inset 0 -0.5em orangered;
+}
+
+.title-calendar h2 span {
+	box-shadow: inset 0 -0.5em white;
+}
+
+.title-portfolio p {
+	font-size: 14px;
+	max-width: 450px;
+	color: #bd8fe8;
+	line-height: 1.4em;
+}
+
+.title-portfolio>span {
+	display: inline-block;
+	width: 80px;
+	height: 1.5px;
+	background: #bd8fe8;
+	margin-right: 24px;
+}
+
+.title-calendar button {
+	background: orangered;
+	color: #fff;
+	padding: 0.9em 1.4em;
+	border-radius: 5px;
+	border: 0;
+	box-shadow: 0 5px rgb(206, 57, 3);
+}
+
+.article-contents.seashell {
+	display: flex;
+	gap: 24px;
+}
+
+.card {
+	display: flex;
+	min-height: 200px;
+}
+
+.card.seashell {
+	flex-direction: column;
+	flex-basis: 33%;
+}
+
+.card.purple:nth-child(even) {
+	margin: 24px 0;
+	flex-direction: row-reverse;
+}
+
+.card-thum {
+	flex-basis: 26%;
+	flex-shrink: 0;
+	position: relative;
+}
+
+.card.seashell .card-thum {
+	flex-basis: 33%;
+}
+
+.card.seashell .soldout::before {
+	content: "";
+	background: url("./images/badge.png") no-repeat;
+	position: absolute;
+	top: -9px;
+	left: -9px;
+	height: 100px;
+	width: 100px;
+}
+
+.card-thum img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.card-thum h3 {
+	position: absolute;
+	height: 100%;
+	inset: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	font-size: 30px;
+	color: white;
+	
+	background: #673399;
+	opacity: 0.6;
+}
+
+.card-tag {
+	display: flex;
+	gap: 0.5em;
+	font-size: 12px;
+	font-weight: 700;
+	color: #673399;
+}
+
+.card-tag li {
+	padding: 0 0.5em;
+	border-radius: 5px;
+	background: #f1e0f8;
+	margin-bottom: 24px;
+}
+
+.article-contents.seashell h3 {
+	font-size: 24px;
+	color: #000;
+	line-height: 1.5em;
+	min-height: 3em;
+	margin-bottom: 0;
+}
+
+.article-contents.seashell p {
+	min-height: 10em;
+	padding-top: 32px;
+}
+
+.card-sale {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-top: 1px solid #eee;
+	height: 40px;
+	margin-top: 24px;
+	padding-top: 24px;
+}
+
+.card-sale ul {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.card-sale a,
+.card-sale span {
+	font-size: 12px;
+}
+
+.soldout-p {
+	min-height: 0;
+	padding-top: 0;
+}
+
+.card-sale a:before {
+	content:"";
+	display: inline-block;
+	width: 5px;
+	height: 5px;
+	background: #bd8fe8;
+	border-radius: 50%;
+	margin-right: 0.5em;
+}
+
+.card-sale ul li {
+	margin-left: -10px; 
+}
+
+.card-sale ul li img {
+	width: 30px;
+	height: 30px;
+	object-fit: cover;
+	border-radius: 50%;
+	border: 5px solid white;
+}
+
+.card-content {
+	flex-basis: 0;
+	flex-grow: 1;
+	min-width: 0;
+	padding: 24px;
+	line-height: 1.4em;
+	background: white;
+}
+
+.card-content h3 {
+	font-size: 18px;
+	margin-bottom: 32px;
+	color :#673399;
+	font-weight: 700;
+}
+
+.card-text li p {
+	text-indent: -20px;
+    padding-left: 20px;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.card-text li p::before {
+	content:"";
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: #bd8fe8;
+	border-radius: 50%;
+	margin-right: 0.5em;
+}
+
+.title-calendar h1 {
+	font-size: 40px;
+	width: 26%;
+	flex-shrink: 0;
+	color: white;
+	font-weight: 500;
+}
