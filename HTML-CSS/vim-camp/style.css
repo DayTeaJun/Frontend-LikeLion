@@ -36,7 +36,7 @@ img {
 
 .wrap {
 	margin: 0 auto;
-	width: 1080px;
+	max-width: 1080px;
 	display: flex;
 	flex-direction: column;
 }
@@ -63,19 +63,19 @@ img {
 	justify-content: space-between;
 }
 
-.title-portfolio h2 {
+[class^="title-"] h2 {
 	font-size: 40px;
-	width: 26%;
 	flex-shrink: 0;
-	color: white;
 	font-weight: 500;
 }
 
+.title-portfolio h2 {
+	width: 26%;
+	color: white;
+}
+
 .title-calendar h2 {
-	font-size: 40px;
-	font-weight: 500;
 	width: 33%;
-	flex-shrink: 0;
 	color: salmon;
 }
 
@@ -109,6 +109,7 @@ img {
 	border-radius: 5px;
 	border: 0;
 	box-shadow: 0 5px rgb(206, 57, 3);
+	cursor: pointer;
 }
 
 .article-contents.seashell {
@@ -119,6 +120,7 @@ img {
 .card {
 	display: flex;
 	min-height: 200px;
+	box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
 
 .card.seashell {
@@ -198,6 +200,7 @@ img {
 .article-contents.seashell p {
 	min-height: 10em;
 	padding-top: 32px;
+	color: #666;
 }
 
 .card-sale {
@@ -208,6 +211,8 @@ img {
 	height: 40px;
 	margin-top: 24px;
 	padding-top: 24px;
+	margin-right: -24px;
+	padding-right: 24px;
 }
 
 .card-sale ul {
@@ -288,3 +293,29 @@ img {
 	color: white;
 	font-weight: 500;
 }
+
+@media (max-width: 1080px) {
+	.title-calendar,
+	.title-portfolio,
+	.article-contents {
+	  flex-direction: column;
+	  gap: 24px;
+	}
+	[class^="title-"] h2,
+	.title-calendar button {
+		width: 50%;
+		text-align: center;
+	}
+	.card.purple {
+		flex-direction: column;
+	}
+	.title-portfolio>span {
+		display: none;
+	}
+	.card.purple:nth-child(even) {
+		flex-direction: column;
+	}
+	.card-thum h3 {
+		font-size: 80px;
+	}
+  }
