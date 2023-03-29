@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- https://tailwindcss.com/docs/margin -->
+    <!-- https://tailwindcss.com/docs/padding -->
+    <!-- https://tailwindcss.com/docs/font-weight -->
+    <!-- https://tailwindcss.com/docs/text-color -->
+    <!-- text font-size -->
+    <div class="text-base">hello world</div>
+    <div class="text-lg">hello world</div>
+    <div class="text-2xl">hello world</div>
+    <!-- p-3 패딩 3 * 0.25rem -->
+    <div class="text-5xl p-3 bg-red-200 mb-3">hello world</div>
+    <div class="text-5xl pt-3 bg-red-200">hello world</div>
+    <div>hello world</div>
+
+    <br>
+    <br>
+
+    <!-- my-3에서 y는 위, 아래 -->
+    <!-- mx-3에서 x는 왼쪽, 오른쪽 -->
+    <div class="text-base">hello world</div>
+    <!-- my-3 마진 위아래 3 * 0.25rem -->
+    <div class="text-base my-3">hello world</div>
+    <div class="text-base">hello world</div>
+
+    <!-- https://tailwindcss.com/docs/list-style-type -->
+    <!-- ul태그를 묶는 div를 없애면 ul class가 밖으로 나가서 안보이게됨 -->
+    <div class="p-5">
+        <ul class="list-disc">
+            <li>hello world</li>
+            <li>hello world</li>
+            <li>hello world</li>
+            <li>hello world</li>
+            <li>hello world</li>
+        </ul>
+    </div>
+
+    <div class="p-5">
+        <ul class="list-disc list-inside">
+            <li>hello world</li>
+            <li>hello world</li>
+            <li>hello world</li>
+            <li>hello world</li>
+            <li>hello world</li>
+        </ul>
+    </div>
+
+    <div class="p-5">
+        <ul class="list-decimal">
+            <li>hello world</li>
+            <li>hello world</li>
+            <li>hello world</li>
+            <li>hello world</li>
+            <li>hello world</li>
+        </ul>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="w-32 h-32 bg-blue-300 mb-3"></div>
+    <div class="w-32 h-32 bg-blue-300 mb-3 rounded"></div>
+    <div class="w-32 h-32 bg-blue-300 mb-3 rounded-2xl"></div>
+    <div class="w-32 h-32 bg-blue-300 mb-3 rounded-full"></div>
+
+    <br>
+    <br>
+
+    <!-- rounded-full w24 -->
+    <!-- https://tailwindcss.com/docs/border-radius -->
+    <!-- https://tailwindcss.com/docs/border-width -->
+    <div class="border mb-3">hello world</div>
+    <div class="border border-red-200 mb-3">hello world</div>
+    <div class="border-r-4 border-red-300 mb-3">hello world</div>
+    <div class="border-l-4 border-red-300 mb-3">hello world</div>
+    <div class="border-t-2 border-red-300 mb-3">hello world</div>
+    <div class="border-b-2 border-red-300 mb-3">hello world</div>
+
+    <!-- 자주 사용하지는 않음 x 좌우, y 상하 -->
+    <div class="border-x-2 border-red-300 mb-3">hello world</div>
+    <div class="border-y-2 border-red-300 mb-3">hello world</div>
+
+    <div class="text-[17px]">hello world</div>
+    <div class="mt-[17px]">hello world</div>
+    <div class="bg-[#442]">hello world</div>
+</body>
+</html>
