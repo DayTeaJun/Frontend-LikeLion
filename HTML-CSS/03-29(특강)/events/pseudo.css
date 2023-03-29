@@ -1,0 +1,36 @@
+:root {
+    --color: 140 100 100;
+    --opacity: 0.2;
+    --size: 24px;
+}
+
+.size_24  { --size: 24px; }
+.size_100 { --size: 100px; }
+
+.pseudo_padding_xy {
+    box-shadow: inset 0 0 0 var(--size) rgb( var(--color) / var(--opacity) );
+}
+
+.pseudo_padding_y,
+.pseudo_padding_b {
+    position: relative;
+}
+
+.pseudo_padding_y::before,
+.pseudo_padding_y::after,
+.pseudo_padding_b::after {
+  content: ' ';
+	position: absolute;
+	left: 0;
+	right: 0;
+  background-color: rgb( var(--color) / var(--opacity) );
+  height: var(--size);
+}
+
+.pseudo_padding_y::before { top: 0; }
+.pseudo_padding_y::after  { bottom: 0; }
+
+.pseudo_padding_b::after {
+    bottom: 0;
+	transform: translateY(100%);
+}
