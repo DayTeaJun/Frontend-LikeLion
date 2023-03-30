@@ -58,17 +58,17 @@
         text4.replace(',','-').split('-')
         text4.split(/[,-]/g)
 
-        // 자주 사용되진 않지만, 이걸 몰라서 직접 구현하면 번거로운 메서드
-        // trim
+        // 자주 사용되진 않지만, 이걸 몰라서 직접 구현하면 번거로운 메서드임
+        // trim 쓰셈
         let test ='                 hello world   '
         console.log('                 hello world')
         test.replaceAll(' ', '')
         test.trim() // 앞뒤 공백 제거
 
         let str1 = '99'
-        console.log(str1.padStart(5,'0'))
+        console.log(str1.padStart(5,'0')) // 00099
         let str2 = '99'
-        console.log(str1.padStart(5,'-'))
+        console.log(str1.padStart(5,'-')) // ---99
     </script>
 </body>
 </html>
