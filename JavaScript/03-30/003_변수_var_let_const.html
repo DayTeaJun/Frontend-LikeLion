@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수</title>
+
+</head>
+<body>
+    <script>
+        // 변수(변할 수 있는 값) : var, let
+        // 상수(변하지 않는 값, 파이, DOM요소) : const
+
+        // var는 키워드를 생략할 수 있으나(엄격모드는 에러남), 생략하면 안됨, 모던자바스크립트에서는 var 키워드를 권하지 않음.
+
+        // const의 경우에는 반드시 초기화
+        // 변수 선언은 const로 권장 (값 변경 X, 가독성 높임)
+
+        const x = 100;
+        let y = 1000;
+        // 1000 줄 코드 이후
+        console.log(x,y) // x값은 const로 선언해서 값이 변하지 않지만, y는 let으로 선언했기 때문에 변했을지도 모름.
+
+        // let과 const는 블록-레벨 선언
+        // scope, 유효범위
+        if(true){// 블록레벨 스코프 안({})에서 선언하면 밖에서 호출 못함
+            let x = 100;
+            console.log(x);
+        }
+        console.log(x);
+
+        let ss = 0;
+        for (let i = 0; i < 11; i++){
+            ss = ss + i;
+            const sss = ss / 10; // 안에서 선언한 것은 밖에서 출력안됨
+        }
+        console.log(ss) // 출력됨
+        console.log(sss) // 블록레벨 안에서 선언한 것은 밖에서 출력안됨
+
+        let k = 10; // let은 변경이 되는 변수
+        k = 12;
+
+        const kk = [];
+        kk.push(10) // [] 값 안에는 변경 가능 (가리키는 배열자체는 그대로이기 때문(안의 값은 변경되지만 그 위치는 같다.))
+    </script>
+</body>
+</html>

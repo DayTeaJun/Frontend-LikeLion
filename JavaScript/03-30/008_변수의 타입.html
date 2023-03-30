@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+<body>
+    <script> // 원시타입
+        let str1 = 'hello'; // 'hello'를 가리킴
+        let str2 = str1; // 'hello'를 가리킴
+        console.log(str2); // 'hello'
+
+        str1 = 'world';
+        console.log(str2); // str2에 할당된 값은 여전히 'hello' 입니다.
+
+        // string
+        console.log(typeof 'hello');
+        console.log(typeof "hello");
+        // 이스케이프 문자
+        // \' 작은따옴표
+        // \" 큰따옴표
+        // \t 가로 탭
+        // \n 줄 바꿈
+        console.log(typeof 'i\'m so happy');
+        console.log('h\ne\nl\nl\no'); // 줄바꿈
+
+        // number
+        console.log(typeof 10); // number (다른 언어 int)
+        console.log(typeof 10.1); // number (float)
+        console.log(typeof NaN); // number
+
+        // boolean
+        console.log(typeof true);
+        console.log(typeof false);
+
+        // undefined
+        console.log(typeof undefinded);
+        let a;
+        console.log(a); // undefined
+
+        // null (값이 비어있음을 명시적으로 나타냄)
+        console.log(typeof null); // 설계오류 인것을 개발자가 인정함(object)
+
+        // bigint (자바스크립트에서 최대 숫자(2^53 -1)를 넘어가면 bigint로 넣어야함)
+        console.log(90071992547409960n + 90071992547409960n); // 잘 계산됨
+        console.log(90071992547409960 + 90071992547409960); // 숫자가 잘림
+        console.log(typeof 90071992547409960n); // bigint
+
+        // symbol (고유한 값을 생성할 때 씀)
+        console.log(typeof Symbol());
+
+        ////////////////////////////////////////////////////////
+        // function
+        console.log(typeof function(){});
+        
+        // object
+        console.log(typeof [10, 20, 30]); // object (배열)
+        console.log(typeof {a: 10, b: 20}); // object
+        console.log(typeof /정규표현식/gi); // object
+
+        // 형변환(다른 type -> number)
+        console.log(+'10') // string으로 형변환됨
+        console.log(Number('10')) // 권하지 않음
+        console.log(parseInt('10')) // 권함
+        console.log(parseFloat('10.1')) // 권함
+        console.log(parseInt(true)) // NaN
+        console.log(parseInt(false)) // NaN
+        console.log(Number(true)) // 1
+        console.log(Number(false)) // 0
+
+        // 형변환(다른 type -> string)
+        let jun = 10;
+        console.log(jun.toString()); // 권함
+        // 10.toString() 10.까지를 소숫점으로 본다. //주의사항
+        console.log('' + 10 + 10); // 1010 문자열로 바꿔줌
+        console.log(String(10))
+
+        // 형변환(다른 type -> boolean)
+        console.log(Boolean(-1))
+        console.log(Boolean(0))
+        console.log(Boolean(1000))
+        console.log(!!1000)
+        console.log(!!jun)
+    </script>
+</body>
+</html>

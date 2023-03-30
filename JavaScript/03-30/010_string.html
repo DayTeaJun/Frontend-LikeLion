@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+<body>
+    <script>
+        let txt = 'abcdefghij'
+        // slice(start, end(-1))
+        console.log(txt.slice(1, 3)) // bc 1번부터 3번 전까지 반환
+        console.log(txt.slice(3)) // defghij start
+        console.log(txt.slice(3, 1)) // 안됨
+
+        console.log(txt.slice(2, -3)) // -3이라는 것을 인식해서 2번째부터 -3번째 이전까지 잘라낸 'cdefg'
+
+        // substring(start, end(-1))
+        console.log(txt.substring(1, 3)) // bc
+
+        console.log(txt.slice(3)) // defghij start
+        console.log(txt.substring(3,1)) // bc 작동함 slice와 차이있음
+
+        console.log(txt.substring(2,-3)) // 마이너스값을 0으로 인식해서 txt.substring(2,0)가 되어, 'ab'
+
+        // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/substr
+        // str.substr(시작 인덱스, 추출 갯수)는 이제 지원안함 쓰지마셈
+
+        let txt2 = 'paullab CEO leehojun CEO'
+        
+        console.log(txt2.replace('CEO','COO')) // 처음 CEO만 교체됨 뒤에는 안됨
+        console.log(txt2.replace(/CEO/g, 'COO')) // CEO 다 교체됨
+        console.log(txt2.replaceAll('CEO'), 'COO') // CEO 다 교체됨(replaceAll은 2021년에 추가되서 지원이 안될 수도 있고, 아예 안쓰는 경우도 많음, 그냥 정규식 써라)
+
+        console.log(txt2.toLowerCase()) // 다 소문자로 바꿈
+        console.log(txt2.toUpperCase()) // 다 대문자로 바꿈
+
+        // 알고리즘 문제에서 자주 사용됨
+        txt2.includes('CEO') // txt2에 'CEO'라는 키워드를 가지고 있는가?
+        
+        // 메서드 채이닝 (.찍어서 계속 이어서 나가는 것)
+        txt2.replace('CEO','CDO').includes('CDO').toString().toUpperCase()
+
+        // 어디서나 정말 많이쓰는 메서드
+        txt2.split(' ') // 띄어쓰기로 잘림
+
+        let text1 = 'aax bbx ccx ddx'
+        let text2 = 'aa-bb-cc-dd'
+        let text3 = 'aa,bb,cc,dd'
+        let text4 = 'aa,bb-cc-dd'
+        // ['aa','bb','cc','dd'] 로 만들어라
+
+        text1.split(' ')
+        text2.split('-')
+        text3.split(',')
+        text4.replace(',','-').split('-')
+        text4.split(/[,-]/g)
+
+        // 자주 사용되진 않지만, 이걸 몰라서 직접 구현하면 번거로운 메서드
+        // trim
+        let test ='                 hello world   '
+        console.log('                 hello world')
+        test.replaceAll(' ', '')
+        test.trim() // 앞뒤 공백 제거
+
+        let str1 = '99'
+        console.log(str1.padStart(5,'0'))
+        let str2 = '99'
+        console.log(str1.padStart(5,'-'))
+    </script>
+</body>
+</html>
