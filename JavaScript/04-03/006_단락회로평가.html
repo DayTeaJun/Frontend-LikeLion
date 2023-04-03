@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+<body>
+    <script>
+        // 단락회로평가 ***
+        // true : 1
+        // false : 0
+        // and(&&) : 곱
+        // or(||) : 합
+        // not(!) : 부정
+
+        console.log(!"false") // false "false"가 문자값이기 때문에 true
+        console.log(!"0") // false "0"가 문자값
+        console.log(!false) // true
+        console.log(!0) // true
+
+        console.log('abc'/ 2) // NaN 문자열 나누기
+
+        console.log(!!NaN) // false
+        console.log(!!undefined) // false
+        console.log(!!null) // false
+
+        // 단락회로평가
+        let username = ""; // 값이 없어서 false
+        username = username || "무명" // username에 값이 없으면 "무명"을 넣어줌,
+        // || (or) 연산자는 앞의 값이 false면 뒤의 값도 참고함(이때 뒤에 값은 있으므로 true)
+        console.log(username) // "무명"
+
+        let username2 = "Jun"; // 값이 있으므로 true
+        username2 = username2 || "무명" // username에 값이 있으므로 뒤의 값은 보지않음
+        console.log(username2) // "Jun"
+
+        // 3항 연산자
+        // 드모르간 법칙
+        // 헷갈리는 연산 모음
+    </script>
+</body>
+</html>
