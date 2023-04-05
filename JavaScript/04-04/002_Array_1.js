@@ -3,7 +3,8 @@ const arr = [10, 20 ,30] // 배열도 const로 선언
 arr[0] = 100 // const는 값의 변화가 안된다고 하지 않았나? // 변경 가능, mutable
 // arr[]는 위 배열의 메모리 주소를 가리키는 것이라서, 주소가 변경되는 것이 아닌 메모리 안의 값이 변경되는 것은 문제 없음
 console.log(arr)
-console.dir(arr) // 프러퍼티와 메서를 볼 수 있다
+console.dir(arr) // 프러퍼티와 메서드(프로퍼티 값이 함수일 경우, 객체에 제한되어 있는 함수)를 볼 수 있다
+// JavaScript 객체 속성을 인터랙티브한 목록으로 표시
 
 // 문자'열'(string) // 문자'형'이 아니다
 const s = 'hello world'
@@ -31,7 +32,7 @@ arr.hojun = 1000
 // let arr = [];
 // let arr = [1, 2, 3];
 // let arr2 = new Array(4, 5, 6);
-// let arr2 = new Array(3);
+// let arr2 = new Array(3); // length가 3인 empty 생성
 // Array(100).fill(0) 100개의 원소에 0을 채움
 
 // 1. 배열은 순서가 있다.
@@ -115,8 +116,8 @@ console.log(myArray1);
 // 1. 앞에서 값을 꺼내고
 // 2. 꺼낸 값을 반환(return)
 let myArray = ["사과", "바나나", "수박"];
-// myArray.shift();
-// console.log(myArray);
+// myArray.shift(); // '사과'
+// console.log(myArray); // ['바나나', '수박']
 
 let firstValue = myArray.shift();
 firstValue
@@ -140,10 +141,16 @@ const arr = [1, 2, 3];
 arr.splice(1, 0, [10, 20, 30]); // arr에 1번째에, 아무것도 삭제하지 않고, [10, 20, 30]를 넣겠다.
 
 const arr = [1, 2, 3];
+// 스프레드 오퍼레이터(...)는 펼침연산자로 아래 경우 대괄호 제거해줌
 arr.splice(1, 0, ...[10, 20, 30]); // arr에 1번째에, 아무것도 삭제하지 않고, 10, 20, 30를 넣겠다.
 
 const arr = [1, 2, 3];
 arr.splice(1, 0, 10, 20, 30); // arr에 1번째에, 아무것도 삭제하지 않고, 10, 20, 30를 넣겠다.
+
+// slice는 원본값을 건드리지 않음
+// splice가 원본값을 건드림 (deleteCount로 원본값을 건드림)
+// 공통점은 각 요소의 배열을 실행함
+
 
 
 // 문제
@@ -160,28 +167,29 @@ console.log(arr); // [10, 20, 5, 40, 50]
 // arr.splice().splice() // 메서드 체이닝이 의도한 대로 안되는 이유는 splice는 arr가 아니라 삭제된 값을 반환한다.
 
 const arr = [10, 20, 30, 40, 50]
-arr.splice(2, 2); // 2번째 인덱스에서 값 2개를 삭제하고, 삽입되는 값은 없다.
+arr.splice(2, 2); // 2번째 인덱스에서 값 2개를 삭제하고, 삽입되는 값은 없다. // [30, 40]
+arr // [10, 20, 50]
 
 const arr = [10, 20, 30, 40, 50]
-arr.splice(1) // 1번째부터 삭제
+arr.splice(1) // [20, 30, 40, 50] 1번째부터 삭제
 arr // [10]
 
 const arr = [10, 20, 30, 40, 50]
-arr.splice(2)
-arr
+arr.splice(2) // [30, 40, 50]
+arr // [10, 20]
 
 
 // arr.slice(start, end)
 const myArray2 = ["apple", "banana", "cherry", "durian", "elderberry"]
 console.log(myArray2.slice(1, 4)) // ['banana', 'cherry', 'durian']
 console.log(myArray2) // ['apple', 'banana', 'cherry', 'durian', 'elderberry'] 원본은 살아있음
-myArray2.slice(1) // 첫번째를 제외해고 반환
+myArray2.slice(1) // ['banana', 'cherry', 'durian', 'elderberry'] 첫번째를 제외해고 반환
 myArray2.slice(0, 100) // 0부터 100까지 반환
 
 const arr = [10, 20, 30, 40, 50]
 // arr.forEach(함수) // arr를 순회를 돔
 // 함수(callbackfn): (value: number, index: number, array: number[])
-// callback function (나중에 부루는 함수)
+// callback function (나중에 부르는 함수)
 arr.forEach(function(item, index){
     // item = arr[]의 값, index = arr[]의 인덱스
     console.log(index, item)
@@ -226,6 +234,8 @@ function hojun(item, index) {
     arr2.push(index+1)
 }
 arr.forEach(hojun) // 함수를 아규먼트로 받았기 때문에 콜벡함수이다.
+
+// 여기까지 봤음
 
 // 어제 진행했었던 코드
 fetch('http://test.api.weniv.co.kr/mall')

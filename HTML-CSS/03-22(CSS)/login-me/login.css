@@ -139,7 +139,9 @@ main {
 .login-hold::before{
     content: "";
     display: inline-block;
-    background: url('img/icon_check_empty.png') no-repeat;
+    /* background: url('img/icon_check_empty.png') no-repeat; */
+    background: url('img/css_sprites_letina.png') -10px -10px / 84px 42px;
+    /* 레티나를 고려하여 이미지를 반으로 줄이고 포지션 위치도 반으로 줄임 */
     vertical-align: -5px;
     margin-right: 8px;
     width: 22px;
@@ -147,7 +149,8 @@ main {
 }
 
 .login-form .inp-hold:checked+.login-hold::before {
-    background-image: url("img/check-box.svg");
+    /* background-image: url("img/check-box.svg"); */
+    background: url('img/css_sprites_letina.png') -52px -10px / 84px 42px;
 }
 
 .login-btn {
@@ -210,8 +213,10 @@ main {
     content: "";
     position: absolute;
     display: block;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
+    background: url('img/css_sprites_icon_letina.png') no-repeat 0 0 / 48px 192px;
+    /* 레티나 이미지 설정 */
 }
 
 .icon-google {
@@ -231,19 +236,20 @@ main {
 }
 
 .icon-google::before {
-    background: url("./img/Google.svg") no-repeat;
+    background-position: -10px -12px;
+    /* 레티나 이미지 설정 */
 }
 
 .icon-naver::before {
-    background: url("./img/Naver.svg") no-repeat;
+    background-position: -10px -108px;
 }
 
 .icon-kakao::before {
-    background: url("./img/Kakao.svg") no-repeat;
+    background-position: -10px -156px;
 }
 
 .icon-facebook::before {
-    background: url("./img/facebook.svg") no-repeat;
+    background-position: -10px -60px;
 }
 
 .container-login-another ul li:nth-child(even) {
