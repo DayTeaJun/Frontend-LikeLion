@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        video {
+            /* max-width: 100%
+            /* 영상이 가지고 있는 크기만큼 반응형으로 커지지 않게함(작게만 가능) */
+        }
+
+        iframe {
+            /* width: 100%;
+            height: auto;
+            /* width 100%, height: auto 만주면 가로만 늘어나고 세로는 늘어나지 않음 */
+        }
+        
+        .cont-video {
+            /* position: relative;
+            height: 56.25vw /* 종횡비 넓이 / 높이 * 100 */
+            /* height: 56.25vw 도 됨 */
+            /* aspect-ratio: 16/9 도 종횡비다 대신 지원하는 버전이 있는지 중요(익스플로러11은 지원 안됨) */
+            /* 부모가 높이 값이 없으면 자식은 의 height %값은 작동 안함 */
+            /* 많은 개발자들이 잘 모르는 CSS 매직을 알려드리겠습니다 :) */
+            /* padding-top, padding-bottom 속성의 % 값은 부모 요소의 넓이에 비례합니다. */
+            /* 예를 들어 부모의 넚이가 1200px 이라면 자식요소의 padding-top=50% 의 값은 600px 과 같습니다. */
+        } 
+        
+        
+        /*.video-next-level {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }*/
+
+        .full-screen-vid {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 가운데를 유지하게 되어 반응형 적용 */
+            min-width: 100%;
+            min-height: 100%;
+            pointer-events: none;
+            /* 마우스 이벤트를 끔 */
+        }
+    </style>
+</head>
+<body>
+    <!-- muted 속성을 넣으면 브라우저랑 상관없이 바로 시작함 -->
+    <!-- autoplay는 브라우저마다 바로 시작하는지 다름, 이것은 사용자 편의성 때문
+    시각장애인 등이 놀랄 수 있기 때문이다. -->
+    <!-- <video autoplay controls muted loop src="nextlevel.mp4"></video> -->
+
+    <video class="full-screen-vid" autoplay controls muted loop src="nextlevel.mp4"></video>
+
+    <!-- article은 자식이 position : absolute라서 높이값이 없고, 패딩으로만 이루어져 있음 -->
+    <!-- <article class="cont-video">
+        <iframe class="video-next-level"
+                src="https://www.youtube.com/embed/4TWR90KJl84?autoplay=1&mute=1&loop=1&playlist=4TWR90KJl84&controls=1"
+                title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    </article> -->
+</body>
+</html>
