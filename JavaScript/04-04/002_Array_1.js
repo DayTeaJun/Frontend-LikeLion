@@ -235,8 +235,6 @@ function hojun(item, index) {
 }
 arr.forEach(hojun) // 함수를 아규먼트로 받았기 때문에 콜벡함수이다.
 
-// 여기까지 봤음
-
 // 어제 진행했었던 코드
 fetch('http://test.api.weniv.co.kr/mall')
     .then(data => data.json())
@@ -299,7 +297,7 @@ arr.map((v, i) => {
 let tip1 = [1, 2, 3, 4, 5]
 // console.log(tip1[tip1.length-1])
 // 원본 수정 없이 [1, 2, 3, 4] 값과 [5]라는 값을 얻어내고 싶을 때
-console.log([...tip1].pop()) // 전개구문
+console.log([...tip1].pop()) // 5 전개구문([...tip1])
 let tip2 = [...tip1] // tip1을 복사
 console.log(tip2.pop()) // 5
 console.log(tip2) // [1, 2, 3, 4]
@@ -316,7 +314,7 @@ const tip5 = [
     [7, 8, 9]
 ]
 // 다차원 배열에서 최솟값, 최댓값 찾기
-Math.max(...tip5.flat()) // 다차원 배열일 때 가로로 쭉 평평하게 퍼짐
+Math.max(...tip5.flat()) // flat() 다차원 배열일 때 가로로 쭉 평평하게 퍼짐
 
 const tip6 = [
     [[1, 2], [1, 2], [1, 2]],
@@ -330,17 +328,18 @@ tip6.flat(Infinity) // 다 펼쳐지면 스톱
 
 const tip7 = new Array(10).fill(0) // Array(10).fill(0)도 됨
 const tip8 = Array.from('hello') // ['h', 'e', 'l', 'l', 'o']
+// Array.from() 메서드는 유사 배열 객체(array-like object)나 반복 가능한 객체(iterable object)를 얕게 복사해 새로운Array 객체를 만듭니다.
 
 // '.'.repeat(100).split('.') // 권하진 않음
 
 let tip9 = [1, 2, 3, 4, 5]
-console.log([tip9.slice(0, 2), 1000, tip9.slice(2, 5)])
-console.log([...tip9.slice(0, 2), 1000, ...tip9.slice(2, 5)])
+console.log([tip9.slice(0, 2), 1000, tip9.slice(2, 5)]) // [Array(2), 1000, Array(3)]
+console.log([...tip9.slice(0, 2), 1000, ...tip9.slice(2, 5)]) // [1, 2, 1000, 3, 4, 5]
 // tip9.slice(0, 2) 는 [1, 2] 0부터 2바로 직전까지 반환
 // tip9.slice(2, 5) 는 [3, 4, 5] 2부터 5바로 직전까지 반환
 
 let tip10 = [1, 2, 3, 4, 5]
-tip10.splice(2, 0, 1000)
+tip10.splice(2, 0, 1000) // 2번째 인덱스에서 삭제하지 않고(0) 그 자리에 1000을 넣음
 tip10 // [1, 2, 1000, 3, 4, 5]
 
 // map하고 다시 오겠습니다.

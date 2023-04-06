@@ -1,7 +1,7 @@
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 // 짝수
 arr.filter(function(el){ // el 엘레먼트, value, item
-    return el % 2 === 0
+    return el % 2 === 0 // 짝수인 값만 뽑아옴
 }) 
 
 function solution(n) {

@@ -30,12 +30,12 @@ function sort(key){
 }
 
 // 딥하게 sort를 탐색해보겠다
-const nums = [3, 1, 11, 8, 6];
+const nums5 = [3, 1, 11, 8, 6];
 console.log(nums.sort((a, b) => {
     console.log(a, b)
 }));
 
-const nums5 = [3, 1, 11, 8, 6];
+const nums6 = [3, 1, 11, 8, 6];
 console.log(nums.sort((a , b) => {
     console.log(a, b)
     console.log(a - b)

@@ -31,8 +31,8 @@ console.log(height3 ?? 'world') // '' 출력
 
 // 지금 주석으로 다는 내용은 여기서는 몰라도 됨
 // 판단여부
-// || : 0, null, undefined
+// || : 0, null, undefined, false, NaN, '', etc...
 // ?? : null, undefined
 
-// falsy하다 : 0, null, undefined, "", NaN
+// falsy하다 : 0, null, undefined, false, NaN, '', etc...
 // nullish하다 : null, undefined
