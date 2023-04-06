@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "SUIT", sans-serif;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+/** card
+========================================================================== */
+.card {
+  width: min(100%, 768px);
+  display: inline-block;
+  background: #fff;
+  padding: 40px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  gap: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+.card .cover {
+  display: block;
+  width: min(50%, 120px);
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0 auto;
+  background: lightsteelblue;
+  overflow: hidden;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.card .cover img {
+  width: 100%;
+  display: block;
+}
+.card .contents {
+  flex: 1 0 0;
+  margin: 0 0 -8px;
+}
+.card .contents h2 {
+  color: inherit;
+  text-align: left;
+  font-weight: 700;
+  font-size: 24px;
+  color: royalblue;
+}
+.card .contents h3 {
+  color: #666;
+  text-align: left;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 8px 0;
+}
+.card .contents p {
+  color: inherit;
+  text-align: left;
+  font-size: 14px;
+}
+.card .skill {
+  flex: 0 1 240px;
+}
+.card .skill li {
+  display: inline-block;
+  background: royalblue;
+  padding: 8px 12px;
+  margin: 8px 0 0;
+  color: white;
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+}
+.card .skill li i {
+  padding-right: 4px;
+}
+@media (max-width: 768px) {
+  .card {
+    width: min(100%, 320px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .card .skill {
+    flex: 1 0 0;
+  }
+}
+@media (max-width: 425px) {
+  .card {
+    box-shadow: none;
+  }
+}/*# sourceMappingURL=style.css.map */

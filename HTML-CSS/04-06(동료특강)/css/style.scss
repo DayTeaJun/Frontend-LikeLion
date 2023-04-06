@@ -1,0 +1,94 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+* {
+    box-sizing: border-box;
+}
+
+    body {font-family: 'SUIT', sans-serif;}
+
+    .a11y-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    }
+
+    
+    
+    /** card 
+    ========================================================================== */
+    
+    .card {
+        width: min(100%, 768px);
+        display: inline-block;
+        background: #fff;
+        padding: 40px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        gap: 24px;
+        align-items: center;
+        @include flex(center row);
+        @include v-prefix(radius, 20px);
+        @include v-prefix(translate, (-50%, -50%));
+
+        .cover {
+            display: block;
+            width: min(50%, 120px);
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            background: $gray;
+            overflow: hidden;
+            @include v-prefix(radius, 50%);
+
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        .contents {
+            flex:1 0 0;
+            // basis에만 1줌
+
+            h2 {
+                @include font(title, left, $primary);
+            }
+
+            h3 {
+                @include font(sub-title, left #666);
+                padding: 8px 0;
+            }
+
+            p {
+                @include font(content, left);
+            }
+        }
+        .skill {
+            flex: 0 1 240px;
+
+            li {
+                display: inline-block;
+                background: $primary;
+                padding: 8px 12px;
+                margin-top: 8px;
+                @include font(desc, center, #fff);
+                @include v-prefix(radius, 40px);
+
+                &:first-child{
+                    background:red;
+                }
+
+                i {
+                    padding-right: 4px;
+                  }
+            }
+        }
+    }
+

@@ -1,0 +1,131 @@
+// ✅ font
+// ! parameter의 기본 값 자바스크립트에서는 '=' Scss에서는 ': '
+@mixin font($type: null, $align: left, $color: inherit) {
+  color: $color;
+  text-align: $align;
+  @content;
+
+
+  @if $type ==title {
+    font-weight: 700;
+    // ! 폰트에 따라 bold 등 해당하는 값을 주세요.
+    font-size: 24px;
+  }
+
+  @else if $type==sub-title {
+    font-weight: 400;
+    font-size: 12px;
+  }
+
+  @else if $type==content {
+    font-size: 14px;
+  }
+
+  @else if $type==desc {
+    font-weight: 400;
+    font-size: 12px;
+  }
+
+  @else {
+    font-size: 14px;
+  }
+}
+
+
+// ✅ Vendor prefix
+@mixin v-prefix($property, $value) {
+  @content;
+
+  @if $property ==radius {
+    border-radius: $value;
+    -webkit-border-radius: $value;
+    -moz-border-radius: $value;
+    -ms-border-radius: $value;
+    -o-border-radius: $value;
+  }
+
+  @else if $property ==translate {
+    transform: translate($value);
+    -webkit-transform: translate($value);
+    -moz-transform: translate($value);
+    -ms-transform: translate($value);
+    -o-transform: translate($value);
+  }
+
+  @else if $property ==translateX {
+    transform: translateX($value);
+    -webkit-transform: translateX($value);
+    -moz-transform: translateX($value);
+    -ms-transform: translateX($value);
+    -o-transform: translateX($value);
+  }
+
+  @else if $property ==translateY {
+    transform: translateY($value);
+    -webkit-transform: translateY($value);
+    -moz-transform: translateY($value);
+    -ms-transform: translateY($value);
+    -o-transform: translateY($value);
+  }
+}
+
+
+// ✅ Flex
+@mixin flex($align: null, $way: row) {
+  display: flex;
+  flex-direction: $way;
+  @content;
+
+  @if(#{$align}=='center') {
+    justify-content: center;
+    align-items: center;
+  }
+
+  @else if (#{$align}=='leftCenter') {
+    align-items: center;
+  }
+
+  @else if (#{$align}=='spaceCenter') {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @else if (#{$align}=='space') {
+    justify-content: space-between;
+  }
+}
+
+
+// ✅ media Query
+@mixin media($size) {
+
+  @if $size=='m-sm' {
+    @media (max-width:$media-m-sm) {
+      @content;
+    }
+  }
+
+  @else if $size=='m-lg' {
+    @media (max-width:$media-m-lg) {
+      @content;
+    }
+  }
+
+  @else if $size=='tab' {
+    @media (max-width:$media-tab) {
+      @content;
+    }
+  }
+
+  @else if $size=='pc' {
+    @media (max-width:$media-pc) {
+      @content;
+    }
+  }
+
+  @else {
+    @media (max-width:$size) {
+      @content;
+    }
+  }
+}

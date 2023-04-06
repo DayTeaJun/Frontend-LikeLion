@@ -1,0 +1,109 @@
+@import "variables";
+@import "mixin";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'SUIT', sans-serif;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+/** card
+========================================================================== */
+.card {
+  width: min(100%, 768px);
+  display: inline-block;
+  background: #fff;
+  padding: 40px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  gap: 24px;
+  @include flex(center, row);
+  @include v-prefix(radius, 12px);
+  @include v-prefix(translate, (-50%, -50%));
+  // ! arguments를 ','로 구분하기 때문에
+  // ! translate 속성처럼 ',' value를 가진 값은 소괄호로 감싸주세요.
+
+  .cover {
+    display: block;
+    width: min(50%, 120px);
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    margin: 0 auto;
+    background: lightsteelblue;
+    overflow: hidden;
+    // ! 밝은 색상 쓰고 싶으면 light 쓰면 vsc에서 추천해줘요.
+    @include v-prefix(radius, 50%);
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .contents {
+    flex: 1 0 0;
+    margin: 0 0 -8px;
+
+    h2 {
+      @include font(title, left);
+      color: $primary;
+    }
+
+    h3 {
+      @include font(sub-title, left, #666);
+      padding: 8px 0;
+    }
+
+    p {
+      @include font(content, left);
+    }
+  }
+
+  // ! 여기서 font awesome 아이콘을 가져옵니다.
+  .skill {
+    flex: 0 1 240px;
+
+    li {
+      display: inline-block;
+      background: $primary;
+      padding: 8px 12px;
+      margin: 8px 0 0;
+      @include font(desc, center, white);
+      @include v-prefix(radius, 100px);
+
+      i {
+        padding-right: 4px;
+      }
+    }
+
+  }
+
+  // ! 미디어 쿼리를 위한 변수 선언
+  @include media(tab) {
+    width: min(100%, 320px);
+    @include flex(center, column);
+
+    .skill {
+      flex: 1 0 0;
+    }
+  }
+
+  @include media(m-lg) {
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "SUIT", sans-serif;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+/** card 
+========================================================================== */
+.card {
+  width: min(100%, 768px);
+  display: inline-block;
+  background: #fff;
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  gap: 24px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+.card .cover {
+  display: block;
+  width: min(50%, 120px);
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background: #ccc;
+  overflow: hidden;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.card .cover img {
+  width: 100%;
+  display: block;
+}
+.card .contents {
+  flex: 1 0 0;
+}
+.card .contents h2 {
+  color: royalblue;
+  text-align: left;
+  font-weight: 700;
+  font-size: 24px;
+}
+.card .contents h3 {
+  color: inherit;
+  text-align: left #666;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 8px 0;
+}
+.card .contents p {
+  color: inherit;
+  text-align: left;
+  font-size: 14px;
+}
+.card .skill {
+  flex: 0 1 240px;
+}
+.card .skill li {
+  display: inline-block;
+  background: royalblue;
+  padding: 8px 12px;
+  margin-top: 8px;
+  color: #fff;
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+}
+.card .skill li:first-child {
+  background: red;
+}
+.card .skill li i {
+  padding-right: 4px;
+}/*# sourceMappingURL=style.css.map */
