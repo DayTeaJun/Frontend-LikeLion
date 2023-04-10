@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        div {
+            background-color: black;
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        ul {
+
+            display: flex;
+            justify-content: center;
+            gap: 100px
+        }
+
+        div.red {
+            background-color: red;
+        }
+
+        div.yellow {
+            background-color: yellow;
+        }
+
+        div.green {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <ul>
+        <li><button type="button" class="red">빨강</button></li>
+        <li><button type="button" class="yellow">노랑</button></li>
+        <li><button type="button" class="green">초록</button></li>
+    </ul>
+    <script>
+        const box = document.querySelector("div");
+        const btn = document.querySelectorAll("button")
+        btn.forEach(a => a.addEventListener('click', function () {
+            box.className = '' // 초기화 시킴
+            box.classList.add(a.className)
+        }))
+    </script>
+</body>
+
+</html>

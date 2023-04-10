@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <p>hello</p>
+    <p>hello</p>
+    <p id="myTxt">hello</p>
+    <p class="txt1">hello</p>
+    <p class="txt1">hello</p>
+    <p>hello</p>
+
+    <script>
+        // DOM : document 객체를 통해 HTML 문서에 접근이 가능합니다. document는 브라우저가 불러온 웹페이지를 나타내며, DOM 트리의 진입점 역할을 수행합니다. 
+        // 해당하는 Id를 가진 요소에 접근하기
+        console.log(document.getElementById('myTxt'));
+        // 해당하는 모든 요소(태그네임)에 접근하기
+        console.log(document.getElementsByTagName('p'));
+        // 해당하는 클래스를 가진 모든 요소에 접근하기
+        console.log(document.getElementsByClassName('txt1'));
+
+        const element = document.getElementsByClassName('txt1');
+
+    </script>
+</body>
+
+</html>

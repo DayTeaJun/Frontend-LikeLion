@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+
+<body>
+    <ul></ul>
+    <button>Make me MORE!</button>
+
+    <script>
+        const myBtn = document.querySelector("button");
+        const myUl = document.querySelector("ul");
+
+        /*
+        myBtn.addEventListener('click', function () {
+            for (let i = 0; i < 5; i++) {
+                const myLi = document.createElement('li'); // myLi에 li요소를 생성
+                const myText = document.createTextNode(i); // myText에 text(i)를 생성
+                myLi.append(myText); // li에 myText를 넣음
+                myUl.appendChild(myLi); // myUl(ul, 부모요소)에 myLi(li, 자식요소)를 넣음
+            }
+        })
+        */
+
+        myBtn.addEventListener('click', function () {
+            for (let i = 0; i < 5; i++) {
+                const myLi = document.createElement('li');
+                const btnDel = document.createElement('button');
+                const btnTxt = document.createTextNode = '버튼';
+
+                btnDel.append(btnTxt);
+                btnDel.addEventListener('click', () => {
+                    myLi.remove();
+                });
+                myLi.append('삭제하기: ', btnDel);
+                myUl.appendChild(myLi);
+            }
+        });
+    </script>
+</body>
+
+</html>
