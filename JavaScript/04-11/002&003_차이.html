@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+
+<body>
+
+    <script>
+        // 002 문서
+        const myP = document.querySelector("p");
+        const myInput = document.querySelector("input");
+
+        myInput.addEventListener('input', () => {
+            myP.innerHTML = myInput.value;
+            // 위는 문자열을 myP.innerHTML에 할당하고 있는 상황이다.
+            // innerHTML은 문자열을 할당할 때 문자열 안에 HTML 태그로 인식되는게 있다면, 그 문자열은 HTML태그로 반환하게 된다.
+        });
+
+        // 003 문서
+        <figcaption>
+            상품 가격 : 39,990원 <span class="hidden">(주의) VIP만 받을 수 있는 혜택입니다.</span>
+        </figcaption>
+
+        const info = document.querySelector('figcaption');
+        console.log(info.innerHTML);
+        // 위는 info.innerHTML 은 즉, info 요소의 내부의 마크업 구조를 문자열로 반환한다.
+        // 이러한 경우는 접근이다.
+
+        console.log(info.innerText);
+
+    </script>
+</body>
+
+</html>

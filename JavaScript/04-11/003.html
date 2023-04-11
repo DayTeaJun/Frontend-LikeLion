@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML을 사용하는 경우</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <figure>
+                <img src="" alt="잭필드">
+                <figcaption>
+                    상품 가격 : 39,990원 <span class="hidden">(주의) VIP만 받을 수 있는 혜택입니다.</span>
+                    <!-- 일반 사람에겐 span이 보이지만 VIP는 hidden으로 못보게 함 -->
+                </figcaption>
+            </figure>
+        </li>
+    </ul>
+
+    <script>
+        const info = document.querySelector('figcaption');
+        console.log(info.textContent); // display: none 까지 보여주게 됨
+        console.log(info.innerHTML); // figcaption의 마크업 구조를 문자열로 보여주게 됨
+        console.log(info.innerText); // display: none 이 적용되어 안보이게됨
+        // innerText 속성은 요소와 그 자손의 렌더링 된 텍스트 콘텐츠를 나타냅니다. (렌더링된에 주목하세요. innerText는 텍스트 내에 문법적으로 처리가 가능한 텍스트가 있으면 처리가 끝난 결과물을 텍스트로 전달합니다.)
+    </script>
+</body>
+
+</html>

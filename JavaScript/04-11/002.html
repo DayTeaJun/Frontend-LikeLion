@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <p>ㅁㄴㅇ</p>
+    <input type="text">
+    <button>Write Something!</button>
+
+    <script>
+        const myBtn = document.querySelector("button"); // 
+        const myP = document.querySelector("p");
+        const myInput = document.querySelector("input");
+
+
+        myBtn.addEventListener('click', function () {
+            //myP.textContent = myInput.value;
+            // textContent 속성은 노드의 텍스트 콘텐츠를 표현합니다. 컨텐츠를 단순히 텍스트로만 다룹니다.
+            // myP.textContent에 myInput 값을 할당함
+
+            //myP.innerHTML = myInput.value;
+            // innerHTML은 마크업으로 변환할 수 있는 문자열이 있다면 마크업으로 만들어 보여준다.
+            // textContent 는 단순히 텍스트로만 인식하고
+            // 단순히 텍스트로만 이루어져 있다면 성능상 textContent가 좋다.
+            // innerText 속성은 요소의 렌더링된 텍스트 콘텐츠를 나타냅니다. (렌더링된에 주목하세요. innerText는 텍스트 내에 문법적으로 처리가 가능한 텍스트가 있으면 처리가 끝난 결과물을 텍스트로 전달합니다.) 이기 때문
+            // 위 둘의 차이 : https://developer.mozilla.org/ko/docs/Web/API/HTMLElement/innerText#%EC%98%88%EC%A0%9C
+            // 결과적으로 마크업을 변환해주는 innerText은 잘 쓰지 않는다.
+
+            // innerText 와 innerHTML의 차이점
+            // element.innerText;
+            // 이 속성은 element 안의 text 값들만을 가져옵니다.
+            // element.innerHTML;
+            // innerText와는 달리 innerHTML은 element 안의 HTML이나 XML을 가져옵니다.
+        });
+
+        // input 요소에 'input' 이벤트를 연결하면 실시간으로 값이 반영되게 만들 수도 있습니다.
+        myInput.addEventListener('input', () => {
+            myP.innerHTML = myInput.value;
+        });
+
+        //myP.innerHTML = "<strong>I'm Strong!!</strong>";
+
+        // ** innerHTML 사용시 주의 사항(보안 위험) : https://developer.mozilla.org/ko/docs/Web/API/Element/innerHTML#security_considerations
+
+
+    </script>
+</body>
+
+</html>

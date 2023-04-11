@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <p>hello</p>
+    <script>
+        const target = document.querySelector("p");
+        const txtColor = target.style.color; // 현재 스타일 정보를 가져옵니다.
+        target.style.color = "red"; // 현재 스타일 정보를 변경합니다.
+        target.style.fontWeight = "bold"; // 현재 스타일 정보에 font-weight 속성이 없다면 추가합니다.
+        target.style.color = null; // 현재 스타일 정보를 제거(초기화)합니다.
+
+        // style 객체를 통해 설정된 스타일은 CSS inline 스타일과 동일한 가중치를 가집니다. 때문에 CSS를 통해 수정의 여지가 있는 스타일에는 많이 사용되지 않는 편입니다. 이럴경우 classList를 이용한 클래스 제어가 더 효과적입니다.
+    </script>
+</body>
+
+</html>

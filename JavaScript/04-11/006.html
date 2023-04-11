@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+
+<body>
+
+    <p id='myTxt'>hello lions</p>
+    <img
+        src='https://static.ebs.co.kr/images/public/lectures/2014/06/19/10/bhpImg/44deb98d-1c50-4073-9bd7-2c2c28d65f9e.jpg'>
+    <script>
+        const target = document.querySelector('p');
+        const idAttr = target.getAttribute('id'); // 내가 원하는 특정 속성을 가져옴 (이때는 'id'를 가져옴, myTxt)
+
+        const myimg = document.querySelector('img');
+        console.log(idAttr); // myTxt
+        myimg.setAttribute("src", "https://img.wendybook.com/image_detail/img159/159599_01.jpg"); // 첫번째 인자 : 값을 바꾸고 싶은 속성이름 , 두번째 인자 : 값
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="parentElement">
+        <span id="childElement">hello guys~</span>
+    </div>
+
+
+    <script>
+        // parentElement.insertBefore(target, location); target요소를 parentElement의 자식인 location 위치 앞으로 이동합니다.
+
+        const span = document.createElement("span"); // span 요소 생성
+        span.append("오") // span에 text를 넣음
+        const sibling = document.getElementById("childElement"); // id가 childElement 찾음
+        const parentDiv = document.getElementById("parentElement");
+        parentDiv.insertBefore(span, sibling); // parentDiv에 span을 넣을 건데 (자식인) sibling요소 앞에 위치하게 될 것
+
+        // API(앱 프로그래밍하는 인터페이스) (개발자 도구를 제공함)
+        // DOM(도큐먼트(윈도우 객체)) API 브라우저가 제공하는 여러가지 도구들
+    </script>
+</body>
+
+</html>

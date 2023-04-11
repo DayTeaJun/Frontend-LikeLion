@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /* 문서 트리의 루트 요소(html)를 선택하는 가상 클래스 */
+        :root {
+            --main-bgColor: teal;
+            --main-txtColor: white;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-size: 1.5em;
+            background-color: var(--main-bgColor);
+            /*변수할당하는 var함수*/
+        }
+
+        .wrapper {
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .picker {
+            display: inline-block;
+        }
+
+        .picker+.picker {
+            margin-left: 30px;
+        }
+
+        main {
+            color: var(--main-txtColor);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="wrapper">
+        <article class="picker">
+            <label for="bg">배경색 : </label>
+            <input type="color" id="bg" class="inp-picker" data-id="bgColor">
+        </article>
+
+        <article class="picker">
+            <label for="txt">글씨색 : </label>
+            <input type="color" id="txt" class="inp-picker" data-id="txtColor">
+        </article>
+    </section>
+    <main>
+        <h1>Color Picker!!</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum possimus sint, voluptatem alias facere veniam
+            doloremque voluptas optio a omnis, ullam quae! Autem eveniet animi tempora pariatur dolorum ad laboriosam!
+        </p>
+    </main>
+
+
+
+    <script>
+        const inpPicker = document.querySelectorAll('.inp-picker') // inp-picker인 클래스를 전부 선택
+        console.log(inpPicker); // 이때 inpPicker은 NodeList로 유사배열객체를 갖게된다.
+        const root = document.querySelector(':root'); // 밖에 써도 되지만, 다른 모듈과 부딪힐 수 있기 때문에 안에서 선언해도 되고, forEach문 안에서 쓰면 실행될 때마다 계속 반복해서 선언하기 때문에 메모리 낭비가 심할 수 있다. 특히 문서를 탐색하는 행위가 메모리 사용이 많이듦.
+
+        inpPicker.forEach((item) => { // item은 input이기 때문에
+            item.addEventListener('input', () => { // input으로 설정하면 실시간으로 input으로 받아서 값을 변경할 수 있다.
+                const name = '--main-' + item.dataset.id; // 각각 bgColor, txtColor
+                root.style.setProperty(name, item.value);
+                // root의 스타일 속성에 접근해서 name : 값을 바꾸고 싶은 것, 바꾸는 값 item.value (이때는 컬러값)
+            });
+        });
+
+    </script>
+</body>
+
+</html>
