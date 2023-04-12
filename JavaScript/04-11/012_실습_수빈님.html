@@ -109,6 +109,8 @@
         mainForm.addEventListener('input', function (event) {
             const inputs = mainForm.querySelectorAll('input');
             const validInputs = mainForm.querySelectorAll('input:valid');
+            const target = event.target;
+            console.log(event);
 
             progress.value = validInputs.length / inputs.length * 100;
             if (progress.value === 20) {
@@ -128,6 +130,7 @@
 
         mainForm.addEventListener('click', function (event) {
             const target = event.target;
+            console.log(event);
             if (target.tagName !== 'BUTTON') return;
 
             if (target.type === 'submit') {

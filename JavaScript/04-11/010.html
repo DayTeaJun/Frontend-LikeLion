@@ -22,16 +22,10 @@
     <script>
         // 핸들러는 콜백함수
         const btnFirst = document.querySelector('.btn-first');
-        btnFirst.addEventListener('click', (event) => { // event는 변수명이 달라도 되는데, 자동으로 콜백함수 인자를 받는다.
+        btnFirst.addEventListener('click', (e) => { // event는 변수명이 달라도 되는데, 자동으로 콜백함수 인자를 받는다.
             console.log(event);
+            console.log(e.target.nodeName);
             // 이벤트 객체에 있는 'click' 이벤트인 PointerEvent들을 보여줌
-        });
-
-        // 심심해서 되는지 확인해봄
-        const aFirst = document.querySelector('.a-first');
-        aFirst.addEventListener('focus', (event) => {
-            console.log(event);
-            // PointerEvent들을 보여줌
         });
     </script>
 </body>
