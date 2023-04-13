@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <button id="btn1">클릭해봐요!</button>
+    <button id="btn2">클릭해봐요!</button>
+    <script>
+        let myObj = {
+            val1: 100,
+            func1: function () {
+                console.log(this);
+            },
+        };
+
+        let test = myObj.func1;
+
+        let button1 = document.getElementById("btn1");
+        button1.addEventListener("click", myObj.func1);
+        // 자기 자신을 호출하는 this는 여기서 button1이다.
+        // button.event(myObj.func1)
+
+        // this는 myObj.func1 일때 .앞에 있는걸 가르킴
+
+        let button2 = document.getElementById("btn2");
+        button2.addEventListener("click", test);
+        // test는 myObj.func1 인데
+        // myObj.func1은 console.log(this)이고
+        // console.log(this)는 실행할 때 window로 하기 때문에
+        // 결과적으로 window.test 이여서 this는 window를 가르킨다.
+    </script>
+</body>
+
+</html>

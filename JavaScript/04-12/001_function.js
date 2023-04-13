@@ -350,3 +350,6 @@ function 함수({
 // let {a=10, b=20, c=30} = undefined // error
 
 // roro 참고글 : https://www.gunhee.co.kr/2b100bb5-ad82-4bcb-b89c-068b4c70bfae
+
+// early-return
+// https://www.howdy-mj.me/javascript/early-return
