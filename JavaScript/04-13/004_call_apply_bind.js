@@ -1,6 +1,7 @@
 // apply, call, bind
 
 // call : 안에서 사용한 this의 값을 변경시키고 싶을때
+// call() 메서드의 인수에 this 로 사용할 값을 전달할 수 있습니다.
 var peter = {
     name: 'Peter Parker',
     sayName: function () {
