@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #calendar {
+            display: inline-block;
+            padding: 20px;
+            background: #333;
+            text-align: center;
+            color: #fff;
+        }
+
+        #calendar table {
+            border-collapse: collapse;
+        }
+
+        caption {
+            font-size: 25px;
+            color: orange;
+            margin: 10px;
+        }
+
+        th,
+        td {
+            padding: 20px;
+            border: 1px solid #666;
+        }
+
+        th:first-child,
+        td:first-child {
+            color: red;
+        }
+
+        .prev,
+        .next {
+            color: inherit;
+            padding: 10px;
+            margin: 5px;
+            background-color: #333;
+        }
+    </style>
+
+</head>
+
+<body>
+    <article id="calendar">
+        <h2>나의 멋진 HTML 달력</h2>
+        <!-- 테이블 만드는 태그 -->
+        <table>
+            <caption>
+                <time>
+                    <span class="year"></span>년
+                    <span class="month"></span>월
+                </time>
+            </caption>
+
+            <!-- 행 -->
+            <tr>
+                <!-- 테이블 헤드 -->
+                <!-- scope 컬럼방향 -->
+                <th scope="col">일</th>
+                <th scope="col">월</th>
+                <th scope="col">화</th>
+                <th scope="col">수</th>
+                <th scope="col">목</th>
+                <th scope="col">금</th>
+                <th scope="col">토</th>
+            </tr>
+            <tr>
+                <!-- 테이블 열 -->
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <button type="button" class="prev">이전달</button>
+        <button type="button" class="next">다음달</button>
+    </article>
+
+    <script>
+
+        function calendar(newYear, newMonth) {
+            // 아래 데이트객체를 전달하면 무슨 요일에 1일인지 파악할 수 있음
+            const time = new Date(newYear, newMonth - 1, 1); // 이전에 +1을 했기 때문에 -1을 함 끝네 1은 날짜
+
+            // 해당 월에 날이 며칠이나 있는지 찾음
+            //const timeLength = 32 - new Date(newYear, newMonth - 1, 32).getDate(); // 32인 이유는 월마다 날짜가 넘치면 다음 달로 가기 때문이다. 그러면 넘친 만큼 더해주면 그 달의 날짜가 된다. 예를 들어 4월 30일이 마지막 날이면 32는 2일이 넘쳐서 5월 2일로 인식하고 이 때 앞의 32에 2를 빼면 30일이다. 그러면 4월은 최대 30일인것을 유추할 수 있다. - 상용님 설명 감사
+
+            // 날짜에 0을 넣으면 이전 달이 총 몇일인지 파악 가능 (그래서 달의 인덱스는 그대로 놔둠)
+            //4월의 마지막 날을 불러옴/ 원래는 newMonth가 0부터 시작이라 -1 해줘야하는데, 끝에 숫자가 0을 할 경우 그 전달의 마지막날을 가져오기 때문에 그냥 0으로해서 4월달을 뽑아냄(그달뽑아냄) - 이해했음
+            const timeLength = new Date(newYear, newMonth, 0).getDate();
+            console.log(timeLength)
+
+            let year = time.getFullYear(), // 년
+                month = time.getMonth(), // 월
+                date = time.getDate(), // 날짜
+                day = time.getDay() // 요일
+
+            const captionYear = document.querySelector('.year')
+            const captionMonth = document.querySelector('.month')
+            const timeEl = document.querySelector('time')
+            const days = document.querySelectorAll('tr td')
+
+            for (let i = 0; i < days.length; i++) {
+                days[i].innerHTML = '&nbsp;'; // 빈 문자열 만듦. innerHTML로 해야 됨
+            }
+
+            // i는 day로 시작하면 해당월에 시작함
+            for (let i = day; i < day + timeLength; i++) {
+                days[i].textContent = date++;
+            }
+
+            captionYear.textContent = year;
+            captionMonth.textContent = month + 1;
+            timeEl.dateTime = `${year}-${month + 1}`;
+        }
+
+        const btns = document.querySelectorAll('button');
+        btns.forEach((item) => {
+            // 함수 안에 내용은 실행될 때 사용
+            // 선언이 클릭이벤트 함수보다 밑에 있어도 인식이 됨
+            // 선언이 먼저 저장되고 함수 내용은 실행되기 전까지 중요하게 보지 않음
+            item.addEventListener('click', () => {
+                // classList 쓰면 contains를 쓸수 있음 (boolean)
+                if (item.classList.contains('prev')) {
+                    calendar(year, --month);
+                } else {
+                    calendar(year, ++month);
+                }
+            })
+        })
+
+        let year = new Date().getFullYear(),
+            month = new Date().getMonth() + 1; // getMonth는 달의 인덱스를 뽑아서 0부터 시작함
+
+        calendar(year, month);
+    </script>
+</body>
+
+</html>

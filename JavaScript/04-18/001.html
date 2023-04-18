@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+
+<body>
+    <article class="parent">
+        <ol>
+            <li><button class="btn-first" type="button">버튼1</button></li>
+            <li><button type="button">버튼2</button></li>
+            <li><button type="button">버튼3</button></li>
+        </ol>
+    </article>
+
+    <script>
+        const parent = document.querySelector('.parent');
+        parent.addEventListener('click', (event) => {
+            console.log(this);
+            console.log(event.currentTarget);
+        })
+
+        const btnFirst = document.querySelector('.btn-first');
+
+        const myObj = {
+            nameObj: "testObj",
+            test() {
+                // 함수표현식으로 사용하면 this는 btnFirst
+                // 화살표함수를 사용하면 상위스코프로 간다. myObj
+                btnFirst.addEventListener('click', () => {
+                    console.log(this)
+                })
+            }
+        }
+        myObj.test()
+    </script>
+</body>
+
+</html>

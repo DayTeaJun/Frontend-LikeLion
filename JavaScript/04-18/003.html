@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+
+<body>
+    <!-- 앵커의 기본 동작을 중지 -->
+    <!-- <a href="https://www.naver.com" class="link">네이버 링크입니다만..</a> -->
+    <!-- <script>
+    const link = document.querySelector('.link');
+    link.addEventListener('click', (event) => {
+        console.log('clicked');
+        event.preventDefault();
+    })
+</script> -->
+
+    <!-- submit 의 기본 동작을 중지 -->
+    <!-- <form action="">
+        <button type="submit" class="submit">제출</button>
+    </form>
+    <script>
+        const submit = document.querySelector('.submit');
+        submit.addEventListener('click', (event) => {
+            console.log('clicked');
+            // 기본 디폴트된 동작을 막음
+            // submit의 경우 페이지의 새로고침을 막음
+            event.preventDefault();
+        });
+
+        document.addEventListener('contextmenu', (e) => {
+            alert('굳')
+            e.preventDefault();
+        })
+    </script> -->
+
+    <form action="">
+        <button type="submit" class="submit">제출</button>
+    </form>
+
+    <script>
+        const submit = document.querySelector('.submit');
+        submit.addEventListener('click', (event) => {
+            console.log('clicked');
+            event.preventDefault();
+            event.stopPropagation(); // 이벤트 전파(버블링 이벤트)를 막음
+        });
+
+        // body태그는 아래처럼 쉽게 접근가능, body는 위의 submit의 부모들 중 하나
+        // 아래 이벤트는 버블링(아래서부터 위로) 이벤트(이벤트안에 두번째 인자값을 true를 안줬기 때문)임
+        // 캡처링(위에서부터 아래로) 이벤트를 하면 위의 stopPropagation() 막기 전에 실행됨
+        document.body.addEventListener('click', () => {
+            console.log('event still alive!');
+        });
+    </script>
+</body>
+
+</html>
