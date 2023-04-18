@@ -37,6 +37,8 @@ $('.test')
 // 답변 : javascript는 call by value만 존재합니다.
 // https://inpa.tistory.com/entry/JS-%F0%9F%93%9A-Call-by-Value-Call-by-Reference
 
+// 혜민님 : 그냥 변수에 저장되어 있는 값이 원시값이냐 참조값이냐 차이만 있을뿐이라서 값에 의한 전달만 존재합니댜..결국 변수가 기억하고 있는 메모리 공간에 저장되어있는 값을 복사해서 전달하기때문에 ㅇ_ㅇ
+
 let test1 = [10, 20, 30]
 let test2 = 100
 
