@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            /* transition: .2s; */
+            /* requestAnimationFrame() 에 있는 속도를 transition이 못 따라잡음 그래서 그냥 빼면됨 */
+            /* 0.2초 간격으로 transform 을 해줌 */
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        const target = document.querySelector('div');
+        let pos = 0; // translateX 의 px값
+        let keys = {}; // 사용자가 어떤 키를 눌렀는지 정보를 저장하는 객체
+
+        // 사용자가 키를 눌렀을 때 실행
+        function move(event) {
+            // keys 객체에 key값을 event.key, value를 true로 만듦
+            keys[event.key] = true;
+            // 위 코드는 keys.event.key = true; 로도 쓸 수 있다.
+            console.log(keys); // ArrowRight : false
+        };
+
+        // 사용자가 키에서 손을 땔 때 실행
+        function stop(event) {
+            keys[event.key] = false;
+            console.log(keys);
+        };
+
+        document.addEventListener('keydown', move);
+        document.addEventListener('keyup', stop);
+
+        //function move(event) {
+        //    const keyName = event.key;
+        //    console.log(keyName);
+
+        //    if (keyName === 'ArrowRight') {
+        //        pos = pos + 5;
+        //        target.style.transform = `translateX(${pos}px)`
+        //    } else if (keyName === 'ArrowLeft') {
+        //        pos -= 5;
+        //        target.style.transform = `translateX(${pos}px)`
+        //    }
+        //}
+
+        function play() {
+            if (keys.ArrowRight) { // event.key (오른쪽키값)
+                pos += 5;
+                target.style.transform = `translateX(${pos}px)`
+            }
+
+            if (keys.ArrowLeft) {
+                pos -= 5;
+                target.style.transform = `translateX(${pos}px)`
+            }
+
+            requestAnimationFrame(play);
+            // 브라우저한테 애니메이션 움직임이 보일 때 미리 알려줌
+        }
+
+        play() // 재귀함수로 인해 무한 호출되지만, 브라우저가 멈추지 않음
+        // 해당 함수가 있는 브라우저를 보다가 다른 브라우저를 보면 호출이 잠시 멈춤
+    </script>
+</body>
+
+</html>

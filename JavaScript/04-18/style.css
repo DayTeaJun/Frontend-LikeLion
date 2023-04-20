@@ -13,7 +13,7 @@
 
 .list-item {
     position: fixed;
-    width: var(--item-width);
+    width: 240px;
     height: 400px;
     padding: 0;
     top: 50%;
