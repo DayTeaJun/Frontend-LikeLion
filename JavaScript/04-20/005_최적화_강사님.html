@@ -32,7 +32,7 @@
             // keys 객체에 key값을 event.key, value를 true로 만듦
             keys[event.key] = true;
             // 위 코드는 keys.event.key = true; 로도 쓸 수 있다.
-            console.log(keys); // ArrowRight : false
+            console.log(keys); // ArrowRight : true
         };
 
         // 사용자가 키에서 손을 땔 때 실행
@@ -66,6 +66,16 @@
             if (keys.ArrowLeft) {
                 pos -= 5;
                 target.style.transform = `translateX(${pos}px)`
+            }
+
+            if (keys.ArrowDown) {
+                pos -= 5;
+                target.style.transform = `translateY(${pos}px)`
+            }
+
+            if (keys.ArrowUp) {
+                pos += 5;
+                target.style.transform = `translateY(${pos}px)`
             }
 
             requestAnimationFrame(play);

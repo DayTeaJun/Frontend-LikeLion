@@ -16,6 +16,7 @@
     <p>3. 자기 전에 반드시 내일 아침 메뉴를 생각해두겠다.<button type="button">삭제</button></p>
 
     <script>
+        // if문을 이용해서 이벤트전파 자체를 막았음 ㅋ
         document.body.addEventListener('click', (e) => {
             if (e.target.nodeName === "BUTTON") {
                 if (confirm("님 삭제함?")) {

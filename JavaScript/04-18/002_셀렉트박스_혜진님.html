@@ -147,13 +147,13 @@
         // 다음 option으로 이동
         const nextOption = function (e) {
             e.preventDefault();
-            // 가장 가까운(closest) li에 형제요소(nextElementsSibling)
+            // 가장 가까운(closest) li에 형제요소(nextElementsSibling) 다음꺼
             const next = e.target.closest("li").nextElementSibling;
             // li다음에 li가 있다면 다음 li에 포커싱 함
             if (next) {
                 next.querySelector("button").focus();
-                // 없으면 첫번째 버튼에 포커싱 (처음으로 돌아가라)
             } else {
+                // 없으면 첫번째 버튼에 포커싱 (처음으로 돌아가라)
                 firstOption.focus();
             }
         };
@@ -161,7 +161,7 @@
         // 이전 option으로 이동
         const prevOption = function (e) {
             e.preventDefault();
-            // 가장가까운 li 버튼을 눌렀으면 그 부모, previousElementsSibling 그 부모의 앞쪽 li
+            // 가장가까운 li 버튼을 눌렀으면 그 부모, previousElementsSibling 그 부모의 이전꺼 li
             const prev = e.target.closest("li").previousElementSibling;
             if (prev) {
                 prev.querySelector("button").focus();
@@ -214,13 +214,13 @@
             }
         });
 
-        // option 닫기 : list에서 ESC(27) 누를 때, 영역 밖 클릭 시
+        // option 닫기 : list에서 ESC(27) 누를 때
         list.addEventListener("keydown", function (e) {
             if (e.keyCode === 27) {
                 handleClose();
             }
         });
-        // 문서 전체에 클릭효과
+        // 문서 전체에 클릭효과 영역 밖 클릭 시
         document.addEventListener("click", function (e) {
             // 누른 곳이 가장 가까운 곳에 부모가 .custom-select가 없다면 제거
             if (!e.target.closest(".custom-select")) {

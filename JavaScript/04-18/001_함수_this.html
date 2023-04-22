@@ -20,6 +20,7 @@
 
     <script>
         const parent = document.querySelector('.parent');
+        // 화살표함수를 사용하면 상위스코프로 간다. window
         parent.addEventListener('click', (event) => {
             console.log(this);
             console.log(event.currentTarget);
@@ -31,7 +32,6 @@
             nameObj: "testObj",
             test() {
                 // 함수표현식으로 사용하면 this는 btnFirst
-                // 화살표함수를 사용하면 상위스코프로 간다. myObj
                 btnFirst.addEventListener('click', () => {
                     console.log(this)
                 })

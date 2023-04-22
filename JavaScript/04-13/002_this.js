@@ -1,6 +1,8 @@
 // this(***)
 
-function a() { console.log(this) }
+function a() {
+    console.log(this)
+}
 a(); // window를 호출
 
 function b() {

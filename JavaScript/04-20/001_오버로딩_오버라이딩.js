@@ -82,7 +82,7 @@ class FireSausage1 extends Sausage1 {
 
 
     // 오버라이딩
-    taste() { // 같은 함수이름을 쓰게 되면 기존의 부모 것을 덮어 쓰게됨 이것을 오버라이딩이라고 부른다.
+    taste() { // 같은 함수이름을 쓰게 되면 기존의 부모 것을 덮어 쓰게됨 이것을 오버라이딩이라고 부른다. // 결론은 같은 함수이름이라면 자식의 함수꺼만 씀
         console.log(`와! ${this.inside1}맛과 ${this.inside2}맛과 ${this.inside3}이 나는 소세지다.`)
     }
 }

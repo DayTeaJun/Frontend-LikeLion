@@ -47,7 +47,7 @@
         const submit = document.querySelector('.submit');
         submit.addEventListener('click', (event) => {
             console.log('clicked');
-            event.preventDefault();
+            event.preventDefault(); // submit 기능인 새로고침 이벤트를 디폴트로 바꿔줌
             event.stopPropagation(); // 이벤트 전파(버블링 이벤트)를 막음
         });
 
