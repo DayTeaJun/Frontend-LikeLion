@@ -31,7 +31,7 @@
 
                     // 이 if문 안에서 사용하면 통신이 완료된 상태이기 때문에(if문 내용이 true니까) 여기서 돔을 이용해 변경해보자
                     document.querySelector('p').textContent = result;
-                    // 만약 변경되지 않았다면 웹검사기의 Network 항목을 보자.
+                    // 만약 변경되지 않았다면 개발자도구의 Network 항목을 보자.
                 }
             }
             xhr.send() // 서버로 요청을 보냅니다. send 메소드가 실행되어야만 우리가 위에서 설정한 내용들이 의미를 가지게 됨.

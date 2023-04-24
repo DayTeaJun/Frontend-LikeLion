@@ -2,7 +2,7 @@
 // XML : XML은 데이터를 표현하고 전송하는 데에 사용되는 마크업 언어,
 // XML은 데이터의 구조와 콘텐츠를 설명하는 태그로 구성된 문서로, 이를 사용하여 서로 다른 시스템 간에 데이터를 교환할 수 있다.
 // request : 요청
-// XHR(XMLHttpRequest의 줄임말) 객체를 생성합니다.
+// XHR(XML Http Request의 줄임말) 객체를 생성합니다.
 const requestObj = new XMLHttpRequest(); // 생성자 함수로 인스턴스 만듦
 requestObj.open('GET', 'url'); // 요청을 초기화합니다. 통신방법과 요청을 발신할 대상의 주소를 전달합니다.
 // 첫번째 매개변수에는 GET, POST 있다.
