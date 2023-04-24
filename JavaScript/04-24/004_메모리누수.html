@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+
+<body>
+    <script>
+        // case.1
+        let me = { age: 30 }; // 참조카운트 : 1
+        let you = me; // 참조카운트 : 2, you가 me의 객체주소를 참조하기 때문
+
+        me = null; // 참조카운트 : 1, 참조하고 있던 것이 하나 줄음
+        you = null; // 참조카운트 : 0, 참조하고 있던 대상이 null이 되어 아예 줄어듦, null이나 undefined의 경우 가비지컬렉터의 대상이 됨
+
+        // case.2
+        let x = {
+            y: {
+                z: 1
+            }
+        }
+
+        // x가 참조하는 객체를 object1(임시이름), y참조하고 있는 객체를 object2(임시이름)
+
+        let a = x; // object1 참조카운트 2: (x, a)
+        x = 1; // object1 참조카운트 : 1 (a) (object1이 참조하고 있던 것은 사라지고 값1 만 참조하고 있기 때문에 참조카운트가 1이 된다.)
+
+        let b = a.y; // object2 참조카운트 : 2 (a.y, b)
+        a = 2; // object1 참조카운트 : 0, object2 참조카운트 : 1 (b)
+        // object1안의 object2가 있는데 참조카운트가 0이 되면 가비지컬렉터가 수거해가는데, 참조카운트가 1인 object2는 어떻게 될까?
+        // b가 object2를 참조하기 때문에 object1 객체는 제거되지 않는다.
+        // object1 객체는 사용하지 않지만 불필요하게 남아있다.
+        // 이러한 상황을 메모리 누수라고 한다.
+        // 예전에는 객체끼리 서로 맞물려있어 제거되지 않던 문제(순환 참조 문제)가 있었지만 최신 브라우저에서는 마크스위프(Mark and Sweep) 알고리즘을 사용하여 이런 문제가 해결되어 있습니다.
+
+
+        // case.3 클로저 메모리 누수
+        function outer() {
+            let privateVal = ['test'];
+
+            function getPrivate() {
+                return privateVal
+            }
+            return getPrivate;
+        }
+
+        const getPr = outer();
+        const secretVal = getPr(); // 클로저안의 변수랑 return 값이 서로 연결되어 있기 때문에 privateVal 변수는 메모리 누수가 일어난다.
+
+        console.log(secretVal);
+        secretVal = null; // 이렇게 해줘야 가비지셀렉터가 회수해간다.
+    </script>
+</body>
+
+</html>

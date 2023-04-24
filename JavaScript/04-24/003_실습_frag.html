@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+
+<body>
+
+    <script>
+        const parentEl = document.querySelector('body');
+        const frag = document.createDocumentFragment();
+
+        for (let i = 0; i < 10; i++) {
+            const article = document.createElement('article');
+            article.classList.add('parent');
+            article.innerHTML = `<figure>
+                <img class="figImg"
+                    src="https://file.mk.co.kr/meet/neds/2021/07/image_readtop_2021_654175_16256093474708254.jpg"
+                    alt="">
+                <figcaption class="figCap">
+                    유재석씨가 수상식에서 환하게 웃고 있다.
+                </figcaption>
+            </figure>`
+
+            // parentEl.append(article)
+            frag.append(article);
+            // 가상돔인 frag에 article이 다 붙은 다음
+        }
+
+        for (let i = 0; i < 10; i++) {
+            parentEl.append(frag.cloneNode(true)); // cloneNode로 fragment를 복사해서 붙임 true값을 주면 자식까지 복사함.
+            // 노드 전체를 복사해서 붙이기 때문에 반복문으로 여러번 반복 가능.
+        }
+
+        // parentEl.append(frag) // 가상돔인 frag를 자식으로 붙임
+        // fragment는 이제 확인할 수 없는 상태
+        // parentEl.append(frag) // frag를 여러번 붙여도 하나만 동작함. 붙이자마자 사라지기 때문, 그래서 cloneNode로 복사하여 여러번 붙이면 됨.
+
+        // fragment를 이용하지 않고 바로 붙었을 경우, 렌더링 되는게 반복이 됨. 브라우저가 렌더링되는 여러가지 과정이 있음. 이것을 for문으로 반복을 할 때, DOM으로 계속 렌더링됨 브라우저의 부담이 많이 듦.
+        // fragment를 사용하면 가상 돔을 만들어서 메모리 상에서만 존재함. 여기에 위에 반복한 article을 계속 붙힌다고 해도 문제가 없음. 가상 돔(메모리에서만)에서만 계산하고 반복문을 빠져나온 뒤 한번만 만든 가상돔 전체를 붙이게 됨.
+
+    </script>
+</body>
+
+</html>

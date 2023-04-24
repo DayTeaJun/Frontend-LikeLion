@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+
+<body>
+    <p>hello lions!</p>
+    <!-- <button type="button">통신버튼</button> -->
+
+    <script>
+        // const btn = document.querySelector('button');
+        let result;
+
+        function xhrRequest() {
+            const xhr = new XMLHttpRequest(); // 생성자 함수로 인스턴스 만듦
+            xhr.open('GET', 'message.txt'); // 두번 째 매개변수에는 접근할려고하는 URL을 적음
+            // 여기까지 초기세팅을 함 (난 이렇게 불러볼 꺼야)
+
+            xhr.onreadystatechange = () => { // readystate 가 변화하면 실행되는 이벤트리스너
+
+                // console.log(typeof(xhr.status)) 확인해보니 status를 문자형으로 일치연산자를 이용해 비교했기 때문에 잘 불러와지지 않았다. '200'을 200으로 변경.
+                if (xhr.readyState == 4 && xhr.status === 200) { // readyState == 4는 통신이 완료됬을 때, status === '200' 은 문제없이 실행되었을 때를 의미 
+                    result = xhr.responseText; // 데이터를 텍스트형태로 받아옴 (JSON 이랑 비슷한 느낌?)
+                    console.log(result) // 이 코드는 2번째로 실행됨. 안의 함수가 비동기적으로 실행되기 때문
+
+                    // 이 if문 안에서 사용하면 통신이 완료된 상태이기 때문에(if문 내용이 true니까) 여기서 돔을 이용해 변경해보자
+                    document.querySelector('p').textContent = result;
+                    // 만약 변경되지 않았다면 웹검사기의 Network 항목을 보자.
+                }
+            }
+            xhr.send() // 서버로 요청을 보냅니다. send 메소드가 실행되어야만 우리가 위에서 설정한 내용들이 의미를 가지게 됨.
+        }
+
+        xhrRequest(); // 이 함수는 비동기적으로 실행됨.
+
+        console.log(result) // 이 코드는 1번째로 실행됨.
+    </script>
+</body>
+
+</html>

@@ -49,7 +49,7 @@
     <script>
         let allMemo = JSON.parse(localStorage.getItem("allMemo"));
         // allMemo 에 JSON.parse를 이용해 로컬스토리지 에 등록되어있는 allMemo(키) 로부터 데이터를 읽어 온 것을 JS 객체로 반환하여 저장
-        // 아무 것도 안한상태에는 null로 되어있음 그래서 아래 코드 실행 
+        // 아무 것도 안한상태에는 null로 되어있음 그래서 아래 코드 실행
         allMemo = allMemo ?? [];
         // allMemo가 null이나 undefined라면 빈배열 생성
         render();
@@ -61,7 +61,7 @@
 
             allMemo.push({ title, content, len: allMemo.length });
             // allMemo에 title, content, len: allMemo.length 각각의 프로퍼티로 푸시(저장)함
-            console.log(allMemo)
+            // console.log(allMemo)
 
             localStorage.setItem("allMemo", JSON.stringify(allMemo));
             // 로컬스토리지에 "allMemo"라는 키와 allMemo 안에 저장된 객체를 JSON.stringify로 문자열로 저장해줌.
@@ -89,6 +89,7 @@
                 saveTitle.textContent = item.title;
                 saveContent.textContent = item.content;
                 saveId.textContent = item.len + 1;
+
                 deleteMemoBtn.textContent = "삭제";
                 deleteMemoBtn.setAttribute("id", item.len);
                 deleteMemoBtn.setAttribute("onclick", "remove()");
@@ -115,7 +116,7 @@
                     // findIndex() 메서드는 주어진 판별 함수를 만족하는 배열의 첫 번째 요소에 대한 인덱스를 반환
                 );
                 // 결론 : idx가 true일 경우 allMemo 배열 안에서
-                // item.len == idx.len을 만족하는(결과만 보자면 내가 누른 이벤트와 그 이벤트가 발생한 위치의 len이 같을 경우) 첫번 째 요소에 대한 인덱스를 반환하고 그 길이만큼 잘라서 반환 
+                // item.len == idx.len을 만족하는(결과만 보자면 내가 누른 이벤트와 그 이벤트가 발생한 위치의 len이 같을 경우) 첫번 째 요소에 대한 인덱스를 반환하고 그 길이만큼 잘라서 반환
             }
             localStorage.setItem("allMemo", JSON.stringify(allMemo));
             // 위의 실행한 요소를 다시 저장하기 위해
