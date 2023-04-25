@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+
+<body>
+
+
+    <script>
+        'use strict' // 엄격모드 활성화
+
+        // 실습 : 실제 예시를 위해 유저를 검색하고 알맞는 인사말을 건네는 간단한 프로그램을 작성해보겠습니다.
+
+        class UserStorage { // 클래스를 만든 이유는 searchUser, sayHi 등을 메서드로 활용하기 쉽게 하기 위해 만듦
+
+            searchUser(userName, password) {
+
+                // Promise 객체 생성
+                return new Promise((resolve, reject) => {
+
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('GET', 'users.json');
+                    xhr.onreadystatechange = () => {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+
+                            const result = JSON.parse(xhr.responseText).user.find((item) => {
+                                return item.userName === userName && item.password === password
+                            });
+
+                            if (result) {
+                                resolve(userName); // then을 실행시킴, 정상적으로 실행 됬을경우
+                                // onSuccess(userName);
+                            } else {
+                                reject('user not found'); // catch를 실행시킴. 실행이 되지 않았을 경우
+                                // onError(new Error('user not found'));
+                            }
+                        }
+                    }
+
+                    xhr.send();
+                })
+            }
+
+            sayHi(user) {
+
+                return new Promise((resolve, reject) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('GET', 'greetings.json');
+                    xhr.onreadystatechange = () => {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            const result = JSON.parse(xhr.responseText).greetings.find((item) => {
+                                return item.userName === user
+                            });
+
+                            if (result) {
+                                resolve(
+                                    {
+                                        name: result.userName,
+                                        greetings: result.greetings
+                                    }
+                                );
+                            } else {
+                                reject('no greetings');
+                            }
+                        }
+                    }
+                    xhr.send()
+                })
+            }
+        }
+
+        const userStorage = new UserStorage();
+        const userName = prompt('이름이 머에요');
+        const password = prompt('비밀번호 머에요');
+
+        userStorage.searchUser(userName, password)
+            .then((결과) => { // then은 promise 객체가 실행이되면 실행됨, searchUser의 리턴값에 resolve값(결과)을 가져옴
+                return userStorage.sayHi(결과) // sayHi도 promise 객체를 반환함, result는 위의 searchUser의 리턴값인 유저이름
+            }).then((결과2) => { // 결국 리턴되는 값은 promise 객체이기 때문에 then이 실행됨.
+                alert(`당신에게 인사합니다. ${결과2.name}님 ${결과2.greetings}`); // sayHi의 resolve가 실행되어 값을 불러옴
+            }).catch((에러다인마) => { // 리턴되는 것이 reject면 실행됨
+                console.log(new Error(에러다인마));
+            });
+
+            //성공, 실패, 결과
+            //result(결과) 변수랑 then result(결과)랑 다르다
+            //(1) searchUser 오류내는거 (작동 잘되는지 실험하기 위해 일부러)
+            //(2) sayHi 오류내는거 (작동 잘되는지 실험하기 위해 일부러)
+            //(3) then 인수에서 if문의 블록 안의 성공(); 값을 결과(인자)로 받는거
+            //(4) catch 인수에서 else문의 블록 안의 실패(); 값을 에러다인마(인자)로 받는거
+        
+            //chatGPT
+            //여기서 class쓰는이유는 userStorage.serchUser쓰기위해서인가욧?
+            //예, class를 사용하는 이유 중 하나는 UserStorage 클래스의 메소드인 searchUser와 sayHi를 사용하기 위해서 입니다. searchUser 메소드는 유저 이름과 비밀번호를 인자로 받아서 해당 유저가 등록되어 있는지 확인하는데 사용됩니다. sayHi 메소드는 등록된 유저에게 인사말을 출력하기 위해 사용됩니다. 이 클래스는 또한 각각의 메소드를 Promise로 래핑하여 비동기식으로 호출할 수 있도록 합니다. 이렇게 하면 비동기적으로 데이터를 불러올 때 UI가 차단되는 것을 방지할 수 있습니다. 따라서, class를 사용하는 것은 코드를 구성하고 관리하기 쉽게 만들어주며, 객체 지향 프로그래밍에서 클래스를 사용하여 코드를 재사용하고 구조화하는 것이 일반적이기 때문입니다.
+
+    </script>
+</body>
+
+</html>

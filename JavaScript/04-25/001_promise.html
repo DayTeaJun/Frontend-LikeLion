@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+
+<body>
+
+    <script>
+        // 커피를 주문하는 프로미스 객체를 생성합니다. 생성자에는 약속을 지키기 위한 resolve와, 약속을 지키지 못했을 때를 대비한 reject 두 가지를 인자로 전달합니다.
+        const orderCoffee = new Promise((resolve, reject) => { // Promise 생성자, 함수를 전달하는데 excutor : 실행자, resolve, reject 두 가지를 전달 받음
+
+            const requestObj = new XMLHttpRequest();
+            requestObj.open('GET', 'orderCoffee.txt');
+            requestObj.onreadystatechange = () => {
+                if (requestObj.readyState === 4 && requestObj.status === 200) {
+
+                    const result = requestObj.responseText;
+
+                    // resolve 메소드가 실행되면 then 메소드가 자동으로 호출됩니다.
+                    //resolve(result); // resolve는 약속의 이행(fulfilled)을 불러옴
+                    // 실제로 orderCoffee를 콘솔에 찍으면 promise의 상태가 `Promise {<fulfilled>: '오늘의 커피가 나와써요'}` 나옴
+
+                    // resolve 메소드 호출이 없는 상태에서 reject 메소드가 실행되거나 통신에 문제가 발생하면 catch 메소드가 자동으로 호출됩니다.
+                    reject(result); // reject는 거절을 불러옴, resolve와 reject는 둘다 같이 실행 못함 둘 중 하나만 됨.
+                    // 실제로 orderCoffee를 콘솔에 찍으면 promise의 상태가 `Promise {<rejected>: '오늘의 커피가 나와써요'}` 나옴
+                }
+            };
+            requestObj.send();
+
+        });
+
+        // 이 부분에 주목해주세요. then 메소드를 사용하면 비동기 코드를 마치 동기적인 코드처럼 작성할 수 있습니다. 앞에서 작성한 XHR 코드와 비교해보는것도 좋습니다. 
+
+        // resolve 메소드가 실행될때 전달된 인자는 then 메소드의 콜백함수의 인자로 전달됩니다.
+        // .then과 .catch 가 있는 것을 보고 promise 객체라는 것을 알 수 있음.
+        orderCoffee.then((asyncResult) => { // then은 약속이 실행된 다음(then)을 말함. then은 위의 resolve가 실행되어야 실행함. asyncResult => 위의 result를 가져옴
+            console.log(asyncResult); // then은 서버로부터 데이터를 받아온 걸 실행할 수 있을 때 실행.
+            console.log('약속이 이루어졌습니다.');
+            return asyncResult;
+        }).catch((error) => { // catch는 reject가 실행이 되어야 실행됨. then 메소드는 프라미스 객체를 반환하기 때문에 catch 메소드를 이어서 쓰는것이 가능합니다.
+            // catch는 reject가 되어 서버 통신에 문제가 생기면, 위의 then을 실행하지 않고 catch를 실행함.
+            console.log(new Error('커피주문이 정상적으로 이뤄지지 않았습니다.'));
+        })
+
+        // 비동기 코드의 3가지
+        // Pending(대기) : 비동기 처리 로직이 아직 완료되지 않은 상태 (두 가지 모두 이뤄지지 않는다면 계속 pending(대기중) 상태가 되겠지만, 코드 실수가 없다면 일어날 수 없는 상태)
+        // Fulfilled(이행) : 비동기 처리가 완료되어 프로미스가 결과 값을 반환해준 상태
+        // Rejected(실패) : 비동기 처리가 실패하거나 오류가 발생한 상태
+        // 우리는 약속을 의미하는 promise 객체를 만들었고, 이 약속은 이행되거나(resolve), 거절되거나(reject) 둘 중에 한 가지 결과만을 가지게 될겁니다.
+        // ‘이행되거나 거절되거나 둘 중의 하나의 결과는 있을 거라 생각하고 작업을 진행하자!’ 라는 개념으로 만들어졌기 때문에 then과 catch를 이용해 동기적으로 코드를 이어 쓸 수 있는것 입니다.
+
+    </script>
+</body>
+
+</html>

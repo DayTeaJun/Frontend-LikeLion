@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+
+<body>
+
+    <script>
+        // fetch는 promise를 쉽게 주소만 가져오면 실행가능.
+        let result = fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json');
+        console.log(result); // fetch도 결국 비동기이기 때문에 먼저 찍으면 안나옴
+        // Promise {<pending>} fetch로 promise 객체를 가져오는 중이라서 pending 상태이다. (코드 자체에서 바로 실행되서 pending임)
+
+        // Promise {<fulfilled>: Response} 페이지 로드가 끝난 후 콘솔로 찍으면 fulfilled로 변경되어 있다.
+
+        let result2 = fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json');
+        result2.then((data) => {
+            console.log(data);
+            // Response {type: 'cors', url: 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json', redirected: false, status: 200, ok: true, …}
+            // Response는 서버의 응답에 대한 다양한 정보를 보여줌.
+
+        })
+
+        let result3 = fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json');
+        result3
+            .then((data) => {
+                console.log(data.json()) // json() 메소드도 비동기로 실행되서, pending 상태라고 뜬다.
+                return data.json() // json으로 파싱하여 promise로 반환.
+            }).then((result3) => {  // data.json()은 promise 객체로 변환하여 result3에 들어감 (fetch를 통해서 실행한 promise를 반환하기 때문에 .then메소드를 실행가능)
+                console.log(result3);
+                return result3;
+            })
+            .catch((result3) => {
+                console.log(new Error(result3));
+            });
+    </script>
+</body>
+
+</html>

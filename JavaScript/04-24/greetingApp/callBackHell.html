@@ -19,26 +19,90 @@
 
         class UserStorage {
 
-            searchUser() { // 유저 찾기
+            searchUser(userName, password, onSuccess, onError) { // 유저 찾기 // 인자를 받음 userName, password
                 const xhr = new XMLHttpRequest();
                 xhr.open('GET', 'users.json');
-                xhr.onreadystatechange = () => { // readystate 가 변화하면 실행되는 이벤트리스너
+                xhr.onreadystatechange = () => { // readystate 가 변화하면(서버로부터의 응답이 오는 것) 실행되는 이벤트리스너
                     if (xhr.readyState === 4 && xhr.status === 200) {
-                        const result = JSON.parse(xhr.responseText);
-                        console.log(result)
+                        // 서버가 통신이 완료될 경우 받아온 데이터를 후속처리 할 수 있는 공간
+                        const result = JSON.parse(xhr.responseText).user.find((item) => { // xhr.responseText: 서버로 부터 받아온 데이터(이때는 user.json), find: 첫번째 조건에 일치하는 요소를 반환 없으면 undifined
+                            return item.userName === userName && item.password === password
+                        });
+                        // console.log(result); 위 find가 잘됬는지 확인하는 용도
+
+                        if (result) { // result의 값이 충족되면 실행
+                            onSuccess(userName);
+                        } else {
+                            onError(new Error('user not found')) // 사용자가 만드는 에러함수('출력내용')
+                        }
                     }
                 }
                 xhr.send() // 이거 계속 까먹는데 있어야 작동하니까 까먹지마!
             }
 
-            sayHii() { // 유저가 맞으면 실행
+            sayHi(user, onSuccess, onError) { // 유저가 맞으면 실행
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', 'greetings.json');
+                xhr.onreadystatechange = () => { // readystate 가 변화하면(서버로부터의 응답이 오는 것) 실행되는 이벤트리스너
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        // 서버가 통신이 완료될 경우 받아온 데이터를 후속처리 할 수 있는 공간
+                        const result = JSON.parse(xhr.responseText).greetings.find((item) => { // xhr.responseText: 서버로 부터 받아온 데이터(이때는 greetings.json), find: 첫번째 조건에 일치하는 요소를 반환 없으면 undifined
+                            return item.userName === user
+                        });
 
+                        if (result) { // result의 값이 충족되면 실행
+                            onSuccess( // onSuccess가 실행될때 객체를 생성.
+                                {
+                                    name: result.userName,
+                                    greetings: result.greetings
+                                }
+                            );
+                        } else {
+                            onError(new Error('no greetings')) // 사용자가 만드는 에러함수('출력내용')
+                        }
+                    }
+                }
+                xhr.send() // 이거 계속 까먹는데 있어야 작동하니까 까먹지마!
             }
         }
 
         const userStorage = new UserStorage(); // 위클래스를 인스턴스로 만듦(실행하기 위함)
 
-        userStorage.searchUser(); // class 안에서 만든 searchUser 메서드를 실행함.
+        const userName = prompt('이름이 머에요'); // 프롬프트로 userName을 받음
+        const password = prompt('비밀번호 머에요');
+
+        // 인자값을 보기 쉽게 정리함
+        userStorage.searchUser( // 인스턴스를 만들어서 메서드(searchUser)를 실행시킴 아래는 인자들
+            userName,
+            password,
+            (name) => { // onSuccess 콜백함수
+                userStorage.sayHi(
+                    name, // sayHi의 첫번째 인자
+                    (result) => { // sayHi의 두번째 인자로 받은 함수(onSuccess)
+                        alert(`인사할게요.${result.name}님 ${result.greetings}에요.`);
+                    },
+                    (error) => { // sayHi의 세번째 인자 onError함수
+                        console.log(error);
+                    }
+                )
+            },
+            (error) => { // searchUser의 4번째 인자 onError
+                console.log(error)
+            }
+
+        ); // class 안에서 만든 searchUser 메서드를 실행함.
+
+        // 결론 위에서 실행시키는 인자값들이 다 콜백지옥이다.
+        // 비동기 프로그래밍에서는 코드 실행 순서가 보장되지 않기 때문에, 비동기 함수 호출 결과를 즉시 사용할 수 없다.
+        // 그래서 비동기로 실행시키는 것들은 콜백함수로 밖에 접근할 수 밖에 없다.
+
+        // 비동기는 위의 XMLhtpprequest나 setTime 함수 등은 사이드 스레드에서 실행되고
+        // 비동기가 아닌 코드들은 메인 스레드에서 작동한다.
+        // 코드가 실행되면 메인스레드는 실행되는 중이고, 사이드 스레드는 사이드 스레드안에서 실행함.
+        // 이러면 메인 스레드와 사이드 스레드들은 서로 충돌 위험이 있는데,
+        // 이벤트 루프라는 매니저가 이를 중재하면서 메인 스레드를 먼저 전부 실행 시킨 후, 사이드 스레드를 실행 시킴.
+
+
     </script>
 </body>
 
