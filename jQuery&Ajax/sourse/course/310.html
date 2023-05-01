@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <style>
+      .box {
+        margin: 1rem;
+        padding: 1rem;
+        min-height: 100px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <button id="btn1">버튼1</button>
+      <button id="btn2">버튼2</button>
+      <button id="btn3">버튼3</button>
+    </div>
+    <div id="result1" class="box"></div>
+    <div id="result2" class="box"></div>
+    <div id="result3" class="box"></div>
+
+    <script>
+      // load
+      // json 로드
+      $("#result1").load(
+        "https://raw.githubusercontent.com/paullabkorea/coronaVaccinationStatus/main/data/data.json"
+      );
+      $("#btn1").on("click", function () {
+        $("#result1").load(
+          "https://raw.githubusercontent.com/paullabkorea/coronaVaccinationStatus/main/data/data.json"
+        );
+      });
+
+      // 데이터 태그만 가져오기(HTML, XML 등 가능)
+      $("#result2").load(
+        "https://raw.githubusercontent.com/paullabkorea/10000hour/main/index.html h1"
+      );
+
+      $("#result2").load(
+        "https://raw.githubusercontent.com/paullabkorea/10000hour/main/index.html #contents"
+      );
+
+      // ajax
+
+      // jQuery에서 비동기로 http 요청을 합니다.
+
+      // 문법
+
+      // - url : 요청보낼 URL
+      // - method : http 메소드 - GET, POST, PUT
+      // - data : 함께 전송할 데이터
+      // - dataType: 서버 응답 데이터 타입
+      // - done() : 요청에 대한 응답이 온 후 실행할 함수
+      // - fail() : 요청이 실패 한 경우 실행할 함수
+      // - always() : 요청후 항상 실행할 함수
+
+      const data_url =
+        "https://raw.githubusercontent.com/paullabkorea/coronaVaccinationStatus/main/data/data.json";
+
+      $.ajax({
+        url: data_url,
+        method: "GET",
+        dataType: "json",
+      })
+        .done(function (response_data) {
+          console.log(response_data);
+        })
+        .fail(function (xhr, status, errorThrown) {
+          console.log(status);
+          console.log(errorThrown);
+        })
+        .always(function () {
+          console.log("FINISH");
+        });
+    </script>
+  </body>
+</html>

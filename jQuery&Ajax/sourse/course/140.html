@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <style>
+      div,
+      span {
+        display: block;
+        border: 1px solid black;
+        padding: 10px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="grandparent">
+      grandparent
+      <div class="parent">
+        parent
+        <div class="child">
+          child
+          <span class="subchild">subchild</span>
+        </div>
+      </div>
+      <div class="surrogateParent1">surrogateParent1</div>
+      <div class="surrogateParent2">surrogateParent2</div>
+    </div>
+
+    <script>
+      $(function () {
+        // div.child를 반환합니다.
+        $("span.subchild").parent();
+
+        // 주어진 선택자와 일치하는 모든 부모를 선택합니다.
+        // div.parent를 반환합니다.
+        $("span.subchild").parents("div.parent");
+
+        // 모든 부모를 선택합니다.
+        // div.child, div.parent, div.grandparent를 반환합니다.
+        $("span.subchild").parents();
+
+        // 가장 가까운 부모를 선택합니다. 단 하나의 부모만 선택하며, 초기 요소 자체도 검색 대상에 포함됩니다.
+
+        // [div.child]를 반환합니다.
+        $("span.subchild").closest("div");
+
+        // 셀렉터도 검색 대상에 포함되므로 [div.child]를 반환합니다.
+        $("div.child").closest("div");
+
+        // 바로 아래 자식 엘리먼트 선택:
+        // [div.parent, div.surrogateParent1, div.surrogateParent2]를 반환합니다.
+        $("div.grandparent").children("div");
+
+        // 선택한 요소 내에서 선택자와 일치하는 모든 요소를 찾습니다:
+        // [div.child, div.parent, div.surrogateParent1, div.surrogateParent2]를 반환합니다.
+        $("div.grandparent").find("div");
+
+        // 주어진 선택자와 일치하는 요소의 형제 요소를 양방향으로 선택:
+        // [ div.surrogateParent1, div.surrogateParent2 ]를 반환합니다
+        $("div.parent").siblings();
+
+        // [ div.parent, div.surrogateParent2 ]를 반환합니다
+        $("div.surrogateParent1").siblings();
+
+        // 다음 형제 앨리먼트를 탐색
+        // [div.surrogateParent1]를 반환합니다.
+        $("div.parent").next();
+
+        // Selecting a prev sibling of the selectors:
+        // div.parent 앞에 형제가 없으므로 []를 반환합니다.
+        $("div.parent").prev();
+
+        // Selecting all the next siblings of the selector:
+        // [div.surrogateParent1, div.surrogateParent2]를 반환합니다.
+        $("div.parent").nextAll();
+
+        // [div.surrogateParent1]을 반환합니다.
+        $("div.parent").nextAll().first();
+
+        // [div.surrogateParent2]를 반환합니다.
+        $("div.parent").nextAll().last();
+
+        // 이전 형제 엘리먼트를 탐색
+        // [div.surrogateParent1, div.parent]를 반환합니다.
+        $("div.surrogateParent2").prevAll();
+
+        // [div.surrogateParent1]을 반환합니다.
+        $("div.surrogateParent2").prevAll().first();
+
+        // [div.parent]을 반환합니다.
+        $("div.surrogateParent2").prevAll().last();
+      });
+    </script>
+  </body>
+</html>

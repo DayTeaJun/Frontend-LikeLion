@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <style>
+      .row {
+        display: flex;
+        padding: 1rem;
+        margin: 1rem;
+        border: 1px solid black;
+      }
+
+      .item {
+        width: 50px;
+        height: 50px;
+        background-color: yellow;
+        border: 1px solid black;
+        padding: 1rem;
+        margin: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="row1" class="row">
+      <div id="item1" class="item">1</div>
+      <div id="item2" class="item">2</div>
+      <div id="item3" class="item">3</div>
+      <div id="item4" class="item">4</div>
+      <div id="item5" class="item">5</div>
+    </div>
+    <div id="row2" class="row">
+      <div id="item6" class="item"><button>6</button></div>
+      <div id="item7" class="item"><button>7</button></div>
+      <div id="item8" class="item"><button>8</button></div>
+      <div id="item9" class="item"><button>9</button></div>
+      <div id="item10" class="item"><button>10</button></div>
+    </div>
+    <div id="row3" class="row">
+      <div id="item11" class="item">11</div>
+      <div id="item12" class="item">12</div>
+      <div id="item13" class="item">13</div>
+      <div id="item14" class="item">14</div>
+      <div id="item15" class="item">15</div>
+    </div>
+    <script>
+      // html() - 요소의 내용 html 읽기
+      // innerHTML 과 같은 역할
+      $("#item2").html();
+      // -> '2'
+
+      $("#item6").html();
+      // -> '<button>6</button>'
+
+      // html(값) - 요소의 html 쓰기
+      $("#item2").html("2222");
+
+      $("#item2").html("<a href='https://www.naver.com'>naver</a>");
+
+      // text() - 요소의 text 읽기
+      $("#item2").text();
+      // -> '2'
+
+      $("#item6").text();
+      //-> '6'
+
+      // text(값) - 요소의 text 쓰기
+      $("#item2").text("2222");
+      // innerText와 같은 역할이기 때문에 아래 HTML은 적용안함
+      $("#item2").text("<a href='https://www.naver.com'>naver</a>");
+
+      $("#item6").text("6666");
+
+      // append() - 요소 추가하기
+      $(".row").append("<button>new button</button>");
+
+      $("#item11").append("<button>new button</button>");
+      // item15의 자식으로 item6 을 옮겨버림
+      $("#item15").append($("#item6"));
+
+      // appendTo() - 특정 위치 요소 추가 하기
+      $("<button>new button</button>").appendTo(".row");
+
+      $("<button>new button</button>").appendTo("#item11");
+
+      // 첫번째 row들을 마지막 row에 자식으로 넣음
+      $(".row:first").appendTo(".row:last");
+
+      // 첫번째 줄의 item들을 가져다가 row에 마지막자식으로 옮김
+      $(".row:first .item").appendTo(".row:last");
+
+      // clonde() 복사하기
+      $copyItem = $("#item1").clone();
+      $(".row:last").append($copyItem);
+
+      // item1을 찾아서 복사한다음 row:last(마지막줄)에 넣는다.
+      $("#item1").clone().appendTo(".row:last");
+
+      // prepend() - 선택한 요소의 하위중 앞에 콘텐츠를 추가
+      $("#item2").prepend("hello");
+
+      //prependTo() - 해당요소를 특정 위치에 앞에 추가
+      $("<button>hello</button>").prependTo("#item2");
+
+      // after() - 특정요소 뒤에 추가하기
+      $("#row1").after("<p>hello world</p>");
+
+      // before() - 특정요소 앞에 추가하기
+      $("#row1").before("<p>hello world</p>");
+    </script>
+  </body>
+</html>
