@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const h1 = <h1>hello world shop</h1>;
+      const li = <li></li>;
+
+      const h2 = <h2>hello world!</h2>;
+
+      const p = <p>product list</p>;
+      const footer = <footer></footer>;
+      const address = <address>제주시 인다 1길</address>;
+
+      const body = (
+        <div>
+          <header>
+            {h1}
+            <nav>
+              <ul>{li}</ul>
+            </nav>
+          </header>
+
+          <main>
+            {h2}
+            {p}
+            <ul>{li}</ul>
+          </main>
+
+          <footer>
+            {h2}
+            {address}
+          </footer>
+        </div>
+      );
+
+      const domContainer = document.querySelector("#root");
+      const root = ReactDOM.createRoot(domContainer);
+      root.render(body);
+    </script>
+  </body>
+</html>

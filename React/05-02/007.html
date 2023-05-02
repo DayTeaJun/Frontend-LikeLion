@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <title>위니브 샵</title>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const docmContainer = document.querySelector("#root");
+    const root = ReactDOM.createRoot(docmContainer);
+
+    async function setUp() {
+      const response = await loadData();
+      wenivPost(response);
+      // console.log(response);
+    }
+
+    async function loadData() {
+      try {
+        const response = await fetch('http://test.api.weniv.co.kr/mall');
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(response.status)
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    function wenivPost(data) {
+      const dataEnd = [];
+      data.map((el) => {
+        dataEnd.push(body(el));
+      })
+      console.log(dataEnd);
+      root.render(dataEnd);
+    }
+
+    function body(dataEl) {
+      return (
+        <div>
+          <h1>{dataEl.productName}</h1>
+          <p>{dataEl.price}</p>
+        </div>
+      )
+    }
+
+    setUp();
+  </script>
+</body>
+
+</html>

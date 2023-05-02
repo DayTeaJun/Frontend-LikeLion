@@ -51,6 +51,7 @@
           return (
             // 아래코드는 html처럼 보이지만 JSX라는 React 문법 (html도 자바스크립트 문법도 아님 JSX 문법)
             // react 코드가 실제 html로 만들어준다.
+            // 바벨을 이용하여 사용할 수 있다.
             <button onClick={() => this.setState({ liked: true })}>
               Hello
             </button>
@@ -61,6 +62,7 @@
 
       // DOM에 리액트 컴포넌트 랜더링하기
       const domContainer = document.querySelector("#root");
+      // 위 라이브러리 ReactDOM으로 만듦
       ReactDOM.render(el(HelloButton), domContainer);
     </script>
   </body>

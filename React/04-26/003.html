@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>리액트 1분만에 추가해보기!</title>
+  </head>
+  <body>
+    <h1>내 html에 리액트 1분만에 추가해보기!</h1>
+    <p>단 1분만에 설치없이 리액트를 추가할 수 있다구요?</p>
+    <div id="root"></div>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      function HelloButton(props) {
+        // React.useState('') : 연결된 모든 상태(내용)이 수정됨.
+        // const 배열에 첫번째 인자로 들어감
+        const [text, setText] = React.useState("Hello");
+
+        function handleClickButton() {
+          // setText로 전달하면 text에 전달됨
+          setText("Hello World");
+        }
+
+        return <button onClick={handleClickButton}>{text}</button>;
+      }
+
+      const app = (
+        <div>
+          <HelloButton />
+          <HelloButton />
+          <HelloButton />
+          <HelloButton />
+          <HelloButton />
+        </div>
+      );
+
+      // DOM에 리액트 컴포넌트 랜더링하기
+      const domContainer = document.querySelector("#root");
+      // app 내용을 domContainer에 넣음
+      ReactDOM.render(app, domContainer);
+    </script>
+  </body>
+</html>
