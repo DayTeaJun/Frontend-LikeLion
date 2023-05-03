@@ -37,10 +37,12 @@
 
     function wenivPost(data) {
       const dataEnd = [];
+
       data.map((el) => {
         dataEnd.push(body(el));
       })
-      console.log(dataEnd);
+
+      // console.log(dataEnd);
       root.render(dataEnd);
     }
 
