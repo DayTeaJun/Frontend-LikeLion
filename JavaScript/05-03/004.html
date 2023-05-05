@@ -2,33 +2,36 @@
 <html lang="ko-KR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="popup.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>레이어 팝업</title>
+  <link rel="stylesheet" href="popup.css">
 </head>
 
 <body>
-    <h1>레이어 팝업(Layer Popup)</h1>
+  <h1>레이어 팝업(Layer Popup)</h1>
 
-    <button class="btn-open" type="button">팝업창 열기</button>
-    <article class="popup">
-        <h2 class="a11y-hidden">전체 메뉴</h2>
-        <ul class="menu">
-            <li><a href="#">위니브</a></li>
-            <li><a href="#">멋쟁이 사자처럼</a></li>
-            <li><a href="#">FES 5기</a></li>
-        </ul>
-        <button class="btn-close" type="button"><img src="./x.svg" alt="닫기"></button>
-    </article>
-    <div class="dim"></div>
+  <button class="btn-open" type="button">메뉴 열기</button>
 
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur cum, quis velit, tempore saepe a dolorem
-        officiis eum sapiente, delectus perferendis veritatis pariatur modi et! Iste quos reiciendis placeat blanditiis.
-    </p>
+  <article class="popup">
+    <h2 class="a11y-hidden">전체 메뉴</h2>
+    <ul class="menu">
+      <li><a href="#">위니브</a></li>
+      <li><a href="#">멋쟁이 사자처럼</a></li>
+      <li><a href="#">FES 5기</a></li>
+    </ul>
+    <button class="btn-close" type="button">
+      <img src="./x.svg" alt="닫기">
+    </button>
 
-    <script src="popup.js"></script>
+  </article>
+  <div class="dim"></div>
+
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate eveniet rem, sint expedita tempora iure, nam
+    ullam ipsa eos magni consequuntur nulla dolores soluta explicabo saepe dolore pariatur error natus?</p>
+  <a href="#">포커스</a>
+  <script src="./popup.js"></script>
 </body>
 
 </html>
