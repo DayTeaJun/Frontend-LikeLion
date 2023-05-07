@@ -188,7 +188,7 @@
           // setTimeout() 콜백함수, 시간 : 시간뒤에 콜백함수 실행
           window.setTimeout(function () {
             btn.focus();
-          }, 2000);
+          }, 100);
           // 현재 타겟이 된 것을 selectOption에 저장
           selectOption = e.target;
         }
@@ -199,7 +199,7 @@
         btn.classList.remove("on");
         window.setTimeout(function () {
           btn.focus();
-        }, 2000);
+        }, 100);
       };
 
       // option 열기 : 클릭하거나, 스페이스, 엔터, 위아래 화살표 방향 누를 때
