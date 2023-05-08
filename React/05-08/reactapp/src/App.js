@@ -4,7 +4,7 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  // 현재기분(현재 사용자가 선택한), 현재기분을 빠꾸는 함수
+  // 현재기분(현재 사용자가 선택한), 현재기분을 바꾸는 함수
   const [currentMood, setCurrentMood] = useState("");
 
   return (
