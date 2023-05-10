@@ -47,6 +47,7 @@ function App() {
       {/* && 연산자는 첫번째 falsy, 마지막 truthy */}
       {/* && 연산자는 둘다 true면 마지막 true 반환 */}
       {/* && 연산자는 먼저 false면 false인걸 먼저 반환 */}
+      {/* JSX는 boolean 값을 이해못하고 반환하지도 못함 */}
       {modalShow && (
         <Modal modalClose={modalClose}>
           {/* 여러가지 한번에 넣을 수 있음, props이용 */}
@@ -61,3 +62,17 @@ function App() {
 }
 
 export default App;
+
+// 익숙해지기
+
+// 1 || 3 || 10 || 0
+
+// false || '' || 10 || 0
+
+// 1 && 2 && 3 && 10
+
+// 1 && 2 || 3
+
+// false && 10 || 0 || null
+
+// "hello" && 10 && true || 10 || null
