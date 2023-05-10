@@ -42,7 +42,6 @@ import Counter from "./Components/Counter";
 
 // map의 콜백함수로 사용되는 함수를 화살표함수로 사용했을 때, 2줄 이상의 코드가 필요하다면 화살표 함수 문법대로 중괄호를 사용해야 하며, return 키워드로 별도로 반환해야함.
 // 만약 그렇지 않고 값을 반환해야 할 경우 소괄호,중괄호 모두 필요하지 않음. 다만 화살표함수에서 객체를 반환하거나 JSX 요소를 반환할 경우 소괄호로 묶어줘야함.
-
 //   // list map을 이용하여 h1 태그들의 리스트를 만듭니다.
 //   const numComponentsArray = num.map((i) => (
 //     <h1 key={i}>

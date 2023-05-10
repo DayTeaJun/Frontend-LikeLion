@@ -1,0 +1,34 @@
+.advise {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 24px;
+  gap: 12px;
+}
+
+.advise h2 {
+  font-size: 72px;
+}
+
+.btnContainer {
+  margin-top: 127px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.btnContainer button {
+  padding: 21px 49px;
+  border: none;
+  border-radius: 56px;
+  background-color: #fcee21;
+  font-size: 24px;
+  font-weight: 700;
+  color: #5b2386;
+}
+
+.btnContainer button:last-child {
+  background-color: #fff;
+}

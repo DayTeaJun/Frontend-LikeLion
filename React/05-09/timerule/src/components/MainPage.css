@@ -1,0 +1,58 @@
+section {
+  margin-top: 125px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+
+  color: white;
+
+  margin-top: 78px;
+}
+
+.content p strong {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+form {
+  margin-top: 104px;
+  color: #fff;
+  font-size: 24px;
+}
+
+label div:first-child {
+  margin-bottom: 27px;
+}
+
+form label input {
+  width: 228px;
+  padding: 17px 40px;
+  font-size: 24px;
+  border-radius: 7px;
+}
+
+form label input::placeholder {
+  color: #babcbe;
+}
+
+form button {
+  background-color: #fcee21;
+  border: none;
+  border-radius: 56px;
+  padding: 21px 49px;
+  color: #5b2386;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+form > div {
+  margin-top: 115px;
+}
+
+form div img {
+  transform: translateY(25%);
+}
