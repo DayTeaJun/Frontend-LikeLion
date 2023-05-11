@@ -19,7 +19,7 @@ export default function MainPage({ addData }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (goal === "" && goalTime === "") {
+    if (goal === "" || goalTime === "") {
       alert("값이 입력되지 않았습니다!");
       return 0;
     } else if (goalTime > 24) {
@@ -66,7 +66,7 @@ export default function MainPage({ addData }) {
 
         <form onSubmit={handleSubmit}>
           <label>
-            <div>
+            <p>
               <strong>나는 </strong>
               <input
                 type="text"
@@ -75,8 +75,8 @@ export default function MainPage({ addData }) {
                 onChange={(event) => setGoal(event.target.value)}
               ></input>
               <strong> 전문가가 될 것이다.</strong>
-            </div>
-            <div>
+            </p>
+            <p className="time">
               <strong>그래서 앞으로 매일 하루에 </strong>
               <input
                 type="number"
@@ -85,7 +85,7 @@ export default function MainPage({ addData }) {
                 placeholder="예)5시간"
               ></input>
               <strong> 시간씩 훈련할 것이다.</strong>
-            </div>
+            </p>
           </label>
 
           <div>

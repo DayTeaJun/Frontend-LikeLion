@@ -1,0 +1,71 @@
+*오늘 강의 주의사항
+1) 대빵, 중간관리자 같은 말은 밖에서 쓰면 무시당할수도...^^
+이해를 돕기위한거니,, 서서히 잊어주셔요
+2) 깃헙 쓰는 방식은 다양하니, 이걸 정답이라고 딴데서 우기면 아니됩니다.. ^^
+
+[준비물] *대화는 디스코드 스터디 스레드에서 진행중
+
+터미널, vscode, 깃헙(로그인 완료)
+
+[오늘진행]
+- git fork 방식X->바로 git clone으로 작업방식
+- 리모트레포를 로컬 레포로 클론
+- 브랜치 생성 (main - dev - 나의개인레포)
+- PR과 Merge
+- (시간이 남으면) 코드 충돌해결 , gui
+
+[용어정리]
+
+깃헙 저장소 -> 리모트저장소
+내 컴퓨터 저장소 -> 로컬 저장소
+
+[예습- 시작퀴즈]
+-git clone 
+
+- git switch -c mimi
+- git add => 올릴 파일 고르기
+- git status => 고른파일 뭔지.. 알려준다
+-git commit => 저장하기
+-git pull => 최신화 업데이트 , 일치시킨다.
+- Git push => 리모트로 보낸다. 
+
+----------시이작!!! 
+
+[0. 브랜치전략]
+main(프로덕션)- develop(개발최종) - 기능별브랜치(diary)...
+
+[1. 깃헙레포생성]
+
+[2. 로컬에 깃헙레포 클론]
+
+터미널 - cd .. cd 폴더명 ls
+
+[3. 브랜치생성]
+main - develop - mimi,kiki
+브랜치종류확인 : git branch g
+생성과+ 이동 : git switch -c "develop"
+로컬브랜치를 깃헙에도 동기화 : git push origin develop
+
+[4.제일 하위 브랜치에서 작업 -PR - merge]
+(1) [고른다]git add .
+(2)[고른 것을 저장한다] git commit -m "생일추가"
+(3)[최신화] git pull origin develop
+(4)[보낸다]git push origin kiki
+
+- pr
+-merge
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

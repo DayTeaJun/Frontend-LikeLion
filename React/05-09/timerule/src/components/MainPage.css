@@ -24,8 +24,8 @@ form {
   font-size: 24px;
 }
 
-label div:first-child {
-  margin-bottom: 27px;
+label .time {
+  margin-top: 27px;
 }
 
 form label input {

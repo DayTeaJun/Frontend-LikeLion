@@ -14,3 +14,27 @@ SCM에서 관리를 위해 추적하는 2가지는?
 - config --list : 깃 사용자 등록 후 확인하는 코드
 
 git은 누가 무엇을 수정했는지 추적하는 버전 관리 시스템으로 로컬 저장소에 저장하고, github은 git으로 관리한 프로젝트들을  다같이 협업할 수 있게하는 원격저장소이다.
+
+깃헙 저장소 -> 리모트 저장소
+내 컴퓨터 저장소 -> 로컬 저장소
+
+git clone의 원리 = git init(깃을 쓸거에요), git remote add(깃을 만든다)를 한번에 함
+
+브랜치 뿌리 순서
+main(옛날엔 master였지만 main으로 바뀜)
+main - develop(중간 관리자가 기능별 브랜치를 받아서 테스트 후 main으로 보냄)
+develop - 기능별 브랜치들(회사마다 브랜치명 기준이 다름, 만든 사람 이름이거나 무슨 기능을 했는지 명시하는 등)
+
+develop 안에 기능별 브랜치를 넣는다. (main에 바로 넣지 않는다. 중간관리자인 develop이 기능을 받아서 테스트 후 main으로 보낸다.)
+
+브랜치 작업 과정
+브랜치 푸시 하기전에(작업 시작전에)
+git pull을 하여 업데이트(최신화)시킨다.
+
+기능별 브랜치들을 PR(pull request)하는 과정(깃 페이지)에서 merge할려고 장소를 develop으로 하고 pull request함
+develop브랜치에 팀장이 Merge함. 팀장이 develop 브랜치 내용을 검토 및 테스트하고
+최종적으로 main에 pull request함 최종적으로 merge한다.
+
+이제 이렇게 main으로 PR & merge 되었는데
+이러한 내용이 업데이트 안된 기능별 브랜치들은
+git pull로 업데이트한다.
