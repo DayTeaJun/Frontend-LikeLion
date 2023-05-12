@@ -6,9 +6,29 @@ export default function Main(props) {
   const [traningTime, setTraningTime] = useState(0);
   const [dday, setDday] = useState(0);
 
+  const [resultjob, setResuljob] = useState("");
+
+  function resetForm() {
+    setExpert("");
+    setTraningTime("");
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    setDday(Math.ceil(10000 / traningTime));
+    const jobFocus = document.getElementById("job");
+    const timeFocus = document.getElementById("time");
+
+    if (expert === "") {
+      alert("어떤 분야의 전문가가 되고 싶으신가요?");
+      jobFocus.focus();
+    } else if (traningTime === "") {
+      alert("하루에 몇 시간씩 훈련할 건가요?");
+      timeFocus.focus();
+    } else {
+      setDday(Math.ceil(10000 / traningTime));
+      setResuljob(expert);
+    }
+    resetForm();
   };
 
   return (
@@ -18,9 +38,9 @@ export default function Main(props) {
         <p className="txt-wannabe">
           나는
           <input
+            id="job"
             type="text"
             value={expert}
-            required
             onChange={(event) => setExpert(event.target.value)}
           />
           전문가가 될 것이다.
@@ -28,9 +48,9 @@ export default function Main(props) {
         <p className="txt-time">
           그래서 앞으로 매일 하루에
           <input
+            id="time"
             type="number"
             value={traningTime}
-            required
             onChange={(event) => setTraningTime(event.target.value)}
           />
           시간씩 훈련할 것이다.
@@ -45,7 +65,7 @@ export default function Main(props) {
         <section className="cont-result">
           <h3 className="a11y">결과 확인</h3>
           <p className="txt-wannabe">
-            당신은 <strong>{expert}</strong> 전문가가 되기 위해서
+            당신은 <strong>{resultjob}</strong> 전문가가 되기 위해서
             <br />
             대략 <strong>{dday}</strong> 일 이상 훈련하셔야 합니다! :&#41;
           </p>
