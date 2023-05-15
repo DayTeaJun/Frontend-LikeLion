@@ -1,7 +1,9 @@
+import RouterQuiz from "./Components/RouterSolve/RouterQuiz";
+
 function App() {
   return (
     <div>
-      hello world
+      <RouterQuiz />
     </div>
   );
 }
