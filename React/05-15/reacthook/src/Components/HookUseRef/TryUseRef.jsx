@@ -9,8 +9,11 @@ function Counter2() {
   // 그래서 이러한 내용을 해결해주기 위해 useRef()를 쓴다.
   // useRef()를 하면 리액트가 대신 기억해준다. (num이 변화했던 것을)
   // useRef()는 리렌더링이 발생하지 않아서 페이지에서 바로 보여주진 않음.
+  // 괄호 안의 값은 초기값.
+  // 안의 함수를 살펴보면 객체 current: "초기값" 이 있다.
   const num = useRef(0);
   console.log(num.current);
+  console.log(typeof(num));
 
   return (
     <>
@@ -22,7 +25,9 @@ function Counter2() {
       <button
         onClick={() => {
           // num += 1;
+          // useRef()는 리렌더링이 발생하지 않아서 페이지에서 바로 보여주진 않음.
           num.current += 1;
+          // 마지막(current) num의 useRef에 저장된 값.
           // 리액트에서 보이지 않아서 콘솔로그 찍음
           console.log(num.current);
         }}

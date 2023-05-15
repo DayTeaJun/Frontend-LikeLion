@@ -17,6 +17,7 @@ function Time(props) {
   // setState => 화면이 새로 그려짐.
   // 화면이 그려진다는 것은 Time() 을 실행한다는 것
   // 1초마다 setState해주는 interval이 계속 증가함.
+
   //   alert("인터벌이 생성됨");
   // setTime으로 하면 별 문제 없긴한데, 조금 문제있음.
   //   setInterval(() => {
@@ -37,6 +38,8 @@ function Time(props) {
     }, 1000);
     // clean-up
     return () => {
+      // useEffect는 의존하는 함수가 변경될 때마다 실행한다.
+      // 그래서 시간이 지날때마다 interval은 그에 맞게 실행되므로, 아래 함수로 interval을 종료해줄 필요가 있다.
       clearInterval(interval);
     };
   }, [today]);
