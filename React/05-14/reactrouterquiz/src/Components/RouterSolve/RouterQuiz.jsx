@@ -7,6 +7,17 @@ import {
   Outlet,
   useParams,
 } from "react-router-dom";
+// 라우터 연결
+// - **Home Page :** /
+// - **Product Detail Page** : /products/:id
+//     - ex) /products/1 , /products/2, /products/3, /products/4
+// - **Product Detail Notice Page :** /products/:id/notice
+//     - ex) /products/1/notice , /products/2/notice…
+// - **Cart Page :** /cart
+// - **User Page :** /users
+// - **Coupon Page :** /users/coupon
+// - **Question Page :** /users/question
+// - **Notice Page :** /users/notice
 
 function RouterQiuz() {
   const productIds = [1, 2, 3, 4, 5];
@@ -25,8 +36,6 @@ function RouterQiuz() {
       {/* 라우트를 감싸줍니다. */}
       <Routes>
         <Route path="/" element={<Home />} />
-
-        <Route path="" element={<Product />} />
         <Route path="/products/:id" element={<Product />} />
         <Route path="/products/:id/notice" element={<Notice />} />
         <Route path="/cart" element={<Cart />} />
@@ -51,6 +60,13 @@ function Product() {
   // {param.id}
   // 위 내용을 간략하게 구조분해 할당함
   const { id } = useParams();
+  const location = useLocation();
+  const path = location.pathname.split('/')[0]
+  const path1 = location.pathname.split('/')[1]
+  const path2 = location.pathname.split('/')[2]
+  console.log(path);
+  console.log(path1);
+  console.log(path2);
   return <h1>Product Detail Page {id}</h1>;
 }
 

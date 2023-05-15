@@ -9,9 +9,11 @@ import {
 } from "react-router-dom";
 
 function App() {
+  const blogs = [1,2,3,4,5]
   return (
     // 라우팅은 적절한 길을 찾아주는 것
     // 라우터 쓸려면 감싸줘야함.
+    // 페이지 경로를 나눠주는게 라우터
     <BrowserRouter>
       <Link to="/"> home </Link>
       <Link to="/one"> one </Link>
@@ -19,6 +21,12 @@ function App() {
       <Link to="/three"> three </Link>
       <Link to="/three/hojunone">hojub One</Link>
       <Link to="/three/hojuntwo">hojub Two</Link>
+      <br/>
+      <Link to="/blog/text">blog Text</Link>
+      <br/>
+      {blogs.map((blogId) => (
+        <Link to={`/blog/${blogId}`}> {blogId}</Link>
+      ))}
       {/* 라우트를 감싸줍니다(라우트들이 있는 컴포넌트). */}
       <Routes>
         {/* Route는 해당주소로 왔을 때 해당요소를 찾아줌 */}
@@ -45,7 +53,7 @@ function App() {
           <Route path="hojunone/" element={<HojunOne />} />
           <Route path="hojuntwo/" element={<HojunTwo />} />
         </Route>
-        {/* :id는 주소뒤에 입력받은 값을 불러옴 */}
+        {/* :id는 주소뒤에 뭐가 오든 입력받은 값을 불러옴 */}
         <Route path="/blog/:id" element={<Blog />} />
         {/* :id 보다 다른 주소가 더 우선적으로 적용된다. */}
         <Route path="/blog/text" element={<One />} />
