@@ -4,6 +4,7 @@ import TryUseMemo from "./Components/HookUseMemo/TryUseMemo";
 import Counter2 from "./Components/HookUseRef/TryUseRef";
 import TryUseRefDom from "./Components/HookUseRef/TryUseRefDom";
 import TryUseRefNoJSDom from "./Components/HookUseRef/TryUseRefNoJSDom";
+import TryUseRef from "./Components/HookUseRef/TryUseRef";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       {/* <Counter2 /> */}
       {/* <TryUseRefDom /> */}
       {/* <TryUseRefNoJSDom /> */}
-      <TryUseMemo />
+      {/* <TryUseMemo /> */}
+      <TryUseRef />
     </div>
   );
 }

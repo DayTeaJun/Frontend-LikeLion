@@ -7,7 +7,8 @@ const TryUseRefNoJSDom = () => {
   // 왜 값을 넣어도 변화가 없을까?
   const emailInput = useRef("하루차");
   const pwInput = useRef("1234");
-  console.log(emailInput, pwInput)
+  console.log(emailInput.current.value)
+  console.log(pwInput)
 
   const inputCheck = (e) => {
     e.preventDefault();

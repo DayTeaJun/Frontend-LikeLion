@@ -1,0 +1,67 @@
+협업할 때 쓸 수 있는 방법
+
+첫번째 방법 (team으로 각자 admin을 줘서 push하기)
+
+1. organization 만듦 (여기서 관리하는게 좋습니다. 이유는 한명의 레포에서 협업하면 한명이 다한 것처럼 보일 수도 있기 때문)
+2. 유저 초대하기
+3. Team 만들기
+4. Team member에 초대하기
+5. repo를 먼저 만들고
+6. organization에 Team 단위로 repo에 대한 admin 부여 (그럼 그 Team은 repo에 대한 읽기, 생성, 수정, 삭제 가능)
+7. 각자 repo에 대한 커밋을 하여 작업 가능
+
+* 단점
+1) 여러명이 같은 폴더에 작업하면 충돌(Conflict)이 발생 할 수 있음
+2) 충돌의 해결법 : 
+	1) 첫번째로 commit된걸 유지함
+	2) 두번째로 commit된걸 유지함
+	3) 둘다 합병함(안쓰는게 좋음)
+3) 결론은 각자 모듈(다른 파일)로 따로 기능을 구현해서 합치는게 좋다.
+
+두번째 방법 (branch)
+
+1. organization 만듦
+2. 유저 초대하기
+3. Team 만들기
+4. Team member에 초대하기
+5. repo 만들기
+6. 어드민(organization 만든사람)이 전체적으로 관리하거나, 각자 어드민을 줌
+7. repo 만든 것을 각자 git clone로 가저옴
+8. 이제 각자 vscode에서 가져온 환경(git clone으로 가져온 폴더 안)으로 감
+9. git branch <생성할 브랜치> 명령어로 각자 branch 환경을 만듦
+10. git checkout <브랜치명> 을 사용하면 만들어진 브랜치로 이동가능
+* branch 환경은 각자 구현할 기능들을 저장할 공간
+예시) 다같이 쇼핑몰 사이트를 만든다고 가정. 한명은 login기능을 담당, 한명은 회원가입을 담당하는 등 각 기능별로 브랜치 환경을 만듦
+11. 각자 만든 branch에서 위와 비슷한 기능을 구현
+12. git add .
+13. git commit -m '커밋내용'
+14. git push origin <브랜치명>
+(origin은 저희가 git clone으로 불러온 repo주소와 같음, 실제로 git clone 할때 가져온 주소만 입력해도 작동함)
+15. 이제 우리가 협업중인 깃허브 레포지토리 있는 곳으로 가면 방금 branch에 push한 내용을 pull request하겠냐고 물어봄
+16. 들어가면 커밋 제목과 커밋 내용(이미지 첨부가능 최대 10MB정도?)을 적을 수 있게함
+17. create pull request 누르면 pull request 완료됨
+18. admin이 merge pull request를 누르면 본 내용을 main에 추가함.
+19. 끝
+
+* 단점? (이라기엔 애매함)
+1) 한명이 관리하는 경우(각자 어드민 권한이 없는 경우, 각자 풀리퀘한 후, 어드민이 merge 해야함) 커뮤니케이션이 원활해야함
+* pull request & merge 에 관한 글 (https://wayhome25.github.io/git/2017/07/08/git-first-pull-request-story/)
+2) branch 관련 명령어를 잘 알아야 함
+* 같이보기 (https://velog.io/@chayezo/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%AA%85%EB%A0%B9%EC%96%B4)
+
+
+
+협업한 내용을 내 레포에 넣는 법
+1. 작업이 완료된 내용을 fork하여 레포에 넣을 수 있다.
+
+협업한 내용을 내 오버뷰에 보여주기 (pins)
+1. overview에 있는 custmize your pins를 누른다
+2. pins에 넣을 수 있는건 내가 기여한 repo들만 가능.
+* 근데 어처피 오버뷰에는 readme 를 이용하여 내 사이트를 보여주기 때문에 굳이 할 필요 없음.
+
+코드 컨벤션 맞추기
+1. 협업할 때 prettier(코드 이쁘게해줌) eslint(맞춤법 교정, 코드 옛날꺼면 지적하는 기능) 보통 다씀 둘다 까는거 추천(최상단 익스텐션들)
+(ctrl + shift + P 눌러서) setting.json(user꺼) -> 자스 html 다 프리티어로 바꿔주기
+2. 프로젝트 디렉토리(루트 (최상단)) 안에 .prettierrc 생성 (이때는 main브랜치에서 하자)
+3. 같이 프리티어 설정된 값 똑같은 걸로 정해서 작성하기 (예시 "singleQuote": true)
+4. .prettierrc 은 우선순위가 제일 높아서 적용됨.

@@ -1,0 +1,173 @@
+html,
+body {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  background: url("https://cdn.pixabay.com/photo/2015/06/16/16/46/meadow-811338_960_720.jpg")
+    no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: initial;
+  padding: initial;
+  color: #fff;
+}
+
+.container {
+  width: 600px;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.container:hover {
+  transform: scale(1.2);
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  width: 595px;
+  height: 595px;
+  border-radius: 50%;
+  background: url("https://cdn.pixabay.com/photo/2015/06/16/16/46/meadow-811338_960_720.jpg")
+    no-repeat;
+  background-size: cover;
+  z-index: 1;
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  bottom: 50%;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(to right, #ef8e38, #108dc7);
+  transform-origin: bottom;
+  animation: rotator 3s linear infinite;
+}
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.wrapper {
+  z-index: 999;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+input {
+  width: 60%;
+  height: 60px;
+  padding: 0 50px;
+  box-sizing: border-box;
+  opacity: 0.4;
+  font-size: 30px;
+  border-radius: 50px;
+  border: 0;
+  color: #000;
+  transition: 0.2s;
+}
+
+input:focus {
+  outline: 3px solid gold;
+}
+
+button {
+  width: 60px;
+  height: 60px;
+  border: 0;
+  flex-grow: 1;
+  font-size: 20px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: gold;
+}
+
+.today-weather {
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  text-align: center;
+  width: 280px;
+  height: 280px;
+  font-size: 12px;
+  backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+}
+
+.today-weather :nth-child(5) {
+  padding: 10px;
+}
+
+.today-weather:hover,
+.feature-weather:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.feature-weathers {
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.feature-weather {
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 12px;
+  width: 150px;
+  height: 150px;
+  backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+}
+
+.feature-weather:nth-child(2) {
+  margin-top: 80px;
+}
+
+.feature-weather :nth-child(3) {
+  padding: 5px;
+}
