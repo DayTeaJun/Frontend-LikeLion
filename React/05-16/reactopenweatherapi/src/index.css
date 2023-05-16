@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
   height: 100%;
   display: flex;
   align-items: center;
@@ -7,8 +6,7 @@ body {
 }
 
 body {
-  background: url("https://cdn.pixabay.com/photo/2015/06/16/16/46/meadow-811338_960_720.jpg")
-    no-repeat;
+  background: url('https://cdn.pixabay.com/photo/2015/06/16/16/46/meadow-811338_960_720.jpg') no-repeat;
   background-size: cover;
   overflow: hidden;
 }
@@ -43,19 +41,18 @@ h5 {
 }
 
 .container::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 595px;
   height: 595px;
   border-radius: 50%;
-  background: url("https://cdn.pixabay.com/photo/2015/06/16/16/46/meadow-811338_960_720.jpg")
-    no-repeat;
+  background: url('https://cdn.pixabay.com/photo/2015/06/16/16/46/meadow-811338_960_720.jpg') no-repeat;
   background-size: cover;
   z-index: 1;
 }
 
 .container::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 50%;
   width: 400px;
@@ -96,7 +93,7 @@ input {
   border-radius: 50px;
   border: 0;
   color: #000;
-  transition: 0.2s;
+  transition: .2s;
 }
 
 input:focus {
@@ -112,7 +109,7 @@ button {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-  transition: 0.3s;
+  transition: .3s;
 }
 
 button:hover {
@@ -131,7 +128,7 @@ button:hover {
   backdrop-filter: blur(3px);
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .today-weather :nth-child(5) {
@@ -139,7 +136,7 @@ button:hover {
 }
 
 .today-weather:hover,
-.feature-weather:hover {
+.feature-weather:hover  {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -161,7 +158,7 @@ button:hover {
   backdrop-filter: blur(3px);
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .feature-weather:nth-child(2) {
