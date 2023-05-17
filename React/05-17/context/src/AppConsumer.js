@@ -12,6 +12,7 @@ function AppConsumer() {
       <HelloLicat />
       <HelloLicatTwo />
     </UserInfo.Provider>
+
   )
 }
 
