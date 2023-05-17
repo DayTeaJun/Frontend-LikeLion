@@ -3,7 +3,6 @@ import { UserInfo } from "../AppConsumer";
 
 const HelloLicatTwo = () => {
     return (
-
         <UserInfo.Consumer>
             {(value) => {
                 return <div>
@@ -15,4 +14,4 @@ const HelloLicatTwo = () => {
     );
 };
 
-export default HelloLicatTwo()
+export default HelloLicatTwo
