@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@emotion/styled": "^11.11.0",
-    "react-router-dom": "^6.11.1"
-  }
-}
