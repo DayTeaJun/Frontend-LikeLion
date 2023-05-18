@@ -1,5 +1,5 @@
 import React from 'react'
-import { useMouseLocation } from '../Hook/useMouseLocation'
+import useMouseLocation from './Hook/useMouseLocation'
 
 export default function TestBox() {
 

@@ -1,8 +1,8 @@
 import React from "react";
 // import ReactDOM from 'react-dom'; //구버전
 import { createRoot } from "react-dom/client";
-import TestBox from "./TestBox";
+import App from "./App";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
-root.render(<TestBox />);
+root.render(<App />);
