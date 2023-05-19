@@ -1,16 +1,17 @@
 import React from 'react'
 import licat from '../../img/licat.png'
 import styled from 'styled-components'
+import Button from './Button'
 
 export default function Modal({ modalClose }) {
   return (
     <ModalStlye>
-      <article>
+      <section>
         <h2>화이팅!!♥♥♥</h2>
         <h3>당신의 꿈을 응원합니다!</h3>
         <img src={licat} alt="응원하는 라이캣" />
-        <button type="button" onClick={modalClose}>종료하고 진짜 훈련하러가기 GO!GO!</button>
-      </article>
+        <Button>종료하고 진짜 훈련하러가기 GO!GO!</Button>
+      </section>
     </ModalStlye>
   )
 }
