@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.1/redux.js"></script>
+  </head>
+
+  <body>
+    <style>
+      .container {
+        border: 5px solid black;
+        padding: 10px;
+      }
+    </style>
+    <div id="red"></div>
+    <div id="blue"></div>
+    <div id="green"></div>
+    <script>
+      // redux는 상태 컨테이너
+      // state는 현재 상태, action(상태를 바꿈)은 주문 받은 것!
+      // dispatch를 이용하여 action에 담음
+      function reducer(state, action) {
+        // reducer를 이용해서 상태가 변경이 된다. useState같은 느낌
+        console.log(state, action);
+        if (state === undefined) {
+          return { color: "yellow" };
+        }
+        var newState;
+        // action은 type이 있어야함, reducer는 항상 action의 type을 확인함
+        if (action.type === "CHANGE_COLOR") {
+          //복제해야 합니다. 그냥 {color:'red'}이런 식으로 리턴해줘도 되긴 하는데 리덕스의 고급기능을 쓰지 못합니다.
+          // Object.assign({}, 빈객체에 복제할 값1, 빈객체에 복제할 값2...);
+          console.log(state);
+          // Object.assign() 새로운 객체를 만들어주는 바닐라 자바스크립트 문법
+          // 코드에서는 첫번째 인자인 {} 을 반환함, {} <= state <= { color: action.color } 의 순서로 값이 들어감
+          newState = Object.assign({}, state, { color: action.color });
+
+          // 이 코드는 최신 문법으로 위랑 같음. 대신 리덕스의 고급 기능(시간여행)을 사용못함
+          // newState = { ...state, color: action.color };
+        }
+        return newState;
+      }
+      // Redux는 cdn으로 생깁니다. (Redux 객체)
+      // Createstore(저장)은 상태를 저장하는 Container을 생성한다.
+      var store = Redux.createStore(
+        // reducer를 넣어야 컨테이너를 만들 수 있다.
+        reducer,
+        // Redux devtools을 사용하고 싶을 때 코드작성
+        window.__REDUX_DEVTOOLS_EXTENSION__ &&
+          window.__REDUX_DEVTOOLS_EXTENSION__() // redux dev tools를 사용하기 위한 코드
+      );
+
+      // Render(그려주는 역할을 하는 함수)
+      function red() {
+        // getState를 이용해서 컨테이너에 있는 상태를 가져옴
+        var state = store.getState();
+        //type은 반드시 있어야 합니다.
+        // 바뀔 때마다 console에 store.getState()를 실행해보세요.
+        document.querySelector("#red").innerHTML = `
+                <div class="container" id="component_red" style="background-color:${state.color}">
+                        <h1>red</h1>
+                        <input type="button" value="fire" onclick="
+                            store.dispatch({type:'CHANGE_COLOR', color:'red'});
+                        ">
+                </div>
+            `;
+      }
+      // 값이 바뀔 때마다 red 함수를 호출
+      store.subscribe(red);
+      // store에 들어있는 상태를 구독하겠다. 각각의 컴포넌트에 적용이된다.
+      red();
+
+      function blue() {
+        var state = store.getState();
+        document.querySelector("#blue").innerHTML = `
+                <div class="container" id="component_blue" style="background-color:${state.color}">
+                    <h1>blue</h1>
+                    <input type="button" value="fire" onclick="
+                        store.dispatch({type:'CHANGE_COLOR', color:'blue'});
+                    ">
+                </div>
+            `;
+      }
+      store.subscribe(blue);
+      blue();
+
+      function green() {
+        var state = store.getState();
+        document.querySelector("#green").innerHTML = `
+                <div class="container" id="component_green" style="background-color:${state.color}">
+                    <h1>green</h1>
+                    <input type="button" value="fire" onclick="
+                        store.dispatch({type:'CHANGE_COLOR', color:'green'});
+                    ">
+                </div>
+            `;
+      }
+      store.subscribe(green);
+      green();
+    </script>
+  </body>
+</html>

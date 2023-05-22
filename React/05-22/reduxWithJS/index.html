@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Font Change</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@300&family=Fascinate&family=Kdam+Thmor+Pro&family=Noto+Sans+KR:wght@300&family=Open+Sans&family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .container {
+        margin-top: 10px;
+        border: 5px solid black;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .item {
+        border: 5px solid #f6866a;
+        height: 100px;
+        padding: 20px;
+        font-size: 32px;
+        text-align: center;
+      }
+
+      .item:nth-child(1) {
+        font-family: "Anek Malayalam", sans-serif;
+      }
+
+      .item:nth-child(2) {
+        font-family: "Fascinate", cursive;
+      }
+
+      .item:nth-child(3) {
+        font-family: "Kdam Thmor Pro", sans-serif;
+      }
+
+      .item:nth-child(4) {
+        font-family: "Noto Sans KR", sans-serif;
+      }
+
+      .item:nth-child(5) {
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .item:nth-child(6) {
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="inputText" />
+    <input
+      type="button"
+      value="click me!"
+      onclick="
+      const value = document.getElementById('inputText').value;
+      store.dispatch({type: 'TEXT', text:value})"
+    />
+    <input
+      type="button"
+      value="Rounded!"
+      onclick="
+      store.dispatch({type: 'STYLE_BORDER', borderRadius:'10px'});
+    "
+    />
+    <input
+      type="button"
+      value="Circle!"
+      onclick="
+      store.dispatch({type: 'STYLE_BORDER', borderRadius:'50px'});
+    "
+    />
+    <input
+      type="button"
+      value="Rect!"
+      onclick="
+      store.dispatch({type: 'STYLE_BORDER', borderRadius:'0px'});
+    "
+    />
+    <input
+      type="button"
+      value="Red!"
+      onclick="
+    store.dispatch({type: 'STYLE_BORDER_COLOR', border:'solid 5px red'});
+  "
+    />
+    <input
+      type="button"
+      value="Green!"
+      onclick="
+    store.dispatch({type: 'STYLE_BORDER_COLOR', border:'solid 5px green'});
+  "
+    />
+    <input
+      type="button"
+      value="Blue!"
+      onclick="
+    store.dispatch({type: 'STYLE_BORDER_COLOR', border:'solid 5px blue'});
+  "
+    />
+
+    <div class="container">
+      <div id="item1" class="item"></div>
+      <div id="item2" class="item"></div>
+      <div id="item3" class="item"></div>
+      <div id="item4" class="item"></div>
+      <div id="item5" class="item"></div>
+      <div id="item6" class="item"></div>
+    </div>
+
+    <script>
+      function reducer(state, action) {
+        // action의 type에 따른 분기 처리
+        // state의 초기값은 undefined이니 기본값을 만듦
+        if (state === undefined) {
+          return {
+            text: "hello",
+            border: "5px soild #f6866a",
+            borderRadius: "0px",
+          };
+        } else if (action.type === "TEXT") {
+          return {
+            ...state,
+            text: action.text,
+          };
+        } else if (action.type === "STYLE_BORDER") {
+          return {
+            ...state,
+            borderRadius: action.borderRadius,
+          };
+        } else if (action.type === "STYLE_BORDER_COLOR") {
+          return {
+            ...state,
+            border: action.border,
+          };
+        }
+      }
+      // 컨테이너 만듦
+      // reducer는 store관련함수가 실행이 될때 같이 실행이 된다.
+      // 모든 state는 store에 존재함
+      const store = Redux.createStore(reducer);
+
+      // render 함수
+      // id가 item1인 영역을 그려주는 함수를 만듦
+      function item1() {
+        // getState() : store으로부터 state에 있는 내용을 가져옴
+        const state = store.getState();
+        console.log(state);
+        const $item = document.querySelector("#item1");
+        // text는 문자열이기 때문에 ``으로 감쌈
+        $item.textContent = `${state.text}`;
+
+        $item.style.borderRadius = `${state.borderRadius}`;
+        $item.style.border = `${state.border}`;
+      }
+
+      // 이것도 역시 store안에 있는 객체를 사용
+      store.subscribe(item1);
+      // subscribe : 값이 바뀔 때마다 렌더링해줌
+      // store.subscribe(render함수) 함수로 store의 subscribe 함수를 이용하게되면 Reducer가 호출되는 시점에서 subscribe를 통해 정의한 함수를 호출 및 동작할 수 있게 된다. 고 합니다.
+
+      // render 함수 실행
+      item1();
+
+      function item2() {
+        const state = store.getState();
+        console.log(state);
+        const $item = document.querySelector("#item2");
+        $item.textContent = `${state.text}`;
+
+        $item.style.borderRadius = `${state.borderRadius}`;
+        $item.style.border = `${state.border}`;
+      }
+      store.subscribe(item2);
+      item2();
+
+      function item3() {
+        const state = store.getState();
+        console.log(state);
+        const $item = document.querySelector("#item3");
+        $item.textContent = `${state.text}`;
+
+        $item.style.borderRadius = `${state.borderRadius}`;
+        $item.style.border = `${state.border}`;
+      }
+      store.subscribe(item3);
+      item3();
+
+      function item4() {
+        const state = store.getState();
+        console.log(state);
+        const $item = document.querySelector("#item4");
+        $item.textContent = `${state.text}`;
+
+        $item.style.borderRadius = `${state.borderRadius}`;
+        $item.style.border = `${state.border}`;
+      }
+      store.subscribe(item4);
+      item4();
+
+      function item5() {
+        const state = store.getState();
+        console.log(state);
+        const $item = document.querySelector("#item5");
+        $item.textContent = `${state.text}`;
+
+        $item.style.borderRadius = `${state.borderRadius}`;
+        $item.style.border = `${state.border}`;
+      }
+      store.subscribe(item5);
+      item5();
+
+      function item6() {
+        const state = store.getState();
+        console.log(state);
+        const $item = document.querySelector("#item6");
+        $item.textContent = `${state.text}`;
+
+        $item.style.borderRadius = `${state.borderRadius}`;
+        $item.style.border = `${state.border}`;
+      }
+      store.subscribe(item6);
+      item6();
+    </script>
+  </body>
+</html>
