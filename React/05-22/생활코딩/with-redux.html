@@ -27,15 +27,14 @@
         var newState;
         // action은 type이 있어야함, reducer는 항상 action의 type을 확인함
         if (action.type === "CHANGE_COLOR") {
-          //복제해야 합니다. 그냥 {color:'red'}이런 식으로 리턴해줘도 되긴 하는데 리덕스의 고급기능을 쓰지 못합니다.
-          // Object.assign({}, 빈객체에 복제할 값1, 빈객체에 복제할 값2...);
           console.log(state);
-          // Object.assign() 새로운 객체를 만들어주는 바닐라 자바스크립트 문법
-          // 코드에서는 첫번째 인자인 {} 을 반환함, {} <= state <= { color: action.color } 의 순서로 값이 들어감
-          newState = Object.assign({}, state, { color: action.color });
+          //복제해야 합니다. 그냥 {color:'red'}이런 식으로 리턴해줘도 되긴 하는데 리덕스의 고급기능(시간여행)을 쓰지 못합니다.
 
-          // 이 코드는 최신 문법으로 위랑 같음. 대신 리덕스의 고급 기능(시간여행)을 사용못함
-          // newState = { ...state, color: action.color };
+          // Object.assign() 새로운 객체를 만들어주는 바닐라 자바스크립트 문법
+
+          // 코드에서는 첫번째 인자인 {} 을 반환함, {} <= state <= { color: action.color } 의 순서로 값이 들어감
+          // Object.assign({}, 빈객체에 복제할 값1, 빈객체에 복제할 값2...);
+          newState = Object.assign({}, state, { color: action.color });
         }
         return newState;
       }
