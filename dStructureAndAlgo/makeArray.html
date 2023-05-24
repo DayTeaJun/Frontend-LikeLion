@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array만들기</title>
+  </head>
+  <body>
+    <script>
+      class UltraArray {
+        // 생성자함수를 만들 때 자동실행됨
+        constructor() {
+          // 초기화
+          this.data = {};
+          this.length = 0;
+        }
+
+        myPush(item) {
+          // 객체형식으로 저장함 (유사배열객체)
+          this.data[this.length] = item; // { 0 : item }
+          // 아이템에 할당하고 length값을 올려줌.
+          this.length += 1;
+          return this.length;
+        }
+
+        myPop() {
+          // 가장 마지막 원소를 잡아냄
+          const lastState = this.data[this.length - 1];
+
+          // delete 객체의 마지막 요소를 삭제함
+          delete this.data[this.length - 1];
+
+          this.length -= 1;
+          return lastState;
+        }
+
+        // 인덱스 숫자(index)로 속성을 제거하기
+        deleteWithIndex(index) {
+          // 삭제할 데이터
+          const removedItem = this.data[index];
+          // delete this.data[index]; // 이렇게만 제거하면 index, length가 정리가 안됨.
+          // index 및 length 정리하기위한 함수
+          this.changeOrderOfItems(index);
+          return removedItem;
+        }
+
+        // 인덱스를 정리하고 속성을 제거합니다.
+        changeOrderOfItems(index) {
+          // for문으로 이용해서 작성한다면 선형시간에 속함
+          // 선형시간 : O(n)
+          // 길이를 하나 줄인다.
+          this.length--;
+          // 받아오는 인덱스부터 시작해 정리를 해보자
+          for (let i = index; i < this.length; i++) {
+            // 뒤에 있는 인덱스를 앞으로 당겨야 합니다.
+            // [0, 1, 2] ==> [0, 2] i = 1일 경우
+            this.data[i] = this.data[i + 1];
+          }
+          // 맨 끝의 요소를 제거 (마지막은 없는 값 undefined라서 제거함)
+          delete this.data[this.length - 1];
+        }
+      }
+
+      const myArray = new UltraArray();
+
+      myArray.myPush(1);
+      myArray.myPush(2);
+      myArray.myPush(3);
+      //myArray.myPop();
+    </script>
+  </body>
+</html>
