@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <!-- 시간 복잡도는 단순히 시간이 얼마나 걸리는가를 나타낸게 아니고 그 안에 얼마나 함수를 사용했는가에 대해 생각해야한다. -->
+    <script>
+      // javascript에서 객체는 해시테이블이라는 자료구조
+      // access, search, insertion, deletion
+
+      const myHash = { two: 2, three: 3 };
+      // 값 삽입 insertion
+      myHash.one = 1;
+
+      // 값 변경 access
+      myHash.one = 2;
+      myHash.two = 10;
+
+      // 값 찾기 search
+      myHash.three;
+
+      // 값 delete
+      delete myHash.three;
+
+      // 해시테이블의 평균 복잡도는 O(1) 이지만
+      // 해시 충돌로 인해 링크를 생성할 경우
+      // 링크 수만큼 늘어나므로 최악의 경우 O(n)까지 될 수 있다
+    </script>
+  </body>
+</html>

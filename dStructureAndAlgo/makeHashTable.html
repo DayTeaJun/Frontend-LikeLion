@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // 정리
+      // 해쉬테이블은 데이터를 검색하거나 추가할때 보통 빠른속도가 보장됩니다. 단, 조건은 데이터 공간이 넉넉하거나 link list를 탐색하는 알고리즘이 빠르다는 전제하에
+      // 단점은 데이터가 저장되는 순서가 보장되지 않으며 key 탐색의 경우 속도가 느립니다.
+      // 때문에 object를 순환하는데 사용되는 for in 문이 우리가 작성한 객체의 프로퍼티를 만들어진 순서대로 순환하지 못하는 이유이기도 합니다.
+      // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...in
+      class SuperHash {
+        // 해쉬테이블의 단점인 제한된 공간을 재현함
+        constructor(size) {
+          // size만큼의 수를 가진 빈 배열을 만듦
+          this.data = new Array(size);
+          // 값저장, 배열[]안에 배열['키' : '값']을 넣음 [['cat' : 'is cute']]
+          // [[['cat' : 'is cute']], [['dog' : 'is cool']], [['rabbit' : 'is smart']]]
+          // 배열 2개로 만든 이유는 같은 공간에 다른 배열이 추가되는 해시충돌을 구현하기 위함.
+        }
+
+        // 해쉬함수 (키로 해시로 만들어주는 함수)
+        generateRandomHash(key) {
+          let hash = 0;
+
+          // key(key값은 문자열)가 hello라면 5번 돔
+          for (let i = 0; i < key.length; i++) {
+            // charCodeAt() 메서드는 주어진 인덱스에 대한 UTF-16 코드를 나타내는
+            // 0부터 65535 사이의 정수를 반환
+            // i가 0일 때,
+            // 0 + key의 0번째 인덱스 h인 걸 charCodeAt() 사용해서 10
+            // = 0 + 10 * 0 % this.data.length
+            // 나머지 연산자는 일정한 숫자의 범위 안으로 값을 제한하는 특징이 있다.
+            // 나머지 연산을 하면 this.data.length 미만의 값으로 제한이 된다.
+            // size가 10이면 0-9까지의 수
+            hash = (hash + key.charCodeAt(i) * i) % this.data.length;
+          }
+
+          return hash;
+        }
+
+        set(key, value) {
+          // if (typeof key !== "string" || typeof value !== "string") {
+          //   return "문자로 입력해주세요";
+          // }
+          // const hashKey = this.generateRandomHash(key)
+
+          // return (this.data[hashKey] = `[[${key} : ${value}]]`);
+
+          // 재현님 풀이
+          // 값을 넣을 위치를 해쉬 함수를 통해서 설정
+          const address = this.generateRandomHash(key);
+
+          // 기존 주소에 데이터가 없을 경우
+          // this.data[address] 값이 undefined인 경우 실행
+          if (!this.data[address]) {
+            this.data[address] = []; // 위에 만든 empty(undefined)값을 배열로 만들어서 push가 가능하게 해줌
+            // this.data[address].push([key, value]);
+          }
+          // 기존 주소에 데이터가 있을 경우
+          else {
+            for (let i = 0; i < this.data[address].length; i++) {
+              // 같은 키를 사용하는 데이터가 존재할 경우 덮어씌운다.
+              /**
+                  [
+                  [
+                  // 이 밑의 값들이 this.data[address][i]
+                  ['cat':'is cute'],['rabbit':'is cute'],['rat':'is cute']
+                  ],
+                  [['dog':'is cool']],
+                  [['pig':'is smart']]
+                  ]
+                  */
+              // 위 배열의 this.data[address][0][0] 이라면 cat
+              if (this.data[address][i][0] === key) {
+                this.data[address][i][1] = value;
+                return value;
+              }
+            }
+
+            // 같은 키를 사용하는 데이터가 없을 경우 list에 데이터를 추가한다.
+            // this.data[address].push([key, value]);
+            // return value;
+          }
+          this.data[address].push([key, value]);
+          return value;
+        }
+
+        // search를 구현해보기
+        get(key) {
+          const address = this.generateRandomHash(key);
+          //for (let i = 0; this.data[address].length; i++) {
+          //  if (this.data[address][i][0] === key) {
+          //    return this.data[address][i][1];
+          // }
+          //}
+
+          // 재현님 풀이
+          const targetElement = this.data[address];
+          // 데이터가 하나만 있을 경우나 여러개 있을 경우
+          /**
+            [
+            [
+            // 이 밑의 값들이 this.data[address][i]
+            ['cat':'is cute'],['rabbit':'is cute'],['rat':'is cute']
+            ],
+            [['dog':'is cool']],
+            [['pig':'is smart']]
+            ]
+          */
+          if (targetElement) {
+            // link list를 확인
+            for (let i = 0; i < targetElement.length; i++) {
+              // 찾고자하는 대상의 key와 내가 전달한 key가 일치하는지 확인
+              if (targetElement[i][0] === key) {
+                return targetElement[i][1];
+              } else {
+                return "찾으시는 key의 값이 없습니다.";
+              }
+            }
+          }
+        }
+
+        keys() {
+          const keyArray = [];
+          // 우선 해쉬테이블 안의 모든 데이터를 순회합니다.
+          for (let i = 0; i < this.data.length; i++) {
+            if (this.data[i]) {
+              // link list가 존재한다면
+              if (this.data[i].length > 1) {
+                for (let j = 0; j < this.data[i].length; j++) {
+                  keyArray.push(this.data[i][j][0]);
+                }
+              }
+              // link list가 존재하지 않는다면
+              else {
+                keyArray.push(this.data[i][0][0]);
+              }
+            }
+          }
+          return keyArray;
+        }
+      }
+
+      const myHash = new SuperHash(3);
+      // myHash.set("cat", "cute");
+      myHash.set("dog", "cool");
+      myHash.set("rat", "smart");
+      myHash.set("pig", "small");
+      myHash.set("호준", "hansome");
+    </script>
+  </body>
+</html>
