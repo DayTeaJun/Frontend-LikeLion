@@ -11,7 +11,7 @@
       // 이 문제는 실제로 입사 문제로 사용되던 알고리즘 문제이다.
       // 배열이 하나 주어졌을 때, [3, 2, 4, 5, 2, 1, 0, 3];
       // 함수를 만든다. => 가장 먼저 반복되는 원소의 값을 반환한다.
-
+      // 반복되는 원소가 없으면 undefined를 반환합니다.
       const myArr = [3, 2, 4, 5, 2, 1, 0, 3];
 
       // 아래 코드는 가장 먼저 반복되는 원소의 값을 반환하지 못한다
@@ -35,11 +35,11 @@
       function test2(arr) {
         const useHash = {};
         for (let i = 0; i < arr.length; i++) {
-          // useHash[arr[0]], 즉 useHash[3] 에 값이 있는가? -> false -> else
-          // useHash[arr[1]], 즉 useHash[2] 에 값이 있는가? -> 없음 -> else
+          // useHash[arr[0]], 즉 useHash[3] 에 값이 있는가? -> false -> else문 이동
+          // useHash[arr[1]], 즉 useHash[2] 에 값이 있는가? -> 없음 -> else문 이동
           // ..., useHash[arr[4]], 즉 useHash[2] 에는 이전 else문으로 저장된 값(4)이 있다. -> true -> if문 실행 -> return arr[i];
           if (useHash[arr[i]]) {
-            //
+            // 값이 있으므로 리턴함.
             return arr[i];
           } // 값이 없으므로 else 문 실행
           else {
