@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- DOM Tree -->
+    <div id="root"></div>
+
+    <!-- CDN : 장거리에 있는 콘텐츠를 로켓배송처럼 창고를 여러개 두고 가져다 쓰기 좋게 하기 위해 만든 것 -->
+    <!-- crossorigin 속성은 unpkg.com 도메인 말고도 다른 도메인으로 받아 올 수 있게해줌. => 이 내용은 내가 따로 구글링한 내용 -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <!-- react.development 리액트 개발자용 -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <!-- react-dom.development 리액트 돔 개발자용 -->
+
+    <!-- 아래 코드로 ReactDOM 을 쓸려면 에러가 뜸(문법을 모르기 때문) -> 바벨사용해야함 -->
+    <!-- <script type="text/javascript"> -->
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- 바벨로 jsx코드를 사용할 수 있게하고 외부 jsx에서 따로 만듦 -->
+    <script type="text/jsx" src="원범님코드주석.jsx"></script>
+  </body>
+</html>
