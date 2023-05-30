@@ -1,0 +1,17 @@
+교안 : https://paullabworkspace.notion.site/webpack-2bbf633b466d47878708bdd36b219779
+
+npm init -> package.json을 설치함, 안에 내용을 설정하여 만들 수 있음
+npm --help -> npm에서 제공하는 기본 명령어들을 보여줌
+
+npm install react -> react 코어로 react 자체는 설치가 빠르다.
+
+npm view react versions -> 리액트 버전 목록을 다 불러와줌.
+
+package.json 내용
+scripts : 객체 안에 명령어를 추가 할 수 있음 (key에 명령어, value에 명령어실행내용)
+근데 사용자가 직접 만든 명령어면 npm 'run'을 붙혀야함. ( ex) npm run test2 )
+echo -> npm에서 메시지를 출력하고 싶을 때
+exit 1 -> 실행종료
+
+dependecies : 의존하는 패키지
+react "^18.2.0" : ^는 캐럿, 18(주.메이저).2(부.마이너).0(수.패치), 캐럿은 버전관리의 방법을 얘기하는데, 메이저(여기서는 18)는 그대로 두고, 마이너(2)와 패치(0)버전이 갱신된다면 메이저를 제외한 마이너와 패치를 업데이트함. ^(캐럿) 대신 ~(틸더)로 하면 마이너 버전이 명시가 되어있다면 패치버전을 갱신함.

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>퀵정렬 실습</title>
+  </head>
+  <body>
+    <!-- 다음에 주어지는 나라 이름을 길이에 따라 짧은 이름을 앞으로, 긴 이름을 뒤로 정렬하여보시길 바랍니다. -->
+    <script>
+      const countries = [
+        "USA",
+        "Australia",
+        "Canada",
+        "Germany",
+        "Japan",
+        "Brazil",
+      ];
+      function quickSort([...arr]) {
+        if (arr.length <= 1) {
+          return arr;
+        }
+
+        let pivotIndex = Math.floor(arr.length / 2);
+        let pivot = arr.splice(pivotIndex, 1)[0];
+
+        const leftSection = [];
+        const rightSection = [];
+
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i].length < pivot.length) {
+            leftSection.push(arr[i]);
+          } else {
+            rightSection.push(arr[i]);
+          }
+        }
+        return quickSort(leftSection).concat([pivot], quickSort(rightSection));
+      }
+      console.log(quickSort(countries));
+    </script>
+  </body>
+</html>
