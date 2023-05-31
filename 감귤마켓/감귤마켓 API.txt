@@ -1,0 +1,36 @@
+감귤마켓 API 교안 참고
+아래 내용은 위 교안을 보면서 작성 req 입력 같은 경우는 교안에 적힌대로 넣음.
+API 요청
+POST(Create) GET(Read) PUT(Update) Delete
+
+아래 내용은 포스트맨 앱을 사용하였음
+
+1. 회원가입
+POST /user
+Body - raw 에 Req 입력 (입력할 때 JSON으로 해야함 JSON형태면 더블쿼터로 감싸야함)
+Header - hide로 숨겨져있는 content-type이 application/json인지 확인(위 JSON이면 돼있음)
+send하면 회원가입 완료
+
+2. 로그인
+POST user/login
+Body - 위랑 같음 (Req 내용물은 조금 다름 교안 참고)
+Header - 위랑 같음
+Send 후 res에서 token받아옴
+
+토큰 : 예시)eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzZkNzU3YjJjYjIwNTY2MzJjZmY4ZiIsImV4cCI6MTY5MDY5NDIyOSwiaWF0IjoxNjg1NTEwMjI5fQ.W_052IgJhnha3RnS2daD_l5dg427HyKloz_tmIaca00
+
+3. 프로필 정보 불러오기
+GET /user/myinfo
+header - Authorization : Bearer (위에서 불러온 토큰)
+* Bearer :JWT 혹은 OAuth에 대한 토큰을 사용한다. (RFC 6750))
+Res로 받은 내용중 follower는 4번 내용에 연관있음
+
+4. 팔로워
+POST /profile/:accountname/follow
+:accountname은 라우터 :id 와 같은데, 회원가입 할 때의 accountname 를 넣으면 됨 (내 꺼말고 팔로워 대상의 계정이름을 넣어야함)
+예시) https://api.mandarin.weniv.co.kr/profile/yongisadragon/follow
+
+* 번외) https://jwt.io/
+* JWT(json web tokken) 토큰안에 데이터가 들어있음
+바코드처럼 토큰안에 정보가 들어가 있음.
+token에 민감한 정보(주민번호) 등 넣으면 안됨. 토큰 정보가 노출되기 쉽기 때문

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=\, initial-scale=1.0" />
+      <title>회원가입</title>
+    </head>
+    <body>
+      <div id="root">
+        <section class="email-pw">
+          <h2 class="main-title">이메일로 회원가입</h2>
+          <div class="input-container">
+            <label for="emailInput">이메일</label>
+            <input
+              type="email"
+              id="emailInput"
+              data-state="0"
+              placeholder="이메일 주소를 알려주세요."
+            />
+          </div>
+          <div class="input-container input-container-pw">
+            <label for="passwordInput">비밀번호</label>
+            <input
+              type="password"
+              id="passwordInput"
+              data-state="0"
+              placeholder="비밀번호를 설정해 주세요."
+            />
+          </div>
+          <button type="button" class="next-btn">다음</button>
+        </section>
+
+        <section class="profile">
+          <h2 class="main-title join-profile-title">프로필 설정</h2>
+          <p class="profile-info-txt">나중에 언제든지 변경할 수 있습니다.</p>
+          <label for="profileImg">
+            <img
+              src="http://146.56.183.55:5050/Ellipse.png"
+              alt=""
+              srcset=""
+              id="imagePre"
+            />
+          </label>
+          <input
+            type="file"
+            id="profileImg"
+            name="profile-img"
+            accept="image/*"
+            class="ir"
+          />
+          <div class="input-container">
+            <label for="userNameInput">사용자 이름</label>
+            <input
+              type="text"
+              id="userNameInput"
+              data-state="0"
+              placeholder="2~10자 이내여야 합니다."
+            />
+          </div>
+          <div class="input-container">
+            <label for="userIdInput">계정 ID</label>
+            <input
+              type="text"
+              id="userIdInput"
+              data-state="0"
+              placeholder="영문, 숫자, 특수문자(,), (_)만 사용 가능합니다."
+            />
+          </div>
+          <div class="input-container input-container-intro">
+            <label for="userIntroInput">소개</label>
+            <input
+              type="text"
+              id="userIntroInput"
+              data-state="1"
+              placeholder="자신과 판매할 상품에 대해 소개해 주세요."
+            />
+          </div>
+          <button type="button" class="submit-btn">감귤마켓 시작하기</button>
+        </section>
+      </div>
+
+      <script>
+        // API가 무엇인가 API는 Application Programming Interface(애플리케이션 프로그램 인터페이스)의 줄임말입니다. 애플리케이션을 프로그래밍하기 위한 도구, 우리가 프로그래밍하기 위해서 도움을 주는 도구로 대표적으로 http로 이루어짐
+        // 1번째로 해야하는 것
+        // 회원가입을 구현할 것입니다.
+        // 회원가입 하려면 뭐가 필요함?
+        //{
+        //    "user": {
+        //            "username": String*,
+        //            "email": String*,
+        //            "password": String*,
+        //            "accountname": String*,
+        //            "intro": String,
+        //            "image": String // 예시) https://mandarin.api.weniv.co.kr/1641906557953.png
+        //    }
+        //}
+        // 이게 필요함
+        // 최종목표 감귤마켓 시작하기를 눌렀을 때 회원가입이 되어야 함
+        // 1. 버튼을 클릭했을 때 뭐가 일어나야 함
+        // 1.1 버튼을 찾자.
+        const btnSubmit = document.querySelector(".submit-btn");
+        const handleBtnSubmit = () => {
+          // 2.2 인풋요소에서 입력된 값들을 가져왔습니다
+          const email = emailInput.value;
+          const password = passwordInput.value;
+          const userName = userNameInput.value;
+          const userId = userIdInput.value;
+          const intro = introInput.value;
+          // 내가 업로드했던 이미지를 imageUrl에 넣고
+          const imageUrl = document.querySelector("#imagePre").src;
+
+          // 요청용 데이터 만듦
+          const data = {
+            user: {
+              username: userName,
+              email: email,
+              password: password,
+              accountname: userId,
+              intro: intro,
+              // 이미지를 넣고 회원가입할때 이미지가 잘 날아감.
+              image: imageUrl,
+            },
+          };
+
+          fetch("https://api.mandarin.weniv.co.kr/user", {
+            // POST 확인
+            method: "POST",
+            // 요컨타확 : 요청 컨텐트 타입 확인
+            headers: {
+              "Content-type": "application/json",
+            },
+            // body에 데이터를 넣을 때는 JSON.stringify 로 객체인 data 내용을 문자형으로 바꿔주어야 한다. 안그러면 [object Object] 로 들어감.( body가 "" + data 라서 )
+            body: JSON.stringify(data),
+          })
+            .then((res) => res.json())
+            .then((json) => console.log(json));
+        };
+        btnSubmit.addEventListener("click", handleBtnSubmit);
+
+        // 저 회원가입을 하기 위해서는 입력창에 있는 값들을 가져와야함.
+        // 2. 버튼을 클릭했을 때, 인풋에 있는 데이터를 받아와야 함.
+        // 2.1 인풋 요소를 선택해야함.
+        const emailInput = document.querySelector("#emailInput");
+        const passwordInput = document.querySelector("#passwordInput");
+        const userNameInput = document.querySelector("#userNameInput");
+        const userIdInput = document.querySelector("#userIdInput");
+        const introInput = document.querySelector("#userIntroInput");
+
+        const imageInput = document.querySelector("#profileImg");
+        // 언제 파일 업로드가 이루어지나요?
+        // 내가 input에서 파일을 선택했을 때
+        // 1. 파일 선택한거 확인
+        // 2. 파일 확인
+        //
+        const handleImageInput = async (e) => {
+          // 서버에 이미지 저장은 formData에 넣어줘야함
+          const formData = new FormData();
+          const imageFile = e.target.files[0];
+          // input 속성에 name 속성이 있음.
+          // key -> "image", value -> imageFile
+          formData.append("image", imageFile);
+          const res = await fetch(
+            "https://api.mandarin.weniv.co.kr/image/uploadfile",
+            {
+              method: "POST",
+              // headers 아무것도 안적으면 예쁘게 잘 날아감. 안적어도 바운더리 세팅이 따로 된다.
+              // 결론 : FormData때문에 뺀다
+              // chatGPT 전문
+              //위의 코드에서 FormData 객체를 사용하면 Content-type 헤더를 별도로 지정할 필요 없이, fetch 함수가 자동으로 "multipart/form-data; boundary=<calculated when request is sent>"를 설정합니다. FormData 객체는 파일 업로드와 같은 멀티파트 요청을 처리하기에 적합한 인터페이스를 제공합니다.
+              body: formData,
+            }
+          );
+          const json = await res.json();
+          console.log(json);
+          // files는 filelist가 나옴
+          // console.log(e.target.files[0]);
+
+          // filename은 내가 이미지 받아온 주소의 업로드 이미지 주소이다.
+          document.querySelector("#imagePre").src =
+            "https://api.mandarin.weniv.co.kr/" + json.filename;
+        };
+
+        imageInput.addEventListener("change", handleImageInput);
+      </script>
+    </body>
+  </html>
+</html>

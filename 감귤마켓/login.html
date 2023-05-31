@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="login-email">
+      <h1 class="main-title login-email-title">로그인</h1>
+      <section class="login-email-container">
+        <h2 class="ir">이메일, 비밀번호 입력 컨테이너</h2>
+        <form>
+          <div class="input-container">
+            <label for="">이메일</label>
+            <input type="email" id="email" />
+          </div>
+          <div class="input-container input-container-pw">
+            <label for="">비밀번호</label>
+            <input type="password" id="pw" />
+          </div>
+          <button
+            id="login-btn"
+            class="init-button l-button disabled-button login-btn"
+            type="button"
+          >
+            로그인
+          </button>
+          <button class="join-email-btn" type="button">
+            이메일로 회원가입
+          </button>
+        </form>
+      </section>
+    </main>
+  </body>
+  <script>
+    // 서버에서 불러오기 때문에 비동기처리
+    async function login() {
+      // 이메일 패스워드 값 지정
+      const email = document.querySelector("#email").value;
+      const password = document.querySelector("#pw").value;
+      // api주소 지정
+      const url = "https://api.mandarin.weniv.co.kr";
+      // 요청을 어디다 보낼껀지 미리 만들어놈
+      const reqPath = "/user/login";
+      //비밀번호 6개이상인지 체크하기
+      if (password.length < 6) {
+        alert("비밀번호 6개 이상어야함");
+        return;
+      }
+      // 로그인 할때의 양식
+      const loginData = {
+        user: {
+          email: email,
+          password: password,
+        },
+      };
+      const reqUrl = url + reqPath;
+      const res = await fetch(reqUrl, {
+        // POST인지 확인 GET같은거 쓰면 404 에러남
+        method: "POST",
+        // 요컨타확 필수
+        headers: {
+          "Content-type": "application/json",
+        },
+        // 문자형으로 변환도 해야됨.object 형식이기 때문
+        body: JSON.stringify(loginData),
+      });
+
+      const json = await res.json();
+      console.log(json, "제이손입니다");
+      // API에 요청할 때 권한을 위해 토큰을 씀
+      // 게시물을 올릴건데 나는 권한(토큰)이 있어! 등
+      // id 비밀번호를 저장한게 아니고 인증을 받았다는 증거인 토큰
+      const token = json.user["token"];
+      //로컬스토리지 key:"token"에 token값 저장
+      localStorage.setItem("token", token);
+    }
+    // 로그인 버튼 추가하고
+    const loginButton = document.querySelector("#login-btn");
+    // 로그인 버튼 누르면 login함수실행~
+    loginButton.addEventListener("click", login);
+  </script>
+</html>

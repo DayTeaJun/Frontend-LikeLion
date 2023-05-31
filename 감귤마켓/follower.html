@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button" id="getFollowList">팔로우받기</button>
+    <div>
+      팔로워 정보가 들어올 공간
+      <div id="followList"></div>
+    </div>
+  </body>
+  <script>
+    const getFollowList = async () => {
+      // localStorage
+      const token = localStorage.getItem("token");
+      console.log(token);
+      const res = await fetch(
+        //"https://api.mandarin.weniv.co.kr/profile/JunYoung/follower"
+        "https://api.mandarin.weniv.co.kr/profile/JunYoung/follower",
+        {
+          method: "GET",
+          // headers 확인할때 권한 토큰있는지 확인.
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-type": "application/json",
+          },
+        }
+      );
+      const json = await res.json();
+      console.log(json);
+
+      // 화면 그려주는 함수
+      renderFollowList(json);
+    };
+    // 로그인 했을때 follower.html 로 이동하기
+    // follower.html에서 fetch로 myinfo받아오기(로그인한 유저 프로필정보)
+    // 화면 예쁘게 그리기
+    const renderFollowList = (followList) => {
+      document.querySelector("#followList").innerHTML =
+        JSON.stringify(followList);
+    };
+    const getFollowListButton = document.querySelector("#getFollowList");
+    getFollowListButton.addEventListener("click", getFollowList);
+  </script>
+</html>
