@@ -1,0 +1,2 @@
+파일 나누는거
+src > (Assets, Hook, Page, Routes , layout, Reducer, Context, Templates (Components > common, login, profile, signup))

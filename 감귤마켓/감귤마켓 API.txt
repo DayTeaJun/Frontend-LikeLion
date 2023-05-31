@@ -1,5 +1,5 @@
 감귤마켓 API 교안 참고
-아래 내용은 위 교안을 보면서 작성 req 입력 같은 경우는 교안에 적힌대로 넣음.
+아래 내용은 위 교안을 보면서 작성, req 입력 같은 경우는 교안에 적힌대로 넣음.
 API 요청
 POST(Create) GET(Read) PUT(Update) Delete
 
@@ -21,7 +21,7 @@ Send 후 res에서 token받아옴
 
 3. 프로필 정보 불러오기
 GET /user/myinfo
-header - Authorization : Bearer (위에서 불러온 토큰)
+header - Authorization : Bearer {(위에서 불러온 토큰)}
 * Bearer :JWT 혹은 OAuth에 대한 토큰을 사용한다. (RFC 6750))
 Res로 받은 내용중 follower는 4번 내용에 연관있음
 
