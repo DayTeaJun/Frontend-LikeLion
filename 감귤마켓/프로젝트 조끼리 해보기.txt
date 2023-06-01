@@ -1,0 +1,25 @@
+모르는 라이브러리 몇일까지 해오고 안되면 같이 해보기
+
+코드 컨벤션
+position
+disply
+width
+height
+margin
+padding
+border
+background
+font
+기타
+{
+  "tabWidth": 2,
+  "singleQuote": true,
+  "semi": true,
+  "printWidth": 80,
+  "trailingComma": "es5"
+}
+- 시맨틱 마크업
+- og 태그 추가
+- 의미있는 변수명 사용, 함수명은 동사로 시작
+- css: 케밥케이스, js: 카멜케이스
+- var 사용 금지
