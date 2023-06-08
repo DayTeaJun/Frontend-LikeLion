@@ -36,13 +36,13 @@ export const useSignup = () => {
           .catch((err) => {
             setError(err.message);
             setIsPending(false);
-            console.log(error);
+            console.log(err.message);
           });
       })
       .catch((err) => {
         setError(err.message);
         setIsPending(false);
-        console.log(error);
+        console.log(err.message);
       });
   };
   return { error, isPending, signup };

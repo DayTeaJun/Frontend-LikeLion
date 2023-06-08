@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 // import logo from "../../asset/images/logo.svg";
 import styles from "./Login.module.css";
+import { useLogin } from "../../hooks/useLogin";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { error, isPending, login } = useLogin();
 
   const handleData = (event) => {
     if (event.target.type === "email") {
@@ -17,6 +19,7 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(email, password);
+    login(email, password);
   };
 
   return (
@@ -192,9 +195,14 @@ export default function Login() {
             value={password}
           />
 
-          <button className="black-btn" type="submit">
-            로그인
-          </button>
+          {isPending && <strong>로그인중...</strong>}
+
+          {!isPending && (
+            <button className="black-btn" type="submit">
+              로그인
+            </button>
+          )}
+          {error && <strong>{error}</strong>}
         </form>
       </main>
 
