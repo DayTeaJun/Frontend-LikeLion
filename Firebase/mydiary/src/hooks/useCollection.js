@@ -1,22 +1,36 @@
-import { collection, onSnapshot } from "firebase/firestore";
+import {
+  collection,
+  onSnapshot,
+  orderBy,
+  query,
+  where,
+} from "firebase/firestore";
 import { appFireStore } from "../firebase/config";
 import { useState, useEffect } from "react";
 
-export const useCollection = (transaction) => {
+export const useCollection = (transaction, myQuery) => {
   const [documents, setDocuments] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // 현재 최신 데이터베이스를 가져오고,
-    // 데이터베이스 업데이트가 될때마다 콜백이 호출되어 스냅샷을 업데이트함.
+    let q;
+    if (myQuery) {
+      q = query(
+        collection(appFireStore, transaction),
+        where(...myQuery),
+        orderBy("createTime", "desc")
+      );
+    }
+
     const unsubscribe = onSnapshot(
-      collection(appFireStore, transaction),
+      myQuery ? q : collection(appFireStore, transaction),
       (snapshot) => {
         let result = [];
 
         snapshot.docs.forEach((doc) => {
           result.push({ ...doc.data(), id: doc.id });
         });
+
         setDocuments(result);
         setError(null);
       },

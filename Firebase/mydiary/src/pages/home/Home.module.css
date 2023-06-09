@@ -3,12 +3,13 @@
   background: url(../../asset/images/heart.svg) no-repeat 0 center / 1.4em;
   padding-left: 1.4em;
 }
+
 .diary-textarea {
   /* 
-      인라인 요소 하단 여백 생김 해결 방법(img 동일)
-      1. vertical-align: top; 
-      2. display: block;
-    */
+    인라인 요소 하단 여백 생김 해결 방법(img 동일)
+    1. vertical-align: top; 
+    2. display: block;
+  */
   display: block;
   width: 100%;
   height: 360px;
@@ -18,6 +19,7 @@
   font-size: 16px;
   font-family: inherit;
 }
+
 .diary-textarea::placeholder {
   font-size: inherit;
 }
@@ -34,6 +36,7 @@ li {
   padding: 0;
   margin: 0;
 }
+
 p,
 h3 {
   margin: 0;
@@ -46,6 +49,7 @@ h3 {
   padding: 64px 48px;
   position: relative;
 }
+
 .diary-article::before,
 .diary-article::after {
   content: "";
@@ -55,12 +59,14 @@ h3 {
   background: royalblue;
   position: absolute;
 }
+
 .diary-article::before {
   top: -20px;
   left: 30px;
   background: #fffaf0 url(../../asset/images/quote-start.svg) no-repeat 0 0 /
     contain;
 }
+
 .diary-article::after {
   bottom: -20px;
   right: 30px;
@@ -123,6 +129,7 @@ h3 {
     flex-direction: column;
     gap: 0;
   }
+
   .container main {
     border-right: 0;
     padding-right: 0;
@@ -131,8 +138,10 @@ h3 {
 }
 
 .container section {
+  flex-grow: 1;
   padding-top: 94px;
 }
+
 .container section ul li {
   margin-bottom: 76px;
 }
@@ -152,6 +161,7 @@ h3 {
   align-items: center;
   justify-content: center;
 }
+
 .button-group button {
   width: 32px;
   height: 32px;
@@ -160,12 +170,15 @@ h3 {
   opacity: 0.6;
   transition: opacity 0.3s;
 }
+
 .button-group button:hover {
   opacity: 1;
 }
+
 .button-group button img {
   width: 100%;
 }
+
 .button-group span {
   display: inline-block;
   width: 1px;

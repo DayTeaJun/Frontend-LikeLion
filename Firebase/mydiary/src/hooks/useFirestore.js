@@ -1,6 +1,6 @@
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { collection, addDoc, doc, deleteDoc } from "firebase/firestore";
 import { useReducer } from "react";
-import { appFireStore } from "../firebase/config";
+import { appFireStore, timeStamp } from "../firebase/config";
 
 const initState = {
   document: null,
@@ -57,7 +57,7 @@ export const useFirestore = (transaction) => {
     try {
       // fromDate : 주어진 시간 정보를 통해 새로운 타임 스탬프를 생성
       // Timestamp로 데이터를 저장할 때의 그 시각을 저장하고 보냄.
-      const createTime = Timestamp.fromDate(new Date());
+      const createTime = timeStamp.fromDate(new Date());
       const docRef = await addDoc(colRef, { ...doc, createTime });
       dispatch({ type: "addDoc", payload: docRef });
     } catch (error) {
@@ -66,7 +66,15 @@ export const useFirestore = (transaction) => {
   };
 
   // id = 문서(document)의 id
-  const deleteDocument = (id) => {};
+  const deleteDocument = async (id) => {
+    dispatch({ type: "pending" });
+    try {
+      const docRef = await deleteDoc(doc(colRef, id));
+      dispatch({ type: "deleteDoc", payload: docRef });
+    } catch (error) {
+      dispatch({ type: "error", payload: error.message });
+    }
+  };
 
   return { addDocument, deleteDocument, response };
 };

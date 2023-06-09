@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      input:invalid {
+        border: 3px solid red;
+      }
+
+      input:valid {
+        border: 3px solid teal;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- < 기본 사용법 >
+    z :         z와 일치하는것을 찾습니다.
+    z | y :     z 혹은 y를 찾습니다.
+    . :         모든 숫자와 문자를 의미합니다. (마침표)
+    [ ] :     선택할 수 있는 문자의 종류를 지정할 수 있습니다.
+    [ - ] :     선택할 수 있는 문자의 종류의 범위를 지정할 수 있습니다. [ ] 대괄호 안에 있는것을 한 글자로 간주합니다. 여러글자를 넣고 싶다면 *를 뒤에 붙입니다.
+    { } : 글자의 수를 제안할 수 있습니다. (Ex. {3}: 3글자만 가능합니다. , {1,10} : 1~10글자까지 가능합니다., {8,} : 8글자 이상만 가능합니다.)
+    * : 글자의 수를 제한하지 않습니다. -->
+
+    <form>
+      <label for="">사과를 입력하세요</label>
+      <!-- pattern과 똑같은 것만 제출할 수 있게 함 -->
+      <input id="" type="text" pattern="사과" />
+
+      <label for="">사과와 배중 하나를 입력하세요</label>
+      <!-- | 로 또는 이라는 기능을 이용해서 둘 중 하나 되게함 -->
+      <input id="" type="text" pattern="사과|배" />
+
+      <label for="">모든 문자중에 세글자만 입력하세요</label>
+      <!-- . 갯수만큼 글자수에 맞게 제출가능하게함 -->
+      <input id="" type="text" pattern="...." />
+
+      <label for="">
+        첫번째 문자는 사, 과, 배, 두번째 문자는 1, 2, 3 만 입력가능함.
+      </label>
+      <!-- [배열][배열] 안의 값이 교차해야 제출가능함 -->
+      <input id="" type="text" pattern="[사,과,배][1,2,3]" />
+
+      <label for="">한글만 입력하세요</label>
+      <!-- 한글소리 순서 처음과 끝 -(하이푼)을 넣어줌. -->
+      <input id="" type="text" pattern="[ㄱ-ㅎㅏ-ㅗ-가-힣]" />
+
+      <label for="">한글만 글자 수 제한 없이 입력하세요</label>
+      <!-- 뒤에 * 글자 수 제한 없이, 뒤에 {1, 5}면 1개부터 5개까지 제출가능 -->
+      <input id="" type="text" pattern="[ㄱ-ㅎㅏ-ㅗ-가-힣0-9]{1,5}" />
+
+      <label for="">주민등록 번호를 입력해주세요</label>
+      <!-- 뒤에 * 글자 수 제한 없이, 뒤에 {1, 5}면 1개부터 5개까지 제출가능 -->
+      <input id="" type="text" pattern="[0-9]" />
+
+      <button>제출</button>
+    </form>
+  </body>
+</html>
