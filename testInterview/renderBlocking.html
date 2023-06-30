@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        color: tomato;
+      }
+    </style>
+    <!-- media 속성 미디어쿼리로 화면에 따라 css를 적용하게함 -->
+    <!-- 아래는 세로길이가 길어질 때 적용 -->
+    <!-- 아래 css 코드는 2만줄이 넘어가는데, 돔파싱을 하기전에 css를 보면 2만줄 코드 때문에 시간이 지연되고 돔파싱이 일어난다. -->
+    <!-- <link rel="stylesheet" href="./test.css" media="(orientation:portrait)" /> -->
+  </head>
+  <body>
+    <!-- DomContentLoaded (돔 트리 완성 후) 직전에 defer이 실행됨.
+    돔 파싱이 끝난다음 defer가 실행되었음
+    -->
+    <!-- defer같은 경우 비동기로 실행이되지만 async와 다르게 코드의 실행순서를 보장해준다. 
+    돔을 사용하고 순차적으로 실행해야한다면 사용한다.
+    -->
+    <script defer src="./test2.js"></script>
+
+    <!-- renderBlocking은 html 돔 파싱을 하면서 script가 있다면 script를 읽으면서 렌더링을 막는 현상을 말한다. -->
+    <!-- 위의 해결방법은 스크립트를 돔 파싱이 끝난 이후에 밑으로 내리는 방법과 defer을 주는 방법이다. -->
+    <h1>hello lions!!</h1>
+
+    <script>
+      console.log("first line script");
+    </script>
+
+    <!-- 크롬 검사기에서 성능에 event Log를 보면 evaluate script 평가 스크립트가 되고 다시 돔 파싱을 함 -->
+    <!-- 스크립트가 h1 보다 위에 있으면 에러가 남, renderBlocking 때문, 돔 파싱을 하기전에 h1을 찾을려고 하기 때문 -->
+
+    <!-- 브라우저가 async를 보고 비동기적으로 불러옴, 브라우저는 동기적인 스크립트는 먼저 실행이 되고, 비동기는 가장 마지막에 실행됨. 하지만 async 끼리 실행되는 순서는 보장해주지 않음(다운로드되는 불러와지는데로 실행함, 그래서 순서가 중요하다면 defer을 사용해야한다.) async는 load 이벤트가 끝나기전에 실행함.(동기적으로 실행된 것들이 다 다운로드 된 이후에 실행이 되는 것), 돔을 의존하고있거나 async 스크립트를 사용하는 것에 순서가 있다면 사용을 권하지 않음, 실행 순서를 빠르게 하고싶으면 async를 사용해라 -->
+    <script async src="./test1.js"></script>
+
+    <script>
+      console.log("second line script");
+    </script>
+
+    <script>
+      console.log("third line script");
+    </script>
+
+    <!-- 돔을 사용하고 순차적으로 실행되야 한다면 defer (병렬로 다운하긴 하지만 실행은 선언 순서대로 )
+
+    돔을 사용하지 않고 실행 순서에 상관없이 스크립트를 병렬로 빠르게 로드하고 싶다면 async (Async 는 궁극적으로 코드를 실행하는데 빠르게 모든 준비를 마치기 위해서 만들어 졌습니다.) -->
+  </body>
+</html>
